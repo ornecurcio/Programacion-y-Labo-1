@@ -1,0 +1,88 @@
+/*
+ ============================================================================
+ Name        : Sabado.Clase 1, Ej 3
+ Author      : Ornela Curcio
+ Version     :
+ Copyright   :
+ Description : Ejercicio 3:
+Realizar el algoritmo que permita ingresar los datos de los alumnos de una
+división de la UTN FRA, los datos solicitados son:
+Legajo
+Tipo cursada(L:libre - P:presencial – R: remota ;)
+Cantidad de materias( mas de cero y menos de 8)
+Sexo (F: “femenino” – M: “masculino” , O: “no binario”)
+Nota promedio (entre 0 y 10)
+Edad (validar)
+Se debe informar de existir, o informar que no existe , en el caso que
+corresponda.
+a) El Legajo del mejor promedio que femenino.
+b) El legajo del más joven de los alumnos masculinos entre los que dan libre.
+c) El promedio de nota por sexo.
+d) La edad y legajo del que cursa más materias. (Sin importar su género)
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+	setbuf(stdout, NULL);
+
+	int numeroLegajoIngresado;
+	char tipoCursadaIngresada;
+	int cantidadMateriasIngresada;
+	char sexoIngresado;
+	int notaPromedio;
+	int edadIngresada;
+	char respuesta;
+
+
+	while(respuesta=='s')
+		{
+			contadorPasajeros = contadorPasajeros + 1;
+			printf("Ingrese numero de cliente");
+			fflush(stdin);
+			scanf("%d", &numeroClienteIngresado);
+
+			printf("Ingrese Estado Civil: soltero 's', casado 'c', viudo 'v'");
+			fflush(stdin);
+			scanf("%c", &estadoCivilIngresado);
+			while(estadoCivilIngresado!='s' && estadoCivilIngresado!='c' && estadoCivilIngresado!='v')
+			{
+				printf(" Error ingrese Estado Civil: soltero 's', casado 'c', viudo 'v'");
+				fflush(stdin);
+				scanf("%c", &estadoCivilIngresado);
+			}
+
+			printf("Ingrese su edad, debe ser mayor a 18");
+			fflush(stdin);
+			scanf("%d", &edadIngresada);
+			while(edadIngresada<17 || edadIngresada>90)
+			{
+				printf("Error, ingrese su edad, debe ser mayor a 18");
+				fflush(stdin);
+				scanf("%d", &edadIngresada);
+			}
+
+			printf("Ingrese su temperatura corporal");
+			fflush(stdin);
+			scanf("%f", &temperaturaIngresada);
+			while(temperaturaIngresada<28 || temperaturaIngresada>42)
+			{
+				printf("Error, ingrese su temperatura corporal entre 28 y 42");
+				fflush(stdin);
+				scanf("%f", &temperaturaIngresada);
+			}
+
+			printf("Ingrese sexo: femenino 'f', masculino 'm', no binario 'o'");
+			fflush(stdin);
+			scanf("%c", &sexoIngresado);
+			while(sexoIngresado!='f' && sexoIngresado!='m' && sexoIngresado!='o')
+			{
+				printf(" Error ingrese sexo: femenino 'f', masculino 'm', no binario 'o'");
+				fflush(stdin);
+				scanf("%c", &sexoIngresado);
+			}
+
+	return EXIT_SUCCESS;
+}

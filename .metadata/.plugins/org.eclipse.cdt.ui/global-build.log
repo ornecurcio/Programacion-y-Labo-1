@@ -1,0 +1,13 @@
+18:33:52 **** Incremental Build of configuration Debug for project Sabado Clase 1, Ej 3 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Sabado Clase 1, Ej 3.o" "..\\src\\Sabado Clase 1, Ej 3.c" 
+gcc -o "Sabado Clase 1, Ej 3.exe" "src\\Sabado Clase 1, Ej 3.o" 
+Info: Nothing to build for Sabado Clase 1, Ej 3
+18:35:37 **** Incremental Build of configuration Debug for project Sabado Clase 1, Ej 3 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Sabado Clase 1, Ej 3.o" "..\\src\\Sabado Clase 1, Ej 3.c" 
+gcc -o "Sabado Clase 1, Ej 3.exe" "src\\Sabado Clase 1, Ej 3.o" 
+18:37:15 **** Incremental Build of configuration Debug for project Sabado Clase 1, Ej 3 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Sabado Clase 1, Ej 3.o" "..\\src\\Sabado Clase 1, Ej 3.c" 
+gcc -o "Sabado Clase 1, Ej 3.exe" "src\\Sabado Clase 1, Ej 3.o" 

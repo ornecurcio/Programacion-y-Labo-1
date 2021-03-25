@@ -1,0 +1,40 @@
+/*
+ ============================================================================
+ Name        : Sabado. Clase 1. Ej 1.
+ Author      : Ornela Curcio
+ Version     :
+ Copyright   :
+ Description : Ingresar números enteros, hasta que el usuario lo decida. Calcular y mostrar:
+a) El promedio de los números positivos.
+b) El promedio de los números negativos.
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+	setbuf(stdout, NULL);
+
+	int numeroIngresado;
+	int contadorNumerosPositivos = 0;
+	int acumuladorNumerosPositivos = 0;
+	float promedioPositivos;
+	int contadorNumerosNegarivos = 0;
+	int acumuladorNumerosNegativos = 0;
+	float promedioNegativos;
+
+	char respuesta;
+
+	respuesta = 's'
+
+	while(respuesta=='s')
+	{
+		printf("Ingrese un numero entero");
+		fflush(stdin);
+		scantf("%d", &numeroIngresado);
+
+	}
+
+	return EXIT_SUCCESS;
+}
