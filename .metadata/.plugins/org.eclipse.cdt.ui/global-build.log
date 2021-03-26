@@ -1,13 +1,19 @@
-18:33:52 **** Incremental Build of configuration Debug for project Sabado Clase 1, Ej 3 ****
+Info: Nothing to build for Funciones
+Info: Nothing to build for Funciones
+23:48:44 **** Incremental Build of configuration Debug for project Funciones ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Sabado Clase 1, Ej 3.o" "..\\src\\Sabado Clase 1, Ej 3.c" 
-gcc -o "Sabado Clase 1, Ej 3.exe" "src\\Sabado Clase 1, Ej 3.o" 
-Info: Nothing to build for Sabado Clase 1, Ej 3
-18:35:37 **** Incremental Build of configuration Debug for project Sabado Clase 1, Ej 3 ****
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Funciones.o" "..\\src\\Funciones.c" 
+..\src\Funciones.c: In function 'sumar1':
+..\src\Funciones.c:269:1: warning: control reaches end of non-void function [-Wreturn-type]
+  269 | }
+      | ^
+gcc -o Funciones.exe "src\\Funciones.o" 
+00:04:00 **** Incremental Build of configuration Debug for project Funciones ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Sabado Clase 1, Ej 3.o" "..\\src\\Sabado Clase 1, Ej 3.c" 
-gcc -o "Sabado Clase 1, Ej 3.exe" "src\\Sabado Clase 1, Ej 3.o" 
-18:37:15 **** Incremental Build of configuration Debug for project Sabado Clase 1, Ej 3 ****
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Funciones.o" "..\\src\\Funciones.c" 
+gcc -o Funciones.exe "src\\Funciones.o" 
+00:05:21 **** Incremental Build of configuration Debug for project Funciones ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Sabado Clase 1, Ej 3.o" "..\\src\\Sabado Clase 1, Ej 3.c" 
-gcc -o "Sabado Clase 1, Ej 3.exe" "src\\Sabado Clase 1, Ej 3.o" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Funciones.o" "..\\src\\Funciones.c" 
+gcc -o Funciones.exe "src\\Funciones.o" 
+Info: Nothing to build for Funciones

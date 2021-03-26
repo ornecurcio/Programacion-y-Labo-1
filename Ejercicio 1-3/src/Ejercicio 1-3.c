@@ -4,7 +4,8 @@
  Author      : 
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : 1-3: ingresar 3 números y mostrar el número del medio, sólo si existe. En caso de que no
+exista también informarlo.
  ============================================================================
  */
 
