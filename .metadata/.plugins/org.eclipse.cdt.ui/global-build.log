@@ -1,19 +1,9 @@
-Info: Nothing to build for Funciones
-Info: Nothing to build for Funciones
-23:48:44 **** Incremental Build of configuration Debug for project Funciones ****
+18:58:28 **** Incremental Build of configuration Debug for project Funcion Suma ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Funciones.o" "..\\src\\Funciones.c" 
-..\src\Funciones.c: In function 'sumar1':
-..\src\Funciones.c:269:1: warning: control reaches end of non-void function [-Wreturn-type]
-  269 | }
-      | ^
-gcc -o Funciones.exe "src\\Funciones.o" 
-00:04:00 **** Incremental Build of configuration Debug for project Funciones ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Funciones.o" "..\\src\\Funciones.c" 
-gcc -o Funciones.exe "src\\Funciones.o" 
-00:05:21 **** Incremental Build of configuration Debug for project Funciones ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Funciones.o" "..\\src\\Funciones.c" 
-gcc -o Funciones.exe "src\\Funciones.o" 
-Info: Nothing to build for Funciones
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Funcion Suma.o" "..\\src\\Funcion Suma.c" 
+..\src\Funcion Suma.c: In function 'main':
+..\src\Funcion Suma.c:33:10: warning: too many arguments for format [-Wformat-extra-args]
+   33 |   printf("\nLa suma de los numeros es ", res);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -o "Funcion Suma.exe" "src\\Funcion Suma.o" 
+Info: Nothing to build for Funcion Suma

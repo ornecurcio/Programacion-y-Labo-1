@@ -28,15 +28,25 @@ int main(void) {
 
 	res = sumar(numero1, numero2); //llamado a la funcion// parametros actuales-reales-verdaderos el ej: numero1
 
-	printf("\nLa suma de los numeros es ", res);
+	if(res)
+	{
+		printf("\nLa suma de los numeros es ", res);
+	}
+	else
+	{
+		printf("\nNo hay nada que sumar");
+	}
 
 	return EXIT_SUCCESS;
 }
 int sumar(int num1, int num2)
 {
-	int resultado;
+	int resultado = 0;
 
-	resultado = num1+num2;
+	if(num1>0 || num2<0)
+		{
+			resultado = num1+num2;
+		}
 
 	return resultado;
 }
