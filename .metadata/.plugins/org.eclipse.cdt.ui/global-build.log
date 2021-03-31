@@ -1,10 +1,18 @@
-19:26:05 **** Incremental Build of configuration Debug for project Funcion Suma ****
+20:06:36 **** Rebuild of configuration Debug for project FUNCIONES-BIBLIOTECA ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Funcion Suma.o" "..\\src\\Funcion Suma.c" 
-..\src\Funcion Suma.c: In function 'main':
-..\src\Funcion Suma.c:33:10: warning: too many arguments for format [-Wformat-extra-args]
-   33 |   printf("\nLa suma de los numeros es", res);
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\FUNCIONES-BIBLIOTECA.o" "..\\src\\FUNCIONES-BIBLIOTECA.c" 
+..\src\FUNCIONES-BIBLIOTECA.c: In function 'main':
+..\src\FUNCIONES-BIBLIOTECA.c:32:10: warning: too many arguments for format [-Wformat-extra-args]
+   32 |   printf("\nLa suma de los numeros es", res);
       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-gcc -o "Funcion Suma.exe" "src\\Funcion Suma.o" "src\\calculos.o" 
-Info: Nothing to build for Funcion Suma
-Info: Nothing to build for Funcion Suma
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\calculos.o" "..\\src\\calculos.c" 
+gcc -o FUNCIONES-BIBLIOTECA.exe "src\\FUNCIONES-BIBLIOTECA.o" "src\\calculos.o" 
+20:08:01 **** Incremental Build of configuration Debug for project FUNCIONES-BIBLIOTECA ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\FUNCIONES-BIBLIOTECA.o" "..\\src\\FUNCIONES-BIBLIOTECA.c" 
+..\src\FUNCIONES-BIBLIOTECA.c: In function 'main':
+..\src\FUNCIONES-BIBLIOTECA.c:32:10: warning: too many arguments for format [-Wformat-extra-args]
+   32 |   printf("\nLa suma de los numeros es ", res);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -o FUNCIONES-BIBLIOTECA.exe "src\\FUNCIONES-BIBLIOTECA.o" "src\\calculos.o" 
+Info: Nothing to build for FUNCIONES-BIBLIOTECA

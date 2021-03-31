@@ -12,6 +12,6 @@
  * param2 recibe un numero entero para sumar
  * retorno devuelve  0 o la suma de los numeros recibidos por parametro
  * */
-int sumar(int num1, int num2);
+int sumar(int numUno, int numDos);
 
 #endif /* CALCULOS_H_ */

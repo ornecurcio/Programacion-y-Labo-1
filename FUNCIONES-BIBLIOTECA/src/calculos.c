@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int sumar(int num1, int num2)
+int sumar(int numUno, int numDos)
 {
 	int resultado = 0;
 
-	if(num1>0 || num2<0)
+	if(numUno>0 || numDos<0)
 		{
-			resultado = num1+num2;
+			resultado = numUno+numDos;
 		}
 
 	return resultado;
