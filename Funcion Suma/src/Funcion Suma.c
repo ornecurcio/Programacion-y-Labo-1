@@ -10,8 +10,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "calculos.h"
 
-int sumar(int num1, int num2); // en el prototipo son parametros formales y en la funcion ej: num1
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -30,7 +30,7 @@ int main(void) {
 
 	if(res)
 	{
-		printf("\nLa suma de los numeros es ", res);
+		printf("\nLa suma de los numeros es", res);
 	}
 	else
 	{
@@ -39,15 +39,5 @@ int main(void) {
 
 	return EXIT_SUCCESS;
 }
-int sumar(int num1, int num2)
-{
-	int resultado = 0;
 
-	if(num1>0 || num2<0)
-		{
-			resultado = num1+num2;
-		}
-
-	return resultado;
-}
 

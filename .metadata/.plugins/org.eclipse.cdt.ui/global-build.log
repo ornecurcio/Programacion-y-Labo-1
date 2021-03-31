@@ -1,9 +1,10 @@
-18:58:28 **** Incremental Build of configuration Debug for project Funcion Suma ****
+19:26:05 **** Incremental Build of configuration Debug for project Funcion Suma ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Funcion Suma.o" "..\\src\\Funcion Suma.c" 
 ..\src\Funcion Suma.c: In function 'main':
 ..\src\Funcion Suma.c:33:10: warning: too many arguments for format [-Wformat-extra-args]
-   33 |   printf("\nLa suma de los numeros es ", res);
-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-gcc -o "Funcion Suma.exe" "src\\Funcion Suma.o" 
+   33 |   printf("\nLa suma de los numeros es", res);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -o "Funcion Suma.exe" "src\\Funcion Suma.o" "src\\calculos.o" 
+Info: Nothing to build for Funcion Suma
 Info: Nothing to build for Funcion Suma
