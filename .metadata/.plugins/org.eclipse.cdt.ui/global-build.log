@@ -1,18 +1,28 @@
-20:06:36 **** Rebuild of configuration Debug for project FUNCIONES-BIBLIOTECA ****
+20:58:08 **** Incremental Build of configuration Debug for project Ejercicios-FuncionesBibliotecas ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\FUNCIONES-BIBLIOTECA.o" "..\\src\\FUNCIONES-BIBLIOTECA.c" 
-..\src\FUNCIONES-BIBLIOTECA.c: In function 'main':
-..\src\FUNCIONES-BIBLIOTECA.c:32:10: warning: too many arguments for format [-Wformat-extra-args]
-   32 |   printf("\nLa suma de los numeros es", res);
-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\calculos.o" "..\\src\\calculos.c" 
-gcc -o FUNCIONES-BIBLIOTECA.exe "src\\FUNCIONES-BIBLIOTECA.o" "src\\calculos.o" 
-20:08:01 **** Incremental Build of configuration Debug for project FUNCIONES-BIBLIOTECA ****
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Ejercicios-FuncionesBibliotecas.o" "..\\src\\Ejercicios-FuncionesBibliotecas.c" 
+..\src\Ejercicios-FuncionesBibliotecas.c: In function 'main':
+..\src\Ejercicios-FuncionesBibliotecas.c:35:5: warning: statement with no effect [-Wunused-value]
+   35 |     loguearse;
+      |     ^~~~~~~~~
+..\src\Ejercicios-FuncionesBibliotecas.c: In function 'loguearse':
+..\src\Ejercicios-FuncionesBibliotecas.c:57:9: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   57 |  return usuario;
+      |         ^~~~~~~
+..\src\Ejercicios-FuncionesBibliotecas.c:51:6: note: declared here
+   51 | void loguearse(char nombre)
+      |      ^~~~~~~~~
+..\src\Ejercicios-FuncionesBibliotecas.c: In function 'main':
+..\src\Ejercicios-FuncionesBibliotecas.c:29:4: warning: 'usuario' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   29 |    loguearse(usuario);
+      |    ^~~~~~~~~~~~~~~~~~
+gcc -o Ejercicios-FuncionesBibliotecas.exe "src\\Ejercicios-FuncionesBibliotecas.o" 
+Info: Nothing to build for Ejercicios-FuncionesBibliotecas
+21:03:14 **** Rebuild of configuration Debug for project Clase 1, Ej 2 ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\FUNCIONES-BIBLIOTECA.o" "..\\src\\FUNCIONES-BIBLIOTECA.c" 
-..\src\FUNCIONES-BIBLIOTECA.c: In function 'main':
-..\src\FUNCIONES-BIBLIOTECA.c:32:10: warning: too many arguments for format [-Wformat-extra-args]
-   32 |   printf("\nLa suma de los numeros es ", res);
-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-gcc -o FUNCIONES-BIBLIOTECA.exe "src\\FUNCIONES-BIBLIOTECA.o" "src\\calculos.o" 
-Info: Nothing to build for FUNCIONES-BIBLIOTECA
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Clase 1, Ej 2.o" "..\\src\\Clase 1, Ej 2.c" 
+gcc -o "Clase 1, Ej 2.exe" "src\\Clase 1, Ej 2.o" 
+21:03:23 **** Rebuild of configuration Debug for project Clase 1, Ej 3 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Clase 1, Ej 3.o" "..\\src\\Clase 1, Ej 3.c" 
+Command canceled
