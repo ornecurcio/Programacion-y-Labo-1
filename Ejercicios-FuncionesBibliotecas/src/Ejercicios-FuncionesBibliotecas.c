@@ -56,6 +56,7 @@ int main(void) {
 				{
 					printf("Error, primero debe comprar algo");
 				}
+			}
 			break;
 		case 4:
 			if(flagUsuario==0)
@@ -71,9 +72,10 @@ int main(void) {
 				else
 				{
 					while(opcionDos!=3)
-								{
-									printf("Ingrese nueva opcion:1. Vender 2. Hacer factura 3. Volver atrás");
-									scanf("%d", opcionDos);
+					{
+									//printf("Ingrese nueva opcion:1. Vender 2. Hacer factura 3. Volver atrás");
+									//scanf("%d", opcionDos);
+						menuVenta(opcionDos);
 									switch(opcionDos)
 									{
 									case 1:
@@ -87,19 +89,21 @@ int main(void) {
 									case 3:
 										break;
 									}
-								}//cierra el segundo while
+					}//cierra el segundo while
 				}
 			}
 			break;
 		case 5:
 			break;
-		default
-		printf("Error, ingrese opcion valida");
+		default:
+			printf("Error, ingrese opcion valida");
+			break;
 		}
 	//printf("Ingrese una opcion: 1-Loguearse, 2-Comprar, 3-Ver mis compras, 4-Vender, 5-Salir");
 	//scanf("%d", &opcion);
-
+		menu(opcion);
 	}
+
 		return EXIT_SUCCESS;
 }
 
@@ -108,4 +112,11 @@ int menu(int op)
 	printf("Ingrese una opcion: 1-Loguearse, 2-Comprar, 3-Ver mis compras, 4-Vender, 5-Salir");
 	scanf("%d", &op);
 	return op;
+}
+
+int menuVenta(int opp)
+{
+	printf("Ingrese nueva opcion:1. Vender 2. Hacer factura 3. Volver atrás");
+	scanf("%d", &opp);
+	return opp;
 }
