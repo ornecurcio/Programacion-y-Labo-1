@@ -13,11 +13,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int sumar(int operadorUno, int operadorDos);
-int restar(int operadorUno, int operadorDos);
-int multiplicar(int operadorUno, int operadorDos, int* pResultado);
-int dividir(int operadorUno, int operadorDos, float* pResultado);
-
 int main(void) {
 	setbuf(stdout, NULL);
 
