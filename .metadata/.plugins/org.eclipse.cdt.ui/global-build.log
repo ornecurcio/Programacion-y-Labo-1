@@ -1,4 +1,2 @@
-22:06:11 **** Incremental Build of configuration Debug for project Biblioteca-UTN ****
-Info: Internal Builder is used for build
-gcc -o Biblioteca-UTN.exe "src\\Biblioteca-UTN.o" "src\\numeros.o" 
-Info: Nothing to build for Biblioteca-UTN
+Info: Nothing to build for Funciones-Calculos
+Info: Nothing to build for Funciones-Calculos
