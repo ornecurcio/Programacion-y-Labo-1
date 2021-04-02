@@ -1,6 +1,7 @@
 LaunchTargetManager/configs/Biblioteca-UTN.exe=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Clase\ 1,\ Ej\ 2.exe=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Clase\ 1,\ Ej\ 4.exe=org.eclipse.launchbar.core.launchTargetType.local\:Local
+LaunchTargetManager/configs/Clase-Array.exe=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Ejercicio\ 2-1.exe=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Ejercicio\ 2-2.exe=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Ejercicios-FuncionesBibliotecas.exe=org.eclipse.launchbar.core.launchTargetType.local\:Local
