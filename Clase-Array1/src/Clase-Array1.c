@@ -1,23 +1,23 @@
 /*
  ============================================================================
- Name        : Clase-Array.c
+ Name        : Clase-Array1.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
- Description : Pedirle al usuario 5 edades y luego imprimir las 5 edades. Definir un array de 5 porciones
- y usar la funcion getNumero()para pedir valores.
+ Description : Hacer una funcion que calcule el promedio de los valores del array que recibe y
+ me devuelva el promedio.
  ============================================================================
  */
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "calculos.h"
 #include "numeros.h"
+#include "calculos.h"
 
 #define EDADESLARGO 5
 
 void imprimirArray(int listaDeEdades[], int largo);
+float promedioEdades(int listaDeEdades[], int cantidadEdades);
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -25,6 +25,7 @@ int main(void) {
 	int edad;
 	int edades[EDADESLARGO];
 	int i;
+	float promedio;
 
 	for(i=0; i<EDADESLARGO; i++)
 	{
@@ -34,6 +35,10 @@ int main(void) {
 		}
 	}
 	imprimirArray(edades, EDADESLARGO);
+	promedio = promedioEdades(edades, EDADESLARGO);
+
+	printf("El promedio es %.2f", promedio);
+
 
 	return EXIT_SUCCESS;
 }
@@ -44,25 +49,16 @@ void imprimirArray(int listaDeEdades[], int largo)
 		printf("%d ", listaDeEdades[i]);
 	}
 }
-// El nombre del array es la direccion de memoria donde comienza el array
-// AL RECIBIR UN ARRAY, TAMBIEN SE RECIBE SU TAMAÑO
+float promedioEdades(int listaDeEdades[], int cantidadEdades)
+{
+	int i;
+	int acumulador=0;
+	float resultado;
+	for(i=0; i<cantidadEdades; i++)
+	{
+		acumulador = acumulador + listaDeEdades[i];
+	}
+	resultado = (float)acumulador/cantidadEdades;
 
-/* void imprimirArray(int array[]) //es por referencia.
- * {
- * 	int j;
- * 	array[2]=3; // aca lee
- * 	j = array[3]+7; // aca escribe
- * }
- */
-/*void imprimirArray(int* e)
- * {
- * 		e=9;    //pasaje por referencia; leo o escribo el valor
- * 	}
- *
- * void imprimirArray(int e)
- * {
- *     e=9; pasaje por valor; no puedo escribir el valor, solo leer
- *
- *     e+7 = j;
- * }
- */
+	return resultado;
+}

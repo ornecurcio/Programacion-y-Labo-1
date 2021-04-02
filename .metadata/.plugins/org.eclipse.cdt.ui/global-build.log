@@ -1,5 +1,5 @@
-17:43:18 **** Incremental Build of configuration Debug for project Clase-Array ****
+18:14:06 **** Incremental Build of configuration Debug for project Clase-Array1 ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Clase-Array.o" "..\\src\\Clase-Array.c" 
-gcc -o Clase-Array.exe "src\\Clase-Array.o" "src\\calculos.o" "src\\numeros.o" 
-Info: Nothing to build for Clase-Array
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Clase-Array1.o" "..\\src\\Clase-Array1.c" 
+gcc -o Clase-Array1.exe "src\\Clase-Array1.o" "src\\calculos.o" "src\\numeros.o" 
+Info: Nothing to build for Clase-Array1
