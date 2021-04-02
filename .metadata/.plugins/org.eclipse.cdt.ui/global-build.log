@@ -1,4 +1,4 @@
-19:46:31 **** Incremental Build of configuration Debug for project Funciones-Calculos ****
+21:02:18 **** Incremental Build of configuration Debug for project Funciones-Calculos ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Funciones-Calculos.o" "..\\src\\Funciones-Calculos.c" 
-gcc -o Funciones-Calculos.exe "src\\Funciones-Calculos.o" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\calculos.o" "..\\src\\calculos.c" 
+gcc -o Funciones-Calculos.exe "src\\Funciones-Calculos.o" "src\\calculos.o" 

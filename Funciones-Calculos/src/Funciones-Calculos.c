@@ -15,8 +15,8 @@
 
 int sumar(int operadorUno, int operadorDos);
 int restar(int operadorUno, int operadorDos);
-int multiplicar(int operadorUno, int operadorDos);
-float dividir(int operadorUno, int operadorDos);
+int multiplicar(int operadorUno, int operadorDos, int* pResultado);
+int dividir(int operadorUno, int operadorDos, float* pResultado);
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -26,8 +26,9 @@ int main(void) {
 	char operacionSeleccionada;
 	int resultadoSuma;
 	int resultadoResta;
-	int resultadoDivision;
+	float resultadoDivision;
 	int resultadoMultiplicacion;
+	int huboError;
 
 	printf("Ingrese un numero");
 	fflush(stdin);
@@ -52,47 +53,28 @@ int main(void) {
 		printf("El resultado es %d", resultadoResta);
 		break;
 	case'm':
-		resultadoMultiplicacion=multiplicar(numeroIngresadoUno, numeroIngresadoDos);
-		printf("El resultado es %d", resultadoMultiplicacion);
+		huboError = multiplicar(numeroIngresadoUno, numeroIngresadoDos, &resultadoMultiplicacion);
+		if(huboError==0)
+		{
+			printf("El resultado de la multiplicacion es %d", resultadoMultiplicacion);
+		}
+		else
+		{
+			printf("No es posible multiplicar por cero");
+		}
 		break;
 	case'd':
-		resultadoDivision=dividir(numeroIngresadoUno, numeroIngresadoDos);
-		printf("El resultado es %d", resultadoDivision);
+		huboError = dividir(numeroIngresadoUno, numeroIngresadoDos, &resultadoDivision);
+		if(huboError==0)
+		{
+		printf("El resultado de la division es %f", resultadoDivision);
+		}
+		else
+		{
+			printf("No es posible dividir por cero");
+		}
 		break;
 	}
-
 	return EXIT_SUCCESS;
 }
 
-int sumar(int operadorUno, int operadorDos)
-{
-	int resultado;
-	resultado = operadorUno+operadorDos;
-	return resultado;
-}
-int restar(int operadorUno, int operadorDos)
-{
-	int resultado;
-	resultado = operadorUno-operadorDos;
-	return resultado;
-}
-int multiplicar(int operadorUno, int operadorDos)
-{
-	int resultado;
-	if(operadorUno==0 || operadorDos==0)
-	{
-		printf("Error no se puede multiplicar por cero");
-	}
-	resultado = operadorUno*operadorDos;
-	return resultado;
-}
-float dividir(int operadorUno, int operadorDos)
-{
-	int resultado;
-	if(operadorUno==0 || operadorDos==0)
-	{
-		printf("Error no se puede multiplicar por cero");
-	}
-	resultado = (float)operadorUno/operadorDos;
-	return resultado;
-}
