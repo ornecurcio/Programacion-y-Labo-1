@@ -17,7 +17,7 @@
 #define EDADESLARGO 5
 
 void imprimirArray(int listaDeEdades[], int largo);
-float promedioEdades(int listaDeEdades[], int cantidadEdades);
+int promediarArray(float* pPromedioResultado, int array[], int cantidadArray);
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -35,7 +35,7 @@ int main(void) {
 		}
 	}
 	imprimirArray(edades, EDADESLARGO);
-	promedio = promedioEdades(edades, EDADESLARGO);
+	promediarArray(&promedio, edades, EDADESLARGO);
 
 	printf("El promedio es %.2f", promedio);
 
@@ -49,16 +49,15 @@ void imprimirArray(int listaDeEdades[], int largo)
 		printf("%d ", listaDeEdades[i]);
 	}
 }
-float promedioEdades(int listaDeEdades[], int cantidadEdades)
+int promediarArray(float* pPromedioResultado, int array[], int cantidadArray)
 {
 	int i;
 	int acumulador=0;
-	float resultado;
-	for(i=0; i<cantidadEdades; i++)
+	for(i=0; i<cantidadArray; i++)
 	{
-		acumulador = acumulador + listaDeEdades[i];
+		acumulador = acumulador + array[i];
 	}
-	resultado = (float)acumulador/cantidadEdades;
+	*pPromedioResultado = (float)acumulador/cantidadArray;
 
-	return resultado;
+	return 0;
 }

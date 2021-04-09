@@ -1,7 +1,11 @@
-21:03:14 **** Rebuild of configuration Debug for project Clase 1, Ej 2 ****
+17:35:14 **** Incremental Build of configuration Debug for project Clase 1, Ej 2 ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Clase 1, Ej 2.o" "..\\src\\Clase 1, Ej 2.c" 
+..\src\Clase 1, Ej 2.c: In function 'main':
+..\src\Clase 1, Ej 2.c:24:9: warning: unknown escape sequence: '\c'
+   24 |  printf("\cHola mundo");
+      |         ^~~~~~~~~~~~~~
 gcc -o "Clase 1, Ej 2.exe" "src\\Clase 1, Ej 2.o" 
 
-21:03:22 Build Finished. 0 errors, 0 warnings. (took 8s.453ms)
+17:35:17 Build Finished. 0 errors, 1 warnings. (took 3s.385ms)
 

@@ -14,4 +14,6 @@
  * */
 int sumar(int numUno, int numDos);
 
+int promediarArray(float* pPromedioResultado, int array[], int cantidadArray);
+
 #endif /* CALCULOS_H_ */

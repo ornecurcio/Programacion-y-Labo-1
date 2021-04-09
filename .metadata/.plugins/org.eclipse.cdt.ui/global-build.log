@@ -1,5 +1,14 @@
-18:14:06 **** Incremental Build of configuration Debug for project Clase-Array1 ****
+00:37:25 **** Incremental Build of configuration Debug for project Ejercicio 5-2 ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Clase-Array1.o" "..\\src\\Clase-Array1.c" 
-gcc -o Clase-Array1.exe "src\\Clase-Array1.o" "src\\calculos.o" "src\\numeros.o" 
-Info: Nothing to build for Clase-Array1
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Ejercicio 5-2.o" "..\\src\\Ejercicio 5-2.c" 
+..\src\Ejercicio 5-2.c: In function 'main':
+..\src\Ejercicio 5-2.c:52:20: warning: comparison between pointer and integer
+   52 |  if(contadorNumeros==1)
+      |                    ^~
+..\src\Ejercicio 5-2.c:57:22: warning: the comparison will always evaluate as 'false' for the address of 'sumarNumerosPares' will never be NULL [-Waddress]
+   57 |  if(sumarNumerosPares==0)
+      |                      ^~
+..\src\Ejercicio 5-2.c:60:10: warning: too many arguments for format [-Wformat-extra-args]
+   60 |   printf("La lista de los pares es", imprimirArrayPares);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -o "Ejercicio 5-2.exe" "src\\Ejercicio 5-2.o" 
