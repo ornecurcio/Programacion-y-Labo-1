@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUMEROS 4
+#define NUMEROS 10
 
 int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos);
 void imprimirArray(int indiceDeArray[], int cantidadDeArray);
@@ -47,31 +47,15 @@ int main(void) {
 	buscaElMayorNumImpar(&mayorImpares, numero, NUMEROS);
 	contadorNumeros(&contadorPositivos, &contadorNegativos, numero, NUMEROS);
 
-	//printf("La cantidad de positivos es %d\n", contadorPositivos);
-	//printf("La cantidad de negativos es %d\n", contadorNegativos);
-	if(contadorNumeros==1)
-	{
-		printf("La cantidad de positivos es %d\n", contadorPositivos);
-		printf("La cantidad de negativos es %d\n", contadorNegativos);
-	}
-	if(sumarNumerosPares==0)
-	{
-		printf("La suma de los pares es %d", sumaPares);
-		printf("La lista de los pares es", imprimirArrayPares);
-	}
-	else
-	{
-		printf("No hay numero pares para sumar");
-	}
-	/*if(buscaElMayorNumImpar==0)
-	{
-		printf("El mayor de los impares es %d\n", mayorImpares);
-		printf("La lista de los impares es", imprimirArrayImPares);
-	}
-	else
-	{
-		printf("No hay numeros impares");
-	}*/
+	printf("La cantidad de positivos es %d\n", contadorPositivos);
+	printf("La cantidad de negativos es %d\n", contadorNegativos);
+	printf("La suma de los pares es %d", sumaPares);
+	printf("La lista de los pares es ");
+	imprimirArrayPares;
+	printf("\nEl mayor de los impares es %d\n", mayorImpares);
+	printf("La lista de los impares es ");
+	imprimirArrayImPares;
+
 	return EXIT_SUCCESS;
 }
 int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos)
