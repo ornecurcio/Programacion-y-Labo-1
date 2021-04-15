@@ -1,12 +1,5 @@
-18:30:55 **** Incremental Build of configuration Debug for project Ejercicio 5-2 ****
+23:36:12 **** Incremental Build of configuration Debug for project Clase 6, Ordenamiento-Array ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Ejercicio 5-2.o" "..\\src\\Ejercicio 5-2.c" 
-..\src\Ejercicio 5-2.c: In function 'main':
-..\src\Ejercicio 5-2.c:54:2: warning: statement with no effect [-Wunused-value]
-   54 |  imprimirArrayPares;
-      |  ^~~~~~~~~~~~~~~~~~
-..\src\Ejercicio 5-2.c:57:2: warning: statement with no effect [-Wunused-value]
-   57 |  imprimirArrayImPares;
-      |  ^~~~~~~~~~~~~~~~~~~~
-gcc -o "Ejercicio 5-2.exe" "src\\Ejercicio 5-2.o" 
-Info: Nothing to build for Ejercicio 5-2
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Clase 6, Ordenamiento-Array.o" "..\\src\\Clase 6, Ordenamiento-Array.c" 
+gcc -o "Clase 6, Ordenamiento-Array.exe" "src\\Clase 6, Ordenamiento-Array.o" "src\\numeros.o" 
+Info: Nothing to build for Clase 6, Ordenamiento-Array

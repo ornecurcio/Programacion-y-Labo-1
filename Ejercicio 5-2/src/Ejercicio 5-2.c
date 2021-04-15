@@ -7,7 +7,7 @@
  Description : Pedir el ingreso de 10 números enteros entre -1000 y 1000.
  Determinar:Cantidad de positivos y negativos.Sumatoria de los pares.
  El mayor de los impares.Listado de los números ingresados.
- Listado de los números pares.Listado de los números de las posiciones impares.
+ Listado de los números de las posiciones pares.Listado de los números de las posiciones impares.
  Se deberán utilizar funciones y vectores.
  ============================================================================
  */
