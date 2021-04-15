@@ -10,8 +10,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h> // contiene strcpy
 
 int main(void) {
-	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+	setbuf(stdout, NULL);
+
+	char texto[]="Nona mama";
+
+	printf("\n El texto es %s", texto);
 	return EXIT_SUCCESS;
 }

@@ -1,1 +1,7 @@
-Info: Nothing to build for hola mundo
+18:51:37 **** Rebuild of configuration Debug for project hola mundo ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\hola mundo.o" "..\\src\\hola mundo.c" 
+gcc -o "hola mundo.exe" "src\\hola mundo.o" 
+
+18:52:11 Build Finished. 0 errors, 0 warnings. (took 34s.26ms)
+
