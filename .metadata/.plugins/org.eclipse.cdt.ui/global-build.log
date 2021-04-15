@@ -1,5 +1,4 @@
-23:36:12 **** Incremental Build of configuration Debug for project Clase 6, Ordenamiento-Array ****
+17:04:53 **** Incremental Build of configuration Debug for project Ejercicio 5-3 ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Clase 6, Ordenamiento-Array.o" "..\\src\\Clase 6, Ordenamiento-Array.c" 
-gcc -o "Clase 6, Ordenamiento-Array.exe" "src\\Clase 6, Ordenamiento-Array.o" "src\\numeros.o" 
-Info: Nothing to build for Clase 6, Ordenamiento-Array
+gcc -o "Ejercicio 5-3.exe" "src\\Ejercicio 5-3.o" 
+Info: Nothing to build for Ejercicio 5-3

@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : Clase 6.c
- Author      : 
+ Author      : Ornela Curcio
  Version     :
  Copyright   : Your copyright notice
  Description : Realizar un programa que permita el ingreso de 10 números enteros (positivos y negativos).
@@ -31,15 +31,18 @@ int main(void) {
 		if(utn_getNumero(&auxNum,"Ingrese un numero","Error, ingrese un numero",-30, 40, 2)==0)
 		{
 			numero[i]=auxNum;
+
+			if(numero[i]>0)
+			{
+				utn_SwapAscendiente(numero, NUMEROS);
+			}
+			else
+			{
+				utn_SwapDescendiente(numero, NUMEROS);
+			}
 		}
 	}
-
-	if(numero<0)
-	{
-		utn_SwapDescendiente(numero, NUMEROS);
-		imprimirArray(numero, NUMEROS);
-	}
-
+	imprimirArray(numero, NUMEROS);
 	return EXIT_SUCCESS;
 }
 int utn_SwapAscendiente(int listaDeArray[],int cantidadDeArray)
