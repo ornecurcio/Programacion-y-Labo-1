@@ -79,7 +79,7 @@ int main(void) {
 
 	//islower() incluida en <ctype.h> comprueba minuscular. Devuelve valor no nulo si el caracter es minuscula.
 	// funciona sobre un caracter, no sobre la cadena.
-	//isupper() compruba MAYUSCULAS.
+	//isupper() compruba MAYUSCULAS.no sobre una cadena
 	char letra;
 	letra='t';
 	printf("La letra %c islower(): %d\n", letra, islower(letra));
@@ -94,6 +94,9 @@ int main(void) {
 	{
 		printf("\Es minuscula");
 	}
+	//strlwr() pasa una cadena de caracteres a minuscula.
+	//strupr() pasa una cadena a mayuscula.
+
 	// isdigit() indica si caracter es numerico, devuelve verdadero(!=0) falso(0)
 	// isalpha() indica si caracter es alfabetico.
 	//tolower() - convierte un caracter a minuscula
