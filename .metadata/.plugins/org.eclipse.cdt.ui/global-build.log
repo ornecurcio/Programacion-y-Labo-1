@@ -1,4 +1,5 @@
-18:51:37 **** Rebuild of configuration Debug for project hola mundo ****
+22:09:16 **** Incremental Build of configuration Debug for project CadenaDeCaracteres ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\hola mundo.o" "..\\src\\hola mundo.c" 
-gcc -o "hola mundo.exe" "src\\hola mundo.o" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\CadenaDeCaracteres.o" "..\\src\\CadenaDeCaracteres.c" 
+gcc -o CadenaDeCaracteres.exe "src\\CadenaDeCaracteres.o" 
+Info: Nothing to build for CadenaDeCaracteres

@@ -19,6 +19,7 @@
 int utn_SwapAscendiente(int listaDeArray[],int cantidadDeArray);
 int utn_SwapDescendiente(int listaDeArray[],int cantidadDeArray);
 void imprimirArray(int listaDeArray[], int cantidadDeArray);
+void imprimirArrayDescendente(int listaDeArray[], int cantidadDeArray);
 int main(void) {
 	setbuf(stdout, NULL);
 
@@ -31,18 +32,22 @@ int main(void) {
 		if(utn_getNumero(&auxNum,"Ingrese un numero","Error, ingrese un numero",-30, 40, 2)==0)
 		{
 			numero[i]=auxNum;
-
-			if(numero[i]>0)
-			{
-				utn_SwapAscendiente(numero, NUMEROS);
-			}
-			else
-			{
-				utn_SwapDescendiente(numero, NUMEROS);
-			}
 		}
 	}
-	imprimirArray(numero, NUMEROS);
+	utn_SwapAscendiente(numero, NUMEROS); //ordene de forma ascendente.
+
+	for(i=0;i<NUMEROS;i++)
+	{
+		if(numero[i]<0)
+		{
+			imprimirArrayDescendente(numero, NUMEROS);
+		}
+		else
+		{
+			printf("%d", numero[i]);
+		}
+	}
+
 	return EXIT_SUCCESS;
 }
 int utn_SwapAscendiente(int listaDeArray[],int cantidadDeArray)
@@ -91,6 +96,13 @@ int utn_SwapDescendiente(int listaDeArray[],int cantidadDeArray)
 void imprimirArray(int listaDeArray[], int cantidadDeArray)
 {	int i;
 	for(i=0; i<cantidadDeArray; i++)
+	{
+		printf("%d ", listaDeArray[i]);
+	}
+}
+void imprimirArrayDescendente(int listaDeArray[], int cantidadDeArray)
+{	int i;
+	for(i=cantidadDeArray; i>cantidadDeArray; i--)
 	{
 		printf("%d ", listaDeArray[i]);
 	}
