@@ -1,5 +1,4 @@
-22:09:16 **** Incremental Build of configuration Debug for project CadenaDeCaracteres ****
+22:48:23 **** Incremental Build of configuration Debug for project Matriz-Ejercicio ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\CadenaDeCaracteres.o" "..\\src\\CadenaDeCaracteres.c" 
-gcc -o CadenaDeCaracteres.exe "src\\CadenaDeCaracteres.o" 
-Info: Nothing to build for CadenaDeCaracteres
+gcc -o Matriz-Ejercicio.exe "src\\Matriz-Ejercicio.o" 
+Info: Nothing to build for Matriz-Ejercicio

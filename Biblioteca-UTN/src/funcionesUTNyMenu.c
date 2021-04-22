@@ -58,19 +58,48 @@ int utn_getNumeroConDecimales(float* pResultado,char* mensaje,char* mensajeError
 	}
 	return retorno;
 }
-int utn_getCaracter(char* pResultado,char* mensaje,char* mensajeError,char minimo,char maximo,int reintentos)
+int utn_getCaracter(char* pResultado,char* mensaje,char* mensajeError,char string[][20], int cantidadArray, reintentos)
 {
 	int retorno = -1;
-	char bufferChar;
-	if(pResultado != NULL && mensaje != NULL && mensajeError != NULL && minimo <= maximo && reintentos>0)
+	char bufferChar[40];
+
+	if(pResultado != NULL && mensaje != NULL && mensajeError != NULL && reintentos>0)
 	{
 
 		do
 		{
 			printf("%s", mensaje);
 			fflush(stdin);
-			scanf("%c", &bufferChar);
-			if(bufferChar>=minimo && bufferChar<=maximo)
+			scanf("%s", &bufferChar);
+
+			if(strlen(bufferChar)<20)
+			{
+				*pResultado=bufferChar;
+				retorno=0;
+				break;
+			}
+			else
+			{
+				printf("%s", mensajeError);
+				reintentos--;
+			}
+		}while(reintentos>=0);
+	}
+	return retorno;
+}
+int utn_getCaracterSexo(char* pResultado,char* mensaje,char* mensajeError, char string[][20], int cantidadArray, reintentos)
+{
+	int retorno = -1;
+	char bufferChar;
+	if(pResultado != NULL && mensaje != NULL && mensajeError != NULL && reintentos>0)
+	{
+
+		do
+		{
+			printf("%s", mensaje);
+			fflush(stdin);
+			scanf("%s", &bufferChar);
+			if(bufferChar=='f'|| bufferChar=='m' || bufferChar=='o')
 			{
 				*pResultado=bufferChar;
 				retorno=0;
