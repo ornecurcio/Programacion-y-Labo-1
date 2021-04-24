@@ -25,7 +25,7 @@ int utn_getCaracterSexo(char* pResultado,char* mensaje,char* mensajeError,int re
 int utn_getString(char aux[],char* mensaje,char* mensajeError, int reintentos);
 int printDatos(char pArray[][20], int limite, char sex[], int leg[], int not1[], int not2[], float prom[]);
 int utn_SwapAscendiente(int listaDeArray[],int cantidadDeArray);
-int ordenar1ArrayStr(char pArrayApellido[][20], int limite);
+int ordenar1ArrayStr(char pArrayApellido[][20], int limite, int nota1[], int nota2[], int legajo[], float promedio[], char sexo[]);
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -79,11 +79,9 @@ int main(void) {
 
 	printDatos(arrayApellido, QTY_ALUMNOS, sexoAlumno, legajo, nota1, nota2, promedio);
 
-	ordenar1ArrayStr(arrayApellido, QTY_ALUMNOS);
+	ordenar1ArrayStr(arrayApellido, QTY_ALUMNOS, nota1, nota2, legajo, promedio, sexoAlumno);
 
 	printDatos(arrayApellido, QTY_ALUMNOS, sexoAlumno, legajo, nota1, nota2, promedio);
-
-
 
 	return EXIT_SUCCESS;
 }

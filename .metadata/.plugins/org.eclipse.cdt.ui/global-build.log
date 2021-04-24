@@ -1,9 +1,5 @@
-20:49:17 **** Incremental Build of configuration Debug for project Matriz-Ejercicio ****
+10:39:01 **** Incremental Build of configuration Debug for project Estructuras ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Matriz-Ejercicio.o" "..\\src\\Matriz-Ejercicio.c" 
-..\src\Matriz-Ejercicio.c:252:5: error: conflicting types for 'ordenar1ArrayStr'
-  252 | int ordenar1ArrayStr(char pArrayApellido[][20], int limite, int nota1[], int nota2[], int legajo[], float promedio[], char sexo[])
-      |     ^~~~~~~~~~~~~~~~
-..\src\Matriz-Ejercicio.c:28:5: note: previous declaration of 'ordenar1ArrayStr' was here
-   28 | int ordenar1ArrayStr(char pArrayApellido[][20], int limite);
-      |     ^~~~~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Estructuras.o" "..\\src\\Estructuras.c" 
+gcc -o Estructuras.exe "src\\Estructuras.o" 
+Info: Nothing to build for Estructuras
