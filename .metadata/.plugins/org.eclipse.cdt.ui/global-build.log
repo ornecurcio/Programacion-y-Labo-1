@@ -1,5 +1,5 @@
-10:39:01 **** Incremental Build of configuration Debug for project Estructuras ****
+22:00:12 **** Incremental Build of configuration Debug for project Estructuras ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Estructuras.o" "..\\src\\Estructuras.c" 
-gcc -o Estructuras.exe "src\\Estructuras.o" 
+gcc -o Estructuras.exe "src\\Alumno.o" "src\\Estructuras.o" 
 Info: Nothing to build for Estructuras
