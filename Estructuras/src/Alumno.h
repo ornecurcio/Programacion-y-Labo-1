@@ -16,6 +16,7 @@ typedef struct{
 	int nota2;
 	float promedio;
 	char apellido[20];
+	int idCarrera;
 	int isEmpty;
 }Alumno;
 
@@ -32,5 +33,14 @@ int utn_SwapAscendiente(int listaDeArray[],int cantidadDeArray);
 int ordenar1ArrayStr(char pArrayApellido[][20], int limite, int nota1[], int nota2[], int legajo[], float promedio[], char sexo[]);
 int inicializarIsEmpty(Alumno pArray[] , int cantidadDeArray);
 int buscarLibre(Alumno pArray[], int cantidadDeArray);
+int promediar2Notas(float* pPromedioResultado, int num1, int num2);
+//int cargar1Alumno(Alumno aAlumno[], int posicion);
+int cargar1Alumno(Alumno aAlumno[], int cantidadDeArray, int* contadorId);
+void mostrarAlumno(Alumno unAlumno);
+int mostrarAlumnos(Alumno aAuxiliar[], int catidadDeArray);
+int buscaLegajo(Alumno aAuxiliar[], int cantidadDeArray);
+int darBaja(Alumno aAuxiliar[], int cantidadDeArray, int posicion);
+int ordenarEstructurasLegajos(Alumno aAlumno[], int cantidadDeArray);
+int modificaAlumno(Alumno aAuxiliar[], int cantidadDeArray, int posicion);
 
 #endif /* ALUMNO_H_ */
