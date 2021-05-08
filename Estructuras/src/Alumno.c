@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 void inicializarArrayChar(char pArray[], int cantidadDeArray)
 {
@@ -53,7 +54,7 @@ int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,in
 		{
 			printf("%s", mensaje);
 			scanf("%d", &bufferInterno);
-			if(bufferInterno>=minimo && bufferInterno<=maximo)
+			if(bufferInterno>=minimo && bufferInterno<=maximo && isdigit(bufferInterno)==0)
 			{
 				*pResultado=bufferInterno;
 				retorno=0;
@@ -99,7 +100,6 @@ int utn_getString(char aux[],char* mensaje,char* mensajeError, int reintentos)
 {
 	int retorno = -1;
 	char bufferString[40];
-
 
 	if(aux != NULL && mensaje != NULL && mensajeError != NULL && reintentos>0)
 	{
@@ -256,7 +256,6 @@ int promediar2Notas(float* pPromedioResultado, int num1, int num2)
 	return retorno;
 }
 int cargar1Alumno(Alumno aAlumno[], int cantidadDeArray, int* contadorId)
-
 {
 	Alumno aAuxiliar;
 	int retorno = -1;
@@ -288,26 +287,36 @@ int cargar1Alumno(Alumno aAlumno[], int cantidadDeArray, int* contadorId)
 	}
 		return retorno;
 }
-dyvoid mostrarAlumno(Alumno unAlumno)
+void mostrarAlumno(Alumno unAlumno, char* desCarrera)
 {
-	printf("\nLegajo: %d, Carrera: %d, Sexo: %c, Edad: %d,",unAlumno.legajo, unAlumno.idCarrera, unAlumno.sexo, unAlumno.edad);
-	printf("Nota 1: %d, Nota 2: %d, Promedio: %.2f, Apellido: %s",unAlumno.nota1, unAlumno.nota2, unAlumno.promedio, unAlumno.apellido);
+	printf("\n %-5d   %-5d  %-10s %-15d %-10s %-5d %-5d %-5.2f", unAlumno.legajo, unAlumno.edad, unAlumno.apellido, unAlumno.idCarrera, desCarrera, unAlumno.nota1, unAlumno.nota2, unAlumno.promedio);
 }
-int mostrarAlumnos(Alumno aAuxiliar[], int cantidadDeArray)
+int mostrarAlumnos(Alumno aAuxiliar[], int cantidadDeArray, eCarrera aCarrera[], int cantidadCarrera)
 {
 	int retorno = -1;
 	int i;
-	if(aAuxiliar!=NULL && cantidadDeArray>0)
+	char desCarrera[20];
+
+	if(aAuxiliar!=NULL && cantidadDeArray>0 && cantidadCarrera>0 && aCarrera !=NULL)
+	{
+		printf("\nId      Edad       Apellido       IdCarrera       Carrera     Nota1   Nota2   Promedio");
+
 		for(i=0; i<cantidadDeArray; i++)
 		{
-			if(aAuxiliar[i].isEmpty!=1)
+			if(aAuxiliar[i].isEmpty==1)
 			{
-				mostrarAlumno(aAuxiliar[i]);
+				continue;
+			}
+			else
+			{
+				getDescripcionCarrera(aCarrera, cantidadCarrera, aAuxiliar[i].idCarrera, desCarrera);
+				mostrarAlumno(aAuxiliar[i], desCarrera);
 				//printf("\nLegajo: %d, Sexo: %c, Edad: %d,",aAuxiliar[i].legajo, aAuxiliar[i].sexo, aAuxiliar[i].edad);
 				//printf("Nota 1: %d, Nota 2: %d, Promedio: %.2f, Apellido: %s",aAuxiliar[i].nota1, aAuxiliar[i].nota2, aAuxiliar[i].promedio, aAuxiliar[i].apellido);
 				retorno = 0;
 			}
 		}
+	}
 	return retorno;
 }
 int buscaLegajo(Alumno aAuxiliar[], int cantidadDeArray)
@@ -337,28 +346,26 @@ int buscaLegajo(Alumno aAuxiliar[], int cantidadDeArray)
 	}
 	return retorno;
 }
-int darBaja(Alumno aAuxiliar[], int cantidadDeArray, int posicion)
+int darBaja(Alumno aAuxiliar[], int posicion, eCarrera aCarreras[], int cantidadCarreras)
 {
 	int retorno = -1;
 	int i;
 	char respuesta;
-	if(aAuxiliar!=NULL && cantidadDeArray>0)
-		for(i=0; i<cantidadDeArray; i++)
+	char desCarrera[20];
+	if(aAuxiliar!=NULL && aCarreras!=NULL)
+	{
+		getDescripcionCarrera(aCarreras, cantidadCarreras, aAuxiliar[posicion].idCarrera, desCarrera);
+		mostrarAlumno(aAuxiliar[posicion], desCarrera);
+		printf("\nDesea borrar ese legajo, ingrese 's'");
+		fflush(stdin);
+		scanf("%c", &respuesta);
+		if(respuesta=='s')
 		{
-			if(i==posicion)
-			{
-				mostrarAlumno(aAuxiliar[i]);
-				printf("\nDesea borrar ese legajo, ingrese 's'");
-				fflush(stdin);
-				scanf("%c", &respuesta);
-				if(respuesta=='s')
-				{
-					aAuxiliar[i].isEmpty=1;
-					retorno = 0;
-				}
-			}
-
+			aAuxiliar[i].isEmpty=1;
+			retorno = 0;
 		}
+
+	}
 	return retorno;
 }
 int ordenarEstructurasLegajos(Alumno aAlumno[], int cantidadDeArray)
@@ -375,9 +382,9 @@ int ordenarEstructurasLegajos(Alumno aAlumno[], int cantidadDeArray)
 		{
 			if(aAlumno[i].legajo>aAlumno[i+1].legajo)
 			{
-				aAuxiliar.legajo=aAlumno[i].legajo;
-				aAlumno[i].legajo=aAlumno[i+1].legajo;
-				aAlumno[i+1].legajo=aAuxiliar.legajo;
+				aAuxiliar=aAlumno[i];
+				aAlumno[i]=aAlumno[i+1];
+				aAlumno[i+1]=aAuxiliar;
 			}
 
 				flagDesordenado = -1;
@@ -385,17 +392,15 @@ int ordenarEstructurasLegajos(Alumno aAlumno[], int cantidadDeArray)
 	}
 	return 0;
 }
-int modificaAlumno(Alumno aAuxiliar[], int cantidadDeArray, int posicion)
+int modificaAlumno(Alumno aAuxiliar[], int posicion, eCarrera aCarrera[], int cantidadCarrera)
 {
 	int retorno = -1;
-	int i;
 	char respuesta;
-	if(aAuxiliar!=NULL && cantidadDeArray>0)
-		for(i=0; i<cantidadDeArray; i++)
-		{
-			if(i==posicion)
-			{
-				mostrarAlumno(aAuxiliar[i]);
+	char desCarrera[20];
+	if(aAuxiliar!=NULL)
+	{
+				getDescripcionCarrera(aCarrera, cantidadCarrera, aAuxiliar[posicion].idCarrera, desCarrera);
+				mostrarAlumno(aAuxiliar[posicion], desCarrera);
 				printf("\nDesea modificar este legajo, ingrese 's'");
 				fflush(stdin);
 				scanf("%c", &respuesta);
@@ -404,26 +409,155 @@ int modificaAlumno(Alumno aAuxiliar[], int cantidadDeArray, int posicion)
 					printf("\nDesea modificar sexo 's' o edad 'e'");
 					fflush(stdin);
 					scanf("%c", &respuesta);
-					if(respuesta=='s')
+					switch(respuesta)
 					{
-						utn_getCaracterSexo(&aAuxiliar[i].sexo, "Ingrese Sexo: f, m, o", "Error, le queda 1 intento", 1);
-						printf("Exito, los nuevos datos son: ");
-						mostrarAlumno(aAuxiliar[i]);
-						break;
-					}
-					else
-					{
-						if(respuesta=='e')
-						{
-							utn_getNumero(&aAuxiliar[i].edad, "Ingrese edad", "Error, le queda 1 intento", 18, 70, 1);
+						case 's':
+							utn_getCaracterSexo(&aAuxiliar[posicion].sexo, "Ingrese Sexo: f, m, o", "Error, le queda 1 intento", 1);
 							printf("Exito, los nuevos datos son: ");
-							mostrarAlumno(aAuxiliar[i]);
+							mostrarAlumno(aAuxiliar[posicion],desCarrera);
 							break;
-						}
+					case 'e':
+							utn_getNumero(&aAuxiliar[posicion].edad, "Ingrese edad", "Error, le queda 1 intento", 18, 70, 1);
+							printf("Exito, los nuevos datos son: ");
+							mostrarAlumno(aAuxiliar[posicion], desCarrera);
+							break;
+
 					}
 					retorno = 0;
-				}
+
 			}
 		}
 	return retorno;
 }
+int getDescripcionCarrera(eCarrera aCarrera[], int cantidadDeArray, int buscar, char* descripcion)
+{
+	int i;
+	int retorno = -1;
+
+	for(i=0; i<cantidadDeArray; i++)
+	{
+		if(aCarrera[i].idCarrera==buscar && aCarrera[i].isEmpty==0)
+		{
+			strcpy(descripcion, aCarrera[i].descripCarrera);
+			retorno=0;
+		}
+	}
+	return retorno;
+}
+int buscaIdCarreraXdescripcion(eCarrera aCarrera[], char* descripcion, int* buscar, int cantidadDeArray)
+{
+	int i;
+	int retorno=-1;
+
+	for(i=0; i<cantidadDeArray; i++)
+	{
+		if((strcmp(descripcion,aCarrera[i].descripCarrera)==0) && aCarrera[i].isEmpty==0)
+		{
+			*buscar=aCarrera[i].idCarrera;
+			retorno=0;
+		}
+	}
+	return retorno;
+}
+int lista1Carrera(Alumno aAlumnos[],int cantidadDeArray, int idCarrera, eCarrera aCarrera[], int cantidadCarrera)
+{
+	int retorno=-1;
+	int i;
+	char desCarrera[20];
+
+	for(i=0; i<cantidadDeArray; i++)
+	{
+		if(aAlumnos[i].idCarrera==idCarrera && aAlumnos[i].isEmpty==0)
+		{
+			getDescripcionCarrera(aCarrera, cantidadCarrera, idCarrera, desCarrera);
+			mostrarAlumno(aAlumnos[i],desCarrera);
+			retorno=0;
+		}
+	}
+	return retorno;
+}
+int alumnosMasGrandes(Alumno aAlumnos[], int cantidadDeArray, eCarrera aCarreras[], int cantidadCarreras)
+{
+	int retorno = -1;
+	int i;
+	int mayor=0;
+	int flagMayor=0;
+
+	if(aAlumnos!=NULL && aCarreras!=NULL && cantidadDeArray>0 && cantidadCarreras>0)
+	{
+		for(i=0; i<cantidadDeArray; i++)
+		{
+			if(aAlumnos[i].isEmpty==1)
+				continue;
+			else
+			{
+				if(aAlumnos[i].edad>mayor || flagMayor==0)
+				{
+					flagMayor=1;
+					mayor=aAlumnos[i].edad;
+					retorno=0;
+				}
+			}
+		}
+		if(mayor!=0)
+		{
+			Informes_listarAlumnosMasGrandes(aAlumnos, cantidadDeArray, aCarreras, cantidadCarreras, mayor);
+		}
+	}
+
+	return retorno;
+}
+int alumnosMasJovenes(Alumno aAlumnos[], int cantidadDeArray, eCarrera aCarreras[], int cantidadCarreras)
+{
+	int retorno = -1;
+	int i;
+	int menor=0;
+	int flagMenor=0;
+
+	if(aAlumnos!=NULL && aCarreras!=NULL && cantidadDeArray>0 && cantidadCarreras>0)
+	{
+		for(i=0; i<cantidadDeArray; i++)
+		{
+			if(aAlumnos[i].isEmpty==1)
+				continue;
+			else
+			{
+				if(aAlumnos[i].edad<menor || flagMenor==0)
+				{
+					flagMenor=1;
+					menor=aAlumnos[i].edad;
+					retorno=0;
+				}
+			}
+		}
+		if(menor!=0)
+		{
+			Informes_listarAlumnosMasJovenes(aAlumnos, cantidadDeArray, aCarreras, cantidadCarreras, menor);
+		}
+	}
+	return retorno;
+}
+/*int ordenarAlumnosXCarrera(Alumno aAlumno[], int cantidadDeArray,eCarrera aCarreras[], int cantidadCarreras)
+{
+	Alumno aAuxiliar;
+	int flagDesordenado = -1;
+	int i;
+
+
+	while(flagDesordenado==-1)
+	{
+		flagDesordenado=0;
+		for(i=0; i<cantidadDeArray-1; i++)
+		{
+			if(aAlumno[i].idCarrera==aAlumno[i+1].idCarrera)
+			{
+				aAuxiliar=aAlumno[i];
+				aAlumno[i]=aAlumno[i+1];
+				aAlumno[i+1]=aAuxiliar;
+			}
+			flagDesordenado = -1;
+		}
+	}
+	Informes_listarAlumnosXCarrera(aAlumno, cantidadDeArray, aCarreras, cantidadCarreras);
+	return 0;
+}*/
