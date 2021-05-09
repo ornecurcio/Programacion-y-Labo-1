@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 int main(void) {
-#include "eGen.h"
+#include "Gen.h"
 #define TAM_ESTRUCTURA 5
 
 int main(void) {

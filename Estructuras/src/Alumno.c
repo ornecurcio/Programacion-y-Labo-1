@@ -6,10 +6,8 @@
  */
 
 #include "Alumno.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
+
+
 
 void inicializarArrayChar(char pArray[], int cantidadDeArray)
 {
@@ -537,27 +535,28 @@ int alumnosMasJovenes(Alumno aAlumnos[], int cantidadDeArray, eCarrera aCarreras
 	}
 	return retorno;
 }
-/*int ordenarAlumnosXCarrera(Alumno aAlumno[], int cantidadDeArray,eCarrera aCarreras[], int cantidadCarreras)
+int mostrarAlumnosXCarrera(Alumno aAlumno[], int cantidadDeArray,eCarrera aCarreras[], int cantidadCarreras)
 {
-	Alumno aAuxiliar;
-	int flagDesordenado = -1;
 	int i;
+	int j;
+	char descripcion[20];
+	int retorno = -1;
 
-
-	while(flagDesordenado==-1)
+	for(i=0; i<cantidadCarreras; i++)
 	{
-		flagDesordenado=0;
-		for(i=0; i<cantidadDeArray-1; i++)
+		printf("%4d %15s\n", aCarreras[i].idCarrera, aCarreras[i].descripCarrera);
+
+		for(j=0; j<cantidadDeArray; j++)
 		{
-			if(aAlumno[i].idCarrera==aAlumno[i+1].idCarrera)
+			if(aAlumno[j].idCarrera==aCarreras[i].idCarrera)
 			{
-				aAuxiliar=aAlumno[i];
-				aAlumno[i]=aAlumno[i+1];
-				aAlumno[i+1]=aAuxiliar;
+				getDescripcionCarrera(aCarreras, cantidadCarreras, aAlumno[j].idCarrera, descripcion);
+				mostrarAlumnos(aAlumno, cantidadDeArray, aCarreras, cantidadCarreras);
+				//printf("\t'%s %4.2f\n", lista)
 			}
-			flagDesordenado = -1;
+
 		}
 	}
-	Informes_listarAlumnosXCarrera(aAlumno, cantidadDeArray, aCarreras, cantidadCarreras);
-	return 0;
-}*/
+
+	return retorno;
+}

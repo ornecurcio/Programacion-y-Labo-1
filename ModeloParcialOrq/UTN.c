@@ -6,6 +6,8 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+
 int subMenu(void)
 {
 	int retorno=-1;
@@ -53,7 +55,7 @@ int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,in
 		{
 			printf("%s", mensaje);
 			scanf("%d", &bufferInterno);
-			if(bufferInterno>=minimo && bufferInterno<=maximo)
+			if(bufferInterno>=minimo && bufferInterno<=maximo && isdigit(bufferInterno)==0)
 			{
 				*pResultado=bufferInterno;
 				retorno=0;
@@ -138,6 +140,35 @@ int utn_getCaracterSexo(char* pResultado,char* mensaje,char* mensajeError, char 
 			if(bufferChar=='f'|| bufferChar=='m' || bufferChar=='o')
 			{
 				*pResultado=bufferChar;
+				retorno=0;
+				break;
+			}
+			else
+			{
+				printf("%s", mensajeError);
+				reintentos--;
+			}
+		}while(reintentos>=0);
+	}
+	return retorno;
+}
+int utn_getString(char aux[],char* mensaje,char* mensajeError, int reintentos)
+{
+	int retorno = -1;
+	char bufferString[40];
+
+	if(aux != NULL && mensaje != NULL && mensajeError != NULL && reintentos>0)
+	{
+
+		do
+		{
+			printf("%s", mensaje);
+			fflush(stdin);
+			scanf("%s", bufferString);
+
+			if(strlen(bufferString)<20)
+			{
+				strcpy(aux, bufferString);
 				retorno=0;
 				break;
 			}

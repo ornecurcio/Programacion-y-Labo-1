@@ -7,7 +7,6 @@
 
 #ifndef FUNCIONESUTNYMENU_H_
 #define FUNCIONESUTNYMENU_H_
-int subMenu(void);
 
 int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos);
 /*obtiene un numero entero, asigno el resultado a un espacio de memoria,

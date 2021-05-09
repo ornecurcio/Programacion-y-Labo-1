@@ -4,7 +4,7 @@
  *  Created on: 8 may. 2021
  *      Author: orne_
  */
-#include "gen.h"
+#include "Gen.h"
 
 /**IMPORTANTE - SETEAR VALOR INICIAL CON EL PREFERIDO PARA COMENZAR IDs*/
 //ID AUTOINCREMENTAL

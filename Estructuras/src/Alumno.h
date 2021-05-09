@@ -8,6 +8,11 @@
 #ifndef ALUMNO_H_
 #define ALUMNO_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
 typedef struct{
 	int legajo;
 	char sexo;
@@ -51,5 +56,5 @@ int buscaIdCarreraXdescripcion(eCarrera aCarrera[], char* descripcion, int* busc
 int lista1Carrera(Alumno aAlumnos[],int cantidadDeArray, int idCarrera, eCarrera aCarrera[], int cantidadCarrera);
 int alumnosMasGrandes(Alumno aAlumnos[], int cantidadDeArray, eCarrera aCarreras[], int cantidadCarreras);
 int alumnosMasJovenes(Alumno aAlumnos[], int cantidadDeArray, eCarrera aCarreras[], int cantidadCarreras);
-int ordenarAlumnosXCarrera(Alumno aAlumno[], int cantidadDeArray,eCarrera aCarreras[], int cantidadCarreras);
+int mostrarAlumnosXCarrera(Alumno aAlumno[], int cantidadDeArray,eCarrera aCarreras[], int cantidadCarreras);
 #endif /* ALUMNO_H_ */

@@ -18,4 +18,5 @@ int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,in
 int utn_getNumeroConDecimales(float* pResultado,char* mensaje,char* mensajeError,float minimo,float maximo,int reintentos);
 
 int utn_getCaracter(char* pResultado,char* mensaje,char* mensajeError,char minimo,char maximo,int reintentos);
+int utn_getString(char aux[],char* mensaje,char* mensajeError, int reintentos);
 #endif /* FUNCIONESUTNYMENU_H_ */

@@ -99,7 +99,7 @@ int main(void) {
 					alumnosMasGrandes(vecDatos, QTY_AUMNOS, vecCarreras, QTY_CARRERA);
 					break;
 				case 4: //Informar estudiantes de cada carrera
-					ordenarAlumnosXCarrera(vecDatos, QTY_AUMNOS, vecCarreras, QTY_CARRERA);
+					mostrarAlumnosXCarrera(vecDatos, QTY_AUMNOS, vecCarreras, QTY_CARRERA);
 					break;
 				}
 				break;

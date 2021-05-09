@@ -6,42 +6,6 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-int subMenu(void)
-{
-	int retorno=-1;
-	int submenu;
-	do{
-			if(utn_getNumero(&submenu, "\n1.ALTA, 2.BAJA, 3.MODIFICACION, 4.LISTADO, 5.ORDENADO, 6.INFORMES, 7.SALIR", "Error, Ingrese una opcion del 1 al 7.", 1, 7, 2)==0)
-			{
-				switch(submenu)
-				{
-					case 1:
-
-						break;
-					case 2:
-
-						break;
-					case 3:
-
-						break;
-					case 4:
-
-						break;
-					case 5:
-
-						break;
-					case 6:
-
-						break;
-					case 7:
-				}
-				retorno=0;
-			}
-		}while(submenu!=7);
-
-
-	return retorno;
-}
 int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos)
 {
 	int retorno = -1;

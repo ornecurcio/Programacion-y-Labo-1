@@ -81,24 +81,3 @@ int Informes_listarAlumnosMasJovenes(Alumno aAlumnos[], int cantidadDeArray, eCa
 	}
 	return retorno;
 }
-int Informes_listarAlumnosXCarrera(Alumno aAlumnos[],int cantidadDeArray, eCarrera aCarrera[], int cantidadCarrera)
-{
-	int retorno=-1;
-	int i;
-	char desCarrera[20];
-	if(aAlumnos!=NULL && aCarrera!=NULL && cantidadDeArray>0 && cantidadCarrera>0)
-	{
-		printf("\nId    edad    nombre    CodigoCarrera    Carrera");
-
-		for(i=0; i<cantidadDeArray; i++)
-		{
-			if(aAlumnos[i].isEmpty==0)
-			{
-				getDescripcionCarrera(aCarrera, cantidadCarrera, aAlumnos[i].idCarrera, desCarrera);
-				mostrarAlumno(aAlumnos[i],desCarrera);
-				retorno=0;
-			}
-		}
-	}
-	return retorno;
-}

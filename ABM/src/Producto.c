@@ -5,6 +5,8 @@
  *      Author: orne_
  */
 #include "Producto.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int subMenu(void)
 {
