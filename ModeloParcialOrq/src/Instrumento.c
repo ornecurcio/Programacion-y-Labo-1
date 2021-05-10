@@ -194,7 +194,8 @@ int eInstrumento_Baja(eInstrumento array[], int cantidadDeArray)
 	return retorno;
 }
 
-int eInstrumento_Modificacion(eInstrumento array[], int cantidadDeArray) {
+int eInstrumento_Modificacion(eInstrumento array[], int cantidadDeArray)
+{
 	int retorno = 0;
 	int idInstrumento;
 	int posicion;
@@ -237,7 +238,8 @@ int eInstrumento_Modificacion(eInstrumento array[], int cantidadDeArray) {
 	return retorno;
 }
 
-int eInstrumento_Sort(eInstrumento array[], int cantidadDeArray, int criterio) {
+int eInstrumento_Sort(eInstrumento array[], int cantidadDeArray, int criterio)
+{
 	int retorno = 0;
 	int i;
 	int j;

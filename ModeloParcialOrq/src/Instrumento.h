@@ -25,5 +25,7 @@ eInstrumento eInstrumento_CargarDatos(void);
 eInstrumento eInstrumento_ModificarUno(eInstrumento Instrumento);
 int eInstrumento_Alta(eInstrumento array[], int cantidadDeArray);
 int eInstrumento_Baja(eInstrumento array[], int cantidadDeArray);
+int eInstrumento_Modificacion(eInstrumento array[], int cantidadDeArray);
+int eInstrumento_Sort(eInstrumento array[], int cantidadDeArray, int criterio);
 
 #endif /* INSTRUMENTO_H_ */

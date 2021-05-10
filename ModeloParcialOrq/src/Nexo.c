@@ -98,11 +98,67 @@ int getDescripcionCarrera(eOrquesta aOrquesta[], int cantidadDeArray, int buscar
 
 	for(i=0; i<cantidadDeArray; i++)
 	{
-		if(aOrquesta[i].idTipo==buscar && aOrquesta[i].isEmpty==0)
+		if(aOrquesta[i].tipo==buscar && aOrquesta[i].isEmpty==0)
 		{
 			strcpy(descripcion, aOrquesta[i].nombre);
 			retorno=0;
 		}
 	}
 	return retorno;
+}
+
+
+//#include "Entidades.h"
+
+int eMusicoOrquesta_Alta(
+		eMusico arrayMusico[], int TAM_MUSICO,
+		eOrquesta arrayOrquesta[], int TAM_ORQUESTA,
+		eInstrumento arrayInstrumento[], int TAM_INSTRUMENTO)
+{
+
+	int retorno = 0;
+	eMusico auxMusico;
+	int idOrquesta;
+
+	int posicion = eMusico_ObtenerposicionLibre(arrayMusico, TAM_MUSICO);
+
+	if (posicion != -1) {
+		auxMusico = eMusico_CargarDatos();
+
+		//ID DE ORQUESTA
+		eOrquesta_MostrarTodos(arrayOrquesta, TAM_ORQUESTA);
+		idOrquesta = Get_Int("SELECCIONE ID DE ORQUESTA DE MUSICO: ",
+				"ERROR. REINGRESE: ");
+
+		while (eOrquesta_BuscarPorID(arrayOrquesta, TAM_ORQUESTA, idOrquesta) == -1) {
+			puts("ID NO EXISTE.");
+			idOrquesta = Get_Int("SELECCIONE ID DE ORQUESTA DE MUSICO: ",
+					"ERROR. REINGRESE: ");
+		}
+		auxMusico.idOrquesta = idOrquesta;
+
+		//ID DE INSTRUMENTO
+		auxMusico.idInstrumento = 999;
+
+		//TENGO TODO CARGADO
+		if (Validate_Exit_SN("CONTINUAR SI[S] - NO[N]: ",
+				"ERROR. REINGRESE: "))
+		{
+			auxMusico.iDMusico = eMusico_ObtenerID();
+			auxMusico.isEmpty = 0;
+			arrayMusico[posicion] = auxMusico;
+			retorno = 1;
+		}
+	}
+	return retorno;
+}
+void eMusicoOrquestaInstrumento_MostrarUno(eMusico Musico, eOrquesta o, eInstrumento i){
+
+}
+void Nada(void){
+	/*eMusico m;
+
+	int indiceOrquesta = eOrquesta_BuscarPorID(arrayOrquesta, TAM_Orq, m.idOrquesta);
+	int indiceInstrumento = eInstrumento_BuscarPorID(arrayInstrumento, TAM_Ins, m.idInstrumento);
+	*/
 }
