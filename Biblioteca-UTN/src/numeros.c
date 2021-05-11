@@ -35,7 +35,7 @@ int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,in
 int utn_getNumeroConDecimales(float* pResultado,char* mensaje,char* mensajeError,float minimo,float maximo,int reintentos)
 {
 	int retorno = -1;
-	int bufferInterno;
+	float bufferInterno;
 	if(pResultado != NULL && mensaje != NULL && mensajeError != NULL && minimo <= maximo && reintentos>0)
 	{
 
@@ -69,7 +69,7 @@ int utn_getCaracter(char* pResultado,char* mensaje,char* mensajeError,char minim
 		{
 			printf("%s", mensaje);
 			fflush(stdin);
-			scanf("%f", &bufferChar);
+			scanf("%c", &bufferChar);
 			if(bufferChar>=minimo && bufferChar<=maximo)
 			{
 				*pResultado=bufferChar;

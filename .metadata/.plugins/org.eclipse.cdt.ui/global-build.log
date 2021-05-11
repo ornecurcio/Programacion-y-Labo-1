@@ -1,3 +1,8 @@
-Info: Nothing to build for Estructuras
-Info: Nothing to build for Estructuras
-Info: Nothing to build for Estructuras
+20:52:32 **** Incremental Build of configuration Debug for project Biblioteca-UTN ****
+Info: Internal Builder is used for build
+gcc -o Biblioteca-UTN.exe "src\\Biblioteca-UTN.o" "src\\calculos.o" "src\\funcionesUTNyMenu.o" "src\\numeros.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: src\numeros.o: in function `utn_getNumero':
+C:\Users\orne_\eclipse-workspace\Biblioteca-UTN\Debug/../src/numeros.c:10: multiple definition of `utn_getNumero'; src\funcionesUTNyMenu.o:C:\Users\orne_\eclipse-workspace\Biblioteca-UTN\Debug/../src/funcionesUTNyMenu.c:84: first defined here
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: src\numeros.o: in function `utn_getCaracter':
+C:\Users\orne_\eclipse-workspace\Biblioteca-UTN\Debug/../src/numeros.c:62: multiple definition of `utn_getCaracter'; src\funcionesUTNyMenu.o:C:\Users\orne_\eclipse-workspace\Biblioteca-UTN\Debug/../src/funcionesUTNyMenu.c:176: first defined here
+collect2.exe: error: ld returned 1 exit status
