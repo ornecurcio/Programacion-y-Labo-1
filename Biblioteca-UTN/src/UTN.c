@@ -9,7 +9,7 @@
 #include <string.h>
 #include <ctype.h>
 
-int getInt(int* pResultado);
+static int getInt(int* pResultado);
 int esNumerica(char* cadena, int longitud);
 int getFloat(float* pResultado);
 int esFlotante(char* cadena, int longitud);
@@ -134,6 +134,20 @@ int esLetraConEspacio(char *pResultado)
 	}
 	return retorno;
 }
+int esTelefonoValido(char* cadena)
+{
+    int retorno=1;
+    int i;
+    for(i=0;cadena[i]!='\0';i++)
+    {
+        if((cadena[i]<'0' || cadena[i]>'9') && (cadena[i]!='-' || cadena[i]!=' '))
+        {
+            retorno=0;
+            break;
+        }
+    }
+    return retorno;
+}
 //------GETS COSAS----------
 int myGets(char* cadena, int longitud)
 {
@@ -148,7 +162,7 @@ int myGets(char* cadena, int longitud)
 			{
 				bufferString[strnlen(bufferString,sizeof(bufferString))-1] = '\0';
 			}
-			if(strnlen(bufferString, sizeof(bufferString))>=longitud)
+			if(strnlen(bufferString, sizeof(bufferString))<=longitud)
 			{
 				strncpy(cadena, bufferString, longitud);
 				retorno=0;
@@ -157,13 +171,13 @@ int myGets(char* cadena, int longitud)
 	}
 	return retorno;
 }
-int getInt(int* pResultado)
+static int getInt(int* pResultado)
 {
 	int retorno = -1;
 	char bufferString[50];
 	if(pResultado!=NULL)
 	{
-		if(myGets(bufferString, sizeof(bufferString))==0 && esNumerica(bufferString, sizeof(bufferString))==0)
+		if(myGets(bufferString, sizeof(bufferString))==0 && esNumerica(bufferString, sizeof(bufferString))==1)
 		{
 			*pResultado=atoi(bufferString);
 			retorno=0;
@@ -178,7 +192,7 @@ int getFloat(float* pResultado)
 	char buffer[64];
 	if(pResultado!=NULL)
 	{
-		if(myGets(buffer, sizeof(buffer))==0 && esFlotante(buffer, sizeof(buffer))==0)
+		if(myGets(buffer, sizeof(buffer))==0 && esFlotante(buffer, sizeof(buffer))==1)
 		{
 			*pResultado=atof(buffer);
 			retorno=0;
@@ -192,7 +206,7 @@ int getNombre(char* pResultado, int longitud)
 	char buffer[5000];
 	if(pResultado!=NULL && longitud>0)
 	{
-		if(myGets(buffer, sizeof(buffer))==0 && esNombre(buffer, sizeof(buffer))!=0 && strnlen(buffer, sizeof(buffer))<longitud)
+		if(myGets(buffer, sizeof(buffer))==0 && esNombre(buffer, sizeof(buffer))!=0 && strnlen(buffer, sizeof(buffer))<=longitud)
 		{
 			strncpy(pResultado, buffer, longitud);
 			retorno=0;
@@ -266,7 +280,7 @@ int utn_getCaracter(char* pResultado,char* mensaje,char* mensajeError,char strin
 
 			if(strlen(bufferChar)<20)
 			{
-				strcpy(*pResultado,bufferChar);
+				strcpy(pResultado,bufferChar);
 				retorno=0;
 				break;
 			}
@@ -331,7 +345,7 @@ int utn_getString(char aux[],char* mensaje,char* mensajeError, int reintentos)
 	}
 	return retorno;
 }
-int utn_getNombre(char* mensaje, char* mensajeError, char* pResultado,int reintentos, int longitud)
+int utn_getNombre(char* pResultado, char* mensaje, char* mensajeError,int reintentos, int longitud)
 {
 	char bufferString[1000];
 	int retorno = -1;
@@ -355,6 +369,32 @@ int utn_getNombre(char* mensaje, char* mensajeError, char* pResultado,int reinte
 		}while(reintentos>=0);
 	}
 	return retorno;
+}
+int utn_getTelefono(char* pResultado, char* mensaje, char* mensajeError, int minSize, int maxSize, int min, int max, int reintentos)
+{
+    int retorno=-1;
+    char bufferStr[50];
+
+    if(mensaje!=NULL && mensajeError!=NULL && minSize<maxSize && min<max && reintentos>=0 && pResultado!=NULL)
+    {
+        do
+        {
+        	printf("%s",mensaje);
+            if(myGets(bufferStr, 50)==0 && esTelefonoValido(bufferStr)==1)
+            {
+                    strcpy(pResultado,bufferStr);
+                    retorno=0;
+                    break;
+            }
+            else
+			{
+				printf("%s 2",mensajeError);
+				reintentos--;
+			}
+        }
+        while(reintentos>=0);
+    }
+    return retorno;
 }
 //-------ARRAY cosas----
 void inicializarArrayChar(char pArray[], int cantidadDeArray)

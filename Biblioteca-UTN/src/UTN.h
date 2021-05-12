@@ -35,14 +35,14 @@ int esNumerica(char* cadena, int longitud);
  * valida contra minimo y maximo
  * estable cantidad de reintentos de error.
  * */
-utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos);
+int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos);
 
 /**
  * \brief valida que la cadena obtenida es FLOTANTE
  * \param cadena es un puntero al espacio de memoria donde se dejara el resultado de la funcion
  * return Retorna 0 si el numero es flotante, -1, SI ES ERROR.
  */
-int getFloat(int* pResultado);
+int getFloat(float* pResultado);
 /**
  * \brief valida que la cadena obtenida sea flotante
  * \param cadena es un puntero al espacio de memoria donde se dejara el resultado de la funcion
@@ -86,18 +86,20 @@ int getNombre(char* pResultado, int longitud);
 
 /**
  * \brief Solicita un nombre al usuario
+ * \param char* pResultado, puntero al espacio de memoria donde se dejara el valor obtenido
  * \param char* mensaje, Es el mensaje a ser mostrado al usuario
  * \param char* mensaje, Es el mensaje de error a ser mostrado al usuario
- * \param int* pResultado, puntero al espacio de memoria donde se dejara el valor obtenido
  * \param int reintentos, cantidad de oportunidades para ingresar el dato
  * \param int limite, indica la cantidad de letras maxima del nombre
  * \return (-1) Error / (0) Ok
- *
  */
-int utn_getNombre(char* mensaje, char* mensajeError, char* pResultado,int reintentos, int longitud);
+int utn_getNombre(char* pResultado, char* mensaje, char* mensajeError,int reintentos, int longitud);
 
 int esSoloLetra(char *pResultado) ;
 int esLetraConEspacio(char *pResultado);
+int esTelefonoValido(char* cadena);
+int utn_getTelefono(char* pResultado, char* mensaje, char* mensajeError, int minSize, int maxSize, int min, int max, int reintentos);
+
 void FormaApellidoNombre(char *pNombre, char *pApellido, char *pCompleto);
 
 #endif /* UTN_H_ */

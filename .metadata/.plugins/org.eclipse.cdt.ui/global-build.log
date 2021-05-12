@@ -1,14 +1,5 @@
-21:18:00 **** Incremental Build of configuration Debug for project Biblioteca-UTN ****
+18:22:35 **** Incremental Build of configuration Debug for project Biblioteca-UTN ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
-..\src\UTN.c: In function 'utn_getCaracter':
-..\src\UTN.c:269:12: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast [-Wint-conversion]
-  269 |     strcpy(*pResultado,bufferChar);
-      |            ^~~~~~~~~~~
-      |            |
-      |            char
-In file included from ..\src\UTN.c:9:
-c:\mingw\include\string.h:79:40: note: expected 'char *' but argument is of type 'char'
-   79 | _CRTIMP __cdecl __MINGW_NOTHROW  char *strcpy (char *, const char *);
-      |                                        ^~~~~~
 gcc -o Biblioteca-UTN.exe "src\\Biblioteca-UTN.o" "src\\UTN.o" "src\\calculos.o" 
+Info: Nothing to build for Biblioteca-UTN

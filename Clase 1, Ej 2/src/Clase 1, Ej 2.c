@@ -15,12 +15,16 @@
 int main(void) {
 	setbuf(stdout, NULL);
 
-	int valorSueldo;
-	int resultado;
-	printf("Ingrese su sueldo");
-	scanf("%d", &valorSueldo);
-	resultado=valorSueldo+valorSueldo*10/100;
-	printf("Su sueldo con aumento es: %d",resultado);
+	int mayor;
+	int array[5]={0, 1, 5, 6, 7};
 
+	for(int i=5; i>0; i--)
+	{
+		if(array[i]>mayor)
+		{
+			mayor=array[i];
+		}
+	}
+	printf("%d", mayor);
 	return 0;
 }
