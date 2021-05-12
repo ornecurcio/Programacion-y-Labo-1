@@ -1,12 +1,11 @@
 /*
- * numeros.h
  *
  *  Created on: 1 abr. 2021
  *      Author: orne_
  */
 
-#ifndef FUNCIONESUTNYMENU_H_
-#define FUNCIONESUTNYMENU_H_
+#ifndef UTN_H_
+#define UTN_H_
 
 void getString(char mensaje[], char imput[]);
 /**
@@ -15,13 +14,13 @@ void getString(char mensaje[], char imput[]);
  * \param longitud, la longitud del cadena de caracteres
  * return Retorna 0 si se valido con exito la toma del string.
  */
-static int myGets(char* cadena, int longitud);
+int myGets(char* cadena, int longitud);
 /**
  * \brief OBTIENE UN NUMERO ENTERO
  * \param pResultado es un puntero al espacio de memoria donde se dejara el resultado de la funcion
  * return Retorna 0 si se valido con exito o -1, si es error.
  */
-static int getInt(int* pResultado);
+int getInt(int* pResultado);
 /**
  * \brief valida que la cadena obtenida sea numerica
  * \param cadena es un puntero al espacio de memoria donde se dejara el resultado de la funcion
@@ -29,28 +28,28 @@ static int getInt(int* pResultado);
  * return Retorna 1 si los caracteres son todos numericos, tomando en cuenta que puede haber
  * un signo + o menos en la posicion cero,  o 0, SI ES ERROR.
  */
-static int esNumerica(char* cadena, int longitud);
+int esNumerica(char* cadena, int longitud);
 
 /*obtiene un numero entero, asigno el resultado a un espacio de memoria,
  * muestra un mensaje de ingreso de dato, un mensaje de error si la validacion esta mal,
  * valida contra minimo y maximo
  * estable cantidad de reintentos de error.
  * */
-int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos);
+utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos);
 
 /**
  * \brief valida que la cadena obtenida es FLOTANTE
  * \param cadena es un puntero al espacio de memoria donde se dejara el resultado de la funcion
  * return Retorna 0 si el numero es flotante, -1, SI ES ERROR.
  */
-static int getFloat(int* pResultado);
+int getFloat(int* pResultado);
 /**
  * \brief valida que la cadena obtenida sea flotante
  * \param cadena es un puntero al espacio de memoria donde se dejara el resultado de la funcion
  * \param longitud es la longitud maxima de la cadena de caracteres
  * return Retorna 1 si la cadena es flotante,o 0, SI ES ERROR.
  */
-static int esFlotante(char* cadena, int longitud);
+int esFlotante(char* cadena, int longitud);
 /**
  * \brief Solicita un numero FLOTANTE al usuario, luego de verificarlo devuelve el resultado
  * \param pResultado es un puntero al espacio de memoria donde se dejara el resultado de la funcion
@@ -101,4 +100,4 @@ int esSoloLetra(char *pResultado) ;
 int esLetraConEspacio(char *pResultado);
 void FormaApellidoNombre(char *pNombre, char *pApellido, char *pCompleto);
 
-#endif /* FUNCIONESUTNYMENU_H_ */
+#endif /* UTN_H_ */
