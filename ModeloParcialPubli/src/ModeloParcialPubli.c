@@ -16,13 +16,18 @@
 
 #define QTY_PANTALLA 3
 #define QTY_CLIENTE 2
+#define QTY_TIPO 2
 int main(void) {
 	setbuf(stdout, NULL);
 
-		eTipo
+		eTipo vecTipo[QTY_TIPO]={
+				{1, "TYO", 0},
+				{2, "ENDO", 0},
+		};
 		ePantalla vecPantallas[QTY_PANTALLA];
 		ePublicidad vecClientes[QTY_CLIENTE];
 		int contadorPantallas=0;
+		int contadorPublicidad=0;
 		int submenu;
 		int auxInt;
 		int respuestaMenuPrincipal;
@@ -53,7 +58,7 @@ int main(void) {
 						}
 						else
 						{
-							modifica1Pantalla(vecPantallas, buscaPantallaById(vecPantallas, QTY_PANTALLA));
+							modifica1Pantalla(vecPantallas, buscaPantallaById(vecPantallas, QTY_PANTALLA,&auxInt));
 						}
 						break;
 					case 3://BAJA PANTALLA
@@ -63,7 +68,8 @@ int main(void) {
 						}
 						else
 						{
-							bajaPantalla(vecPantallas, buscaPantallaById(vecPantallas, QTY_PANTALLA));
+							bajaPantalla(vecPantallas, buscaPantallaById(vecPantallas, QTY_PANTALLA, &auxInt), vecTipo, QTY_TIPO);
+							bajaPublicidadxPantalla(vecClientes, QTY_PANTALLA, auxInt);
 						}
 						break;
 					case 4: // ALTA PUBLICIDAD
@@ -73,7 +79,8 @@ int main(void) {
 						}
 						else
 						{
-							imprimirPantallas(vecPantallas, QTY_PANTALLA);
+							imprimirPantallas(vecPantallas, QTY_PANTALLA, vecTipo, QTY_TIPO);
+
 						}
 						break;
 					case 5://MODIFICA PUBLICIDAD

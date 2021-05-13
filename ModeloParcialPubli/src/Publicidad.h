@@ -7,11 +7,12 @@
 
 #ifndef PUBLICIDAD_H_
 #define PUBLICIDAD_H_
+#include "Pantalla.h"
 typedef struct
 {
 	int idPublicidad;
 	int idPantalla;
-	int cuil;
+	char cuil[15];
 	char archivo[51];
 	int dias;
 	int isEmpty;
@@ -28,14 +29,14 @@ int inicializarPublidad(ePublicidad pArray[], int cantidadDeArray);
 * \param cantidadDeArray int, a recorrer
 * \return int Retorno (-1) si Error, retorna un int de posicion si todo Ok
 */
-int buscaLibre(ePublicidad pArray[], int cantidadDeArray);
+int buscaLibrePublicidad(ePublicidad pArray[], int cantidadDeArray);
 /** \brief alta un empleado, llama a otras funciones que valida los datos de cada campo a cargar
 * \param aEmployee array donde se cargan los datos
 * \param cantidadDeArray int, recorrer array
 * \param contadorId int como puntero, donde se cargara el ID de manera autoincremental
 * \return int Retorno (-1) si ERROR (0) SI TODO Ok
 */
-int altaPublicidad(ePublicidad aEmployee[], int cantidadDeArray, int* contadorId);
+int altaPublicidad(ePublicidad aArray[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla, int* contadorId);
 /** \brief imprime un empleado
 * \param aEmpleado, recibe por valor la estructura de un empleado
 */
@@ -51,9 +52,10 @@ int imprimirPublicidad(ePublicidad array[], int cantidadDeArray);
 
 int modifica1Publicidad(ePublicidad aAuxiliar[], int posicion);
 
-int eEmployeePromSalario(float* pPromedioResultado, ePantalla array[], int cantidadDeArray);
+//int eEmployeePromSalario(float* pPromedioResultado, ePantalla array[], int cantidadDeArray);
 
-int eEmployeesListaSalario(ePantalla array[], int cantidadDeArray, float salary);
+//int eEmployeesListaSalario(ePantalla array[], int cantidadDeArray, float salary);
 
+int bajaPublicidadxPantalla(ePublicidad array[], int cantidadDeArray,int ID);
 
 #endif /* PUBLICIDAD_H_ */

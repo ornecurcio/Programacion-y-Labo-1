@@ -4,11 +4,11 @@
  *  Created on: 12 may. 2021
  *      Author: orne_
  */
-#include "Publicidad.h"
-#include "UTN.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Publicidad.h"
+#include "UTN.h"
 
 int inicializarPublidad(ePublicidad pArray[], int cantidadDeArray)
 {
@@ -24,7 +24,7 @@ int inicializarPublidad(ePublicidad pArray[], int cantidadDeArray)
 	}
 	return retorno;
 }
-int buscaLibre(ePublicidad pArray[], int cantidadDeArray)
+int buscaLibrePublicidad(ePublicidad pArray[], int cantidadDeArray)
 {
 	int retorno = -1;
 	int i;
@@ -43,44 +43,48 @@ int buscaLibre(ePublicidad pArray[], int cantidadDeArray)
 	}
 	return retorno;
 }
-int altaPublicidad(ePublicidad aEmployee[], int cantidadDeArray, int* contadorId)
+int altaPublicidad(ePublicidad aArray[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla, int* contadorId)
 {
 	int retorno = -1;
-	ePantalla aAuxiliar;
+	ePublicidad aAuxiliar;
 	int posicion;
-	if(aEmployee!=NULL && cantidadDeArray>0 && contadorId!=NULL)
+	int auxI;
+	if(aArray!=NULL && cantidadDeArray>0 && aPantalla!=NULL && cantidadPantalla>0)
 	{
-		posicion=buscaLibre(aEmployee, cantidadDeArray);
+		posicion=buscaLibrePublicidad(aArray, cantidadDeArray);
 		if(posicion==-1)
 		{
 			printf("\nNo hay lugares libres");
 		}
 		else
 		{
-			if((utn_getString(aAuxiliar.lastName, "Ingrese Apellido", "Error, ingrese Apellido", 2)==0)&&
-			(utn_getString(aAuxiliar.name, "Ingrese Nombre", "Error, ingrese Nombre", 2)==0)&&
-			(utn_getNumeroConDecimales(&aAuxiliar.salary,"Ingrese salario","Error, ingrese salario entre 300-3000",300,3000,2)==0)&&
-			(utn_getNumero(&aAuxiliar.sector, "Ingrese sector","Error, ingrese sector de 1 a 20", 1, 20, 2)==0))
+			if(buscaPantallaById(aPantalla, cantidadPantalla, &auxI)==0)
 			{
-				aAuxiliar.idPantalla=0;
-				printf("Estos son los datos, desea continuar:");
-				imprimir1Employee(aAuxiliar);
-				if(utn_getCaracterSN()==0)
+				if((utn_getCUIT(aAuxiliar.cuil, "Ingrese CUIT", "Error,ingrese CUIT", 2)==0)&&
+				(utn_getString(aAuxiliar.archivo, "Ingrese Nombre", "Error, ingrese Nombre", 2)==0)&&
+				(utn_getNumero(&aAuxiliar.dias, "Ingrese dias de contratacion","Error, ingrese de 1 a 365", 1, 365, 2)==0))
 				{
-				   (*contadorId)++;
-				   aAuxiliar.idPantalla=*contadorId;
-				   aAuxiliar.isEmpty=0;
-				   aEmployee[posicion]=aAuxiliar;
-				   retorno=0;
+					aAuxiliar.idPantalla=auxI;
+					aAuxiliar.idPublicidad=0;
+					printf("Estos son los datos, desea continuar:");
+					imprimir1Publicidad(aAuxiliar);
+					if(utn_getCaracterSN()==0)
+					{
+					   (*contadorId)++;
+					   aAuxiliar.idPublicidad=*contadorId;
+					   aAuxiliar.isEmpty=0;
+					   aArray[posicion]=aAuxiliar;
+					   retorno=0;
+					}
 				}
 			}
 		}
 	}
 		return retorno;
 }
-void imprimir1Publicidad(ePublicidad aEmpleado)
+void imprimir1Publicidad(ePublicidad aPublicidad)
 {
-	printf("\n %-5d  %-10s %-10s %-5d %-5.2f ", aEmpleado.idPantalla, aEmpleado.lastName, aEmpleado.name, aEmpleado.sector, aEmpleado.salary);
+	printf("\n %-5d  %-10s %-10s %-5d %-5d ", aPublicidad.idPublicidad, aPublicidad.archivo, aPublicidad.cuil, aPublicidad.dias, aPublicidad.idPublicidad);
 }
 int imprimirPublicidad(ePublicidad array[], int cantidadDeArray)
 {
@@ -88,8 +92,8 @@ int imprimirPublicidad(ePublicidad array[], int cantidadDeArray)
 	int retorno = -1;
 
 	//CABECERA
-	puts("\n\t> LISTADO Empleados");
-	printf("%5s %10s %10s %8s %5s\n", "ID","APELLIDO","NOMBRE","SECTOR","SUELDO");
+	puts("\n\t> LISTADO PUBLICIDAD");
+	printf("%5s %10s %10s %8s %12s\n", "ID","ARCHIVO","CUIL","DIAS","ID PUBLICIDAD");
 	if (array != NULL && cantidadDeArray> 0)
 	{
 		for (i = 0; i < cantidadDeArray; i++)
@@ -100,7 +104,7 @@ int imprimirPublicidad(ePublicidad array[], int cantidadDeArray)
 			}
 			else
 			{
-				imprimir1Employee(array[i]);
+				imprimir1Publicidad(array[i]);
 				retorno=0;
 			}
 		}
@@ -118,7 +122,7 @@ int buscaPublidadById(ePublicidad aAuxiliar[], int cantidadDeArray)
 		scanf("%d", &aID);
 		for(i=0; i<cantidadDeArray; i++)
 		{
-			if(aAuxiliar[i].idPantalla==aID && aAuxiliar[i].isEmpty==0)
+			if(aAuxiliar[i].idPublicidad==aID && aAuxiliar[i].isEmpty==0)
 			{
 				retorno = i;
 				break;
@@ -132,13 +136,13 @@ int buscaPublidadById(ePublicidad aAuxiliar[], int cantidadDeArray)
 	}
 	return retorno;
 }
-int bajaPublicidad(ePublicidad aAuxiliar[], int posicion);
+int bajaPublicidad(ePublicidad aAuxiliar[], int posicion)
 {
 	int retorno = -1;
 	char respuesta;
 	if(aAuxiliar!=NULL && posicion!=-1)
 	{
-		imprimir1Employee(aAuxiliar[posicion]);
+		imprimir1Publicidad(aAuxiliar[posicion]);
 		printf("\nDesea borrar ese empleado, ingrese 's'");
 		fflush(stdin);
 		scanf("%c", &respuesta);
@@ -150,7 +154,7 @@ int bajaPublicidad(ePublicidad aAuxiliar[], int posicion);
 	}
 	return retorno;
 }
-int ordenarPublicidad(ePublicidad array[], int cantidadDeArray, int criterio)
+/*int ordenarPublicidad(ePublicidad array[], int cantidadDeArray, int criterio)
 {
 		int flagDesordenado = -1;
 		int i;
@@ -212,14 +216,14 @@ int ordenarPublicidad(ePublicidad array[], int cantidadDeArray, int criterio)
 		}
 		return retorno;
 }
-
+*/
 int modifica1Publicidad(ePublicidad aAuxiliar[], int posicion)
 {
 	int retorno = -1;
 	int respuesta;
 	if(aAuxiliar!=NULL && posicion!=-1)
 	{
-				imprimir1Employee(aAuxiliar[posicion]);
+				imprimir1Publicidad(aAuxiliar[posicion]);
 				printf("\n¿Desea modificar este empleado?");
 				if(utn_getCaracterSN()==0)
 				{
@@ -243,7 +247,7 @@ int modifica1Publicidad(ePublicidad aAuxiliar[], int posicion)
 							imprimir1Employee(aAuxiliar[posicion]);
 							break;
 						case 3:
-							utn_getNumeroConDecimales(&aAuxiliar[posicion].salary,"Ingrese salario","Error, ingrese salario entre 300-3000",300,3000,1);
+							utn_getNumeroFlotante(&aAuxiliar[posicion].salary,"Ingrese salario","Error, ingrese salario entre 300-3000",300,3000,1);
 							printf("Exito, los nuevos datos son: ");
 							imprimir1Employee(aAuxiliar[posicion]);
 							break;
@@ -300,7 +304,21 @@ int ePantallasListaSalario(ePantalla array[], int cantidadDeArray, float salary)
 			}
 		}
 	}
-
 	return retorno;
 }
-
+int bajaPublicidadxPantalla(ePublicidad array[], int cantidadDeArray,int ID)
+{
+	int retorno = -1;
+	int i;
+	if(array!=NULL && cantidadDeArray>0)
+		{
+			for(i=0; i<cantidadDeArray; i++)
+			{
+				if(array[i].idPantalla==ID)
+				{
+					array[i].isEmpty=1;
+				}
+			}
+		}
+	return retorno;
+}

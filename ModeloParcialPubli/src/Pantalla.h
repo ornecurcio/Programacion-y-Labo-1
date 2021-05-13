@@ -44,7 +44,7 @@ int inicializarPantalla(ePantalla pArray[], int cantidadDeArray);
 * \param cantidadDeArray int, a recorrer
 * \return int Retorno (-1) si Error, retorna un int de posicion si todo Ok
 */
-int buscaLibre(ePantalla pArray[], int cantidadDeArray);
+int buscaLibrePantalla(ePantalla pArray[], int cantidadDeArray);
 /** \brief alta un empleado, llama a otras funciones que valida los datos de cada campo a cargar
 * \param aEmployee array donde se cargan los datos
 * \param cantidadDeArray int, recorrer array
@@ -55,17 +55,19 @@ int altaPantalla(ePantalla aEmployee[], int cantidadDeArray, int* contadorId);
 /** \brief imprime un empleado
 * \param aEmpleado, recibe por valor la estructura de un empleado
 */
-void imprimir1Pantalla(ePantalla aEmpleado);
+void imprimir1Pantalla(ePantalla aPantalla, char* descripcion);
 
-int buscaPantallaById(ePantalla aAuxiliar[], int cantidadDeArray);
+int buscaPantallaById(ePantalla aAuxiliar[], int cantidadDeArray, int* aID);
 
-int bajaPantalla(ePantalla aAuxiliar[], int posicion);
+int bajaPantalla(ePantalla aAuxiliar[], int posicion, eTipo aTipos[], int cantidadTipos);
 
 int ordenarPantalla(ePantalla array[], int cantidadDeArray, int criterio);
 
 int imprimirPantallas(ePantalla array[], int cantidadDeArray);
 
 int modifica1Pantalla(ePantalla aAuxiliar[], int posicion);
+
+int getDescripcionPantalla(eTipo aTipo[], int cantidadDeArray, int buscar, char* descripcion);
 
 //int eEmployeePromSalario(float* pPromedioResultado, ePantalla array[], int cantidadDeArray);
 

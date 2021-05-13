@@ -101,7 +101,7 @@ int esTelefonoValido(char* cadena);
 int utn_getTelefono(char* pResultado, char* mensaje, char* mensajeError, int minSize, int maxSize, int min, int max, int reintentos);
 
 void FormaApellidoNombre(char *pNombre, char *pApellido, char *pCompleto);
-int utn_getCUIT(char* msg, char* msgError, int reintentos, char* input);
+int utn_getCUIT(char* pResultado, char* mensaje, char* mensajeError, int reintentos);
 int isValidCUIT(char* stringRecibido);
-int getString(char* msg, char* msgError, int min, int max, int* reintentos, char* resultado);
+int utn_getCaracterSN(void);
 #endif /* UTN_H_ */
