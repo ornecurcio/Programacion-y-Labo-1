@@ -57,15 +57,15 @@ int altaPantalla(ePantalla aEmployee[], int cantidadDeArray, int* contadorId);
 */
 void imprimir1Pantalla(ePantalla aPantalla, char* descripcion);
 
+int imprimirPantallas(ePantalla array[], int cantidadDeArray, eTipo aTipos[], int cantidadTipos);
+
 int buscaPantallaById(ePantalla aAuxiliar[], int cantidadDeArray, int* aID);
 
 int bajaPantalla(ePantalla aAuxiliar[], int posicion, eTipo aTipos[], int cantidadTipos);
 
 int ordenarPantalla(ePantalla array[], int cantidadDeArray, int criterio);
 
-int imprimirPantallas(ePantalla array[], int cantidadDeArray);
-
-int modifica1Pantalla(ePantalla aAuxiliar[], int posicion);
+int modifica1Pantalla(ePantalla aAuxiliar[], int posicion, eTipo aTipos[], int cantidadTipos);
 
 int getDescripcionPantalla(eTipo aTipo[], int cantidadDeArray, int buscar, char* descripcion);
 

@@ -8,6 +8,7 @@
 #define UTN_H_
 
 void getString(char mensaje[], char imput[]);
+void getChar(char* mensaje, char* rta);
 /**
  * \brief
  * \param char* cadena es un puntero donde se va a guardar el string
@@ -101,7 +102,7 @@ int esTelefonoValido(char* cadena);
 int utn_getTelefono(char* pResultado, char* mensaje, char* mensajeError, int minSize, int maxSize, int min, int max, int reintentos);
 
 void FormaApellidoNombre(char *pNombre, char *pApellido, char *pCompleto);
+int esCUIT(char* cadena);
 int utn_getCUIT(char* pResultado, char* mensaje, char* mensajeError, int reintentos);
-int isValidCUIT(char* stringRecibido);
 int utn_getCaracterSN(void);
 #endif /* UTN_H_ */

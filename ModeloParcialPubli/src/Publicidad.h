@@ -42,20 +42,26 @@ int altaPublicidad(ePublicidad aArray[], int cantidadDeArray, ePantalla aPantall
 */
 void imprimir1Publicidad(ePublicidad aEmpleado);
 
-int buscaPublidadById(ePublicidad aAuxiliar[], int cantidadDeArray);
-
-int bajaPublicidad(ePublicidad aAuxiliar[], int posicion);
-
-int ordenarPublicidad(ePublicidad array[], int cantidadDeArray, int criterio);
-
 int imprimirPublicidad(ePublicidad array[], int cantidadDeArray);
 
+int buscaCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, char* aCUIT);
+
+int buscaPublicidadByCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla, eTipo aTipo[], int cantidadTipo);
+
+int buscaPublicidadByIdPantalla(ePublicidad aAuxiliar[], int cantidadDeArray, int* aID);
+
+//int ordenarPublicidad(ePublicidad array[], int cantidadDeArray, int criterio);
+
 int modifica1Publicidad(ePublicidad aAuxiliar[], int posicion);
+
+int bajaPublicidad(ePublicidad aAuxiliar[], int posicion);
 
 //int eEmployeePromSalario(float* pPromedioResultado, ePantalla array[], int cantidadDeArray);
 
 //int eEmployeesListaSalario(ePantalla array[], int cantidadDeArray, float salary);
 
 int bajaPublicidadxPantalla(ePublicidad array[], int cantidadDeArray,int ID);
+
+int facturacionByCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla);
 
 #endif /* PUBLICIDAD_H_ */

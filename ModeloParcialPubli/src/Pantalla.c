@@ -47,9 +47,10 @@ int altaPantalla(ePantalla aPantalla[], int cantidadDeArray, int* contadorId)
 	int retorno = -1;
 	ePantalla aAuxiliar;
 	int posicion;
+	char descripcion[30];
 	if(aPantalla!=NULL && cantidadDeArray>0 && contadorId!=NULL)
 	{
-		posicion=buscaLibre(aPantalla, cantidadDeArray);
+		posicion=buscaLibrePantalla(aPantalla, cantidadDeArray);
 		if(posicion==-1)
 		{
 			printf("\nNo hay lugares libres");
@@ -58,14 +59,22 @@ int altaPantalla(ePantalla aPantalla[], int cantidadDeArray, int* contadorId)
 		{
 			if((utn_getNombre(aAuxiliar.name, "Ingrese nombre de Pantalla", "Error muy largo", 2, TAM)==0)&&
 			(utn_getNumero(&aAuxiliar.tipo, "Ingrese 1. LCD, 2.LED", "Ingrese 1. LCD, 2.LED", 1, 2, 2)==0)&&
-			(utn_getNumeroConDecimales(&aAuxiliar.precio,"Ingrese precio","Error, ingrese precio entre 200-3000",200,3000,2)==0)&&
+			(utn_getNumeroFlotante(&aAuxiliar.precio,"Ingrese precio","Error, ingrese precio entre 200-3000",200,3000,2)==0)&&
 			(utn_getNombre(aAuxiliar.direccion.calle, "Ingrese Calle", "Error muy largo", 2, TAM)==0)&&
 			(utn_getNombre(aAuxiliar.direccion.localidad, "Ingrese Localidad", "Error muy largo", 2, TAM)==0)&&
-			(utn_getNumero(aAuxiliar.direccion.altura, "Ingrese altura", "Error, numero invalido", 1, 9999, 2)==0))
+			(utn_getNumero(&aAuxiliar.direccion.altura, "Ingrese altura", "Error, numero invalido", 1, 9999, 2)==0))
 			{
 				aAuxiliar.idPantalla=0;
+				if(aAuxiliar.tipo==1)
+				{
+					strcpy(descripcion,"LCD");
+				}
+				if(aAuxiliar.tipo==2)
+				{
+					strcpy(descripcion,"LED");
+				}
 				printf("Estos son los datos, desea continuar:");
-				imprimir1Pantalla(aAuxiliar);
+				imprimir1Pantalla(aAuxiliar, descripcion);
 				if(utn_getCaracterSN()==0)
 				{
 				   (*contadorId)++;
@@ -115,20 +124,22 @@ int buscaPantallaById(ePantalla aAuxiliar[], int cantidadDeArray, int* aID)
 {
 	int retorno = -1;
 	int i;
+	int auxI;
 	if(aAuxiliar!=NULL && cantidadDeArray>0)
 	{
-		printf("Ingrese ID");
-		scanf("%d", &aID);
+		printf("\nIngrese ID Pantalla");
+		scanf("%d", &auxI);
+		*aID=auxI;
 		for(i=0; i<cantidadDeArray; i++)
 		{
-			if(aAuxiliar[i].idPantalla==aID && aAuxiliar[i].isEmpty==0)
+			if(aAuxiliar[i].idPantalla==auxI && aAuxiliar[i].isEmpty==0)
 			{
 				retorno = i;
 				break;
 			}
 			else
 			{
-				printf("El numero de ID %d no existe", aID);
+				printf("El numero de ID %d no existe", auxI);
 				break;
 			}
 		}
@@ -153,7 +164,76 @@ int bajaPantalla(ePantalla aAuxiliar[], int posicion, eTipo aTipos[], int cantid
 	}
 	return retorno;
 }
-int ordenarPantallas(ePantalla array[], int cantidadDeArray, int criterio)
+int modifica1Pantalla(ePantalla aAuxiliar[], int posicion, eTipo aTipos[], int cantidadTipos)
+{
+	int retorno = -1;
+	int respuesta;
+	char descripcion[20];
+
+	if(aAuxiliar!=NULL && posicion!=-1 && aTipos!=NULL && cantidadTipos>0)
+	{
+		getDescripcionPantalla(aTipos, cantidadTipos, aAuxiliar[posicion].tipo, descripcion);
+		imprimir1Pantalla(aAuxiliar[posicion], descripcion);
+		printf("\n¿Desea modificar esta pantalla?");
+		if(utn_getCaracterSN()==0)
+		{
+			printf("\nDesea modificar \n1.Nombre\n2.Tipo\n3.Direccion\n4.Precio");
+			scanf("%d", &respuesta);
+			while(respuesta>4 || respuesta<1)
+			{
+				printf("\nDesea modificar \n1.Nombre\n2.Tipo\n3.Direccion\n4.Precio");
+				scanf("%d", &respuesta);
+			}
+			switch(respuesta)
+			{
+				case 1:
+					utn_getNombre(aAuxiliar[posicion].name, "Ingrese nombre de Pantalla", "Error muy largo", 2, TAM);
+					printf("Exito, los nuevos datos son: ");
+					getDescripcionPantalla(aTipos, cantidadTipos, aAuxiliar[posicion].tipo, descripcion);
+					imprimir1Pantalla(aAuxiliar[posicion], descripcion);
+					break;
+				case 2:
+					utn_getNumero(&aAuxiliar[posicion].tipo, "Ingrese 1. LCD, 2.LED", "Ingrese 1. LCD, 2.LED", 1, 2, 2);
+					printf("Exito, los nuevos datos son: ");
+					getDescripcionPantalla(aTipos, cantidadTipos, aAuxiliar[posicion].tipo, descripcion);
+					imprimir1Pantalla(aAuxiliar[posicion], descripcion);
+					break;
+				case 3:
+					utn_getNombre(aAuxiliar[posicion].direccion.calle, "Ingrese Calle", "Error muy largo", 2, TAM);
+					utn_getNumero(&aAuxiliar[posicion].direccion.altura, "Ingrese altura", "Error, numero invalido", 1, 9999, 2);
+					utn_getNombre(aAuxiliar[posicion].direccion.localidad, "Ingrese Localidad", "Error muy largo", 2, TAM);
+					printf("Exito, los nuevos datos son: ");
+					getDescripcionPantalla(aTipos, cantidadTipos, aAuxiliar[posicion].tipo, descripcion);
+					imprimir1Pantalla(aAuxiliar[posicion], descripcion);
+					break;
+				case 4:
+					utn_getNumeroFlotante(&aAuxiliar[posicion].precio,"Ingrese precio","Error, ingrese precio entre 200-3000",200,3000,2);
+					printf("Exito, los nuevos datos son: ");
+					getDescripcionPantalla(aTipos, cantidadTipos, aAuxiliar[posicion].tipo, descripcion);
+					imprimir1Pantalla(aAuxiliar[posicion], descripcion);
+					break;
+			}
+			retorno = 0;
+		}
+	}
+	return retorno;
+}
+int getDescripcionPantalla(eTipo aTipo[], int cantidadDeArray, int buscar, char* descripcion)
+{
+	int i;
+	int retorno = -1;
+
+	for(i=0; i<cantidadDeArray; i++)
+	{
+		if(aTipo[i].tipo==buscar && aTipo[i].isEmpty==0)
+		{
+			strcpy(descripcion, aTipo[i].descripcion);
+			retorno=0;
+		}
+	}
+	return retorno;
+}
+/*int ordenarPantallas(ePantalla array[], int cantidadDeArray, int criterio)
 {
 		int flagDesordenado = -1;
 		int i;
@@ -215,62 +295,8 @@ int ordenarPantallas(ePantalla array[], int cantidadDeArray, int criterio)
 		}
 		return retorno;
 }
-
-int modifica1Pantalla(ePantalla aAuxiliar[], int posicion, eTipo aTipos[], cantidadTipos)
-{
-	int retorno = -1;
-	int respuesta;
-	char descripcion[20];
-
-	if(aAuxiliar!=NULL && posicion!=-1 && aTipos!=NULL && cantidadTipos>0)
-	{
-		getDescripcionPantalla(aTipos, cantidadTipos, aAuxiliar[posicion].tipo, descripcion);
-		imprimir1Pantalla(aAuxiliar[posicion], descripcion);
-		printf("\n¿Desea modificar esta pantalla?");
-		if(utn_getCaracterSN()==0)
-		{
-			printf("\nDesea modificar \n1.Nombre\n2.Tipo\n3.Direccion\n4.Precio");
-			scanf("%d", &respuesta);
-			while(respuesta>4 || respuesta<1)
-			{
-				printf("\nDesea modificar \n1.Nombre\n2.Tipo\n3.Direccion\n4.Precio");
-				scanf("%d", &respuesta);
-			}
-			switch(respuesta)
-			{
-				case 1:
-					utn_getNombre(aAuxiliar[posicion].name, "Ingrese nombre de Pantalla", "Error muy largo", 2, TAM);
-					printf("Exito, los nuevos datos son: ");
-					getDescripcionPantalla(aTipos, cantidadTipos, aAuxiliar[posicion].tipo, descripcion);
-					imprimir1Pantalla(aAuxiliar[posicion], descripcion);
-					break;
-				case 2:
-					utn_getNumero(&aAuxiliar[posicion].tipo, "Ingrese 1. LCD, 2.LED", "Ingrese 1. LCD, 2.LED", 1, 2, 2);
-					printf("Exito, los nuevos datos son: ");
-					getDescripcionPantalla(aTipos, cantidadTipos, aAuxiliar[posicion].tipo, descripcion);
-					imprimir1Pantalla(aAuxiliar[posicion], descripcion);
-					break;
-				case 3:
-					utn_getNombre(aAuxiliar[posicion].direccion.calle, "Ingrese Calle", "Error muy largo", 2, TAM);
-					utn_getNumero(&aAuxiliar[posicion].direccion.altura, "Ingrese altura", "Error, numero invalido", 1, 9999, 2);
-					utn_getNombre(aAuxiliar[posicion].direccion.localidad, "Ingrese Localidad", "Error muy largo", 2, TAM);
-					printf("Exito, los nuevos datos son: ");
-					getDescripcionPantalla(aTipos, cantidadTipos, aAuxiliar[posicion].tipo, descripcion);
-					imprimir1Pantalla(aAuxiliar[posicion], descripcion);
-					break;
-				case 4:
-					utn_getNumeroConDecimales(&aAuxiliar[posicion].precio,"Ingrese precio","Error, ingrese precio entre 200-3000",200,3000,2);
-					printf("Exito, los nuevos datos son: ");
-					getDescripcionPantalla(aTipos, cantidadTipos, aAuxiliar[posicion].tipo, descripcion);
-					imprimir1Pantalla(aAuxiliar[posicion], descripcion);
-					break;
-			}
-			retorno = 0;
-		}
-	}
-	return retorno;
-}
-int ePantallaPromSalario(float* pPromedioResultado, ePantalla array[], int cantidadDeArray)
+*/
+/*int ePantallaPromSalario(float* pPromedioResultado, ePantalla array[], int cantidadDeArray)
 {
 	int retorno = -1;
 	int i;
@@ -292,8 +318,8 @@ int ePantallaPromSalario(float* pPromedioResultado, ePantalla array[], int canti
 		retorno = 0;
 	}
 	return retorno;
-}
-int ePantallasListaSalario(ePantalla array[], int cantidadDeArray, float salary)
+}*/
+/*int ePantallasListaSalario(ePantalla array[], int cantidadDeArray, float salary)
 {
 	int retorno=-1;
 	int i;
@@ -313,19 +339,4 @@ int ePantallasListaSalario(ePantalla array[], int cantidadDeArray, float salary)
 	}
 
 	return retorno;
-}
-int getDescripcionPantalla(eTipo aTipo[], int cantidadDeArray, int buscar, char* descripcion)
-{
-	int i;
-	int retorno = -1;
-
-	for(i=0; i<cantidadDeArray; i++)
-	{
-		if(aTipo[i].tipo==buscar && aTipo[i].isEmpty==0)
-		{
-			strcpy(descripcion, aTipo[i].descripcion);
-			retorno=0;
-		}
-	}
-	return retorno;
-}
+}*/

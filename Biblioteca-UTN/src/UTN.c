@@ -20,6 +20,31 @@ void getString(char mensaje[], char imput[])
 	printf("%s", mensaje);
 	gets(imput);
 }
+void getChar(char* mensaje, char* rta)
+{
+	printf("%s", mensaje);
+	fflush(stdin);
+	scanf("%c", rta);
+}
+int utn_getCaracterSN(void)
+{
+	int retorno = -1;
+	char c;
+
+	getChar("Ingrese Si 's' o No 'n'", &c);
+
+	while(c!='s' && c!='n')
+	{
+		puts("ERROR. OPCION NO VALIDA");
+		getChar("Ingrese Si 's' o No 'n'", &c);
+
+	}
+		if(c=='s')
+		{
+			retorno = 0;
+		}
+	return retorno;
+}
 //------VALIDACIONES COSAS- dan 1 si TRUE
 int esNumerica(char* cadena, int longitud)
 {
@@ -396,6 +421,83 @@ int utn_getTelefono(char* pResultado, char* mensaje, char* mensajeError, int min
     }
     return retorno;
 }
+int esCUIT(char* cadena)// es lo que hay
+{
+    int retorno=1;
+    int i;
+    int j;
+    char buffer[14];
+    int contadorDigito;
+    int contadorGuion;
+    strncpy(buffer,cadena,14);
+
+    for(i=0;buffer[i]!='\0';i++)
+    {
+        if((buffer[i]<'0' || buffer[i]>'9') && (buffer[i]!='-'))
+        {
+            retorno=0;
+            break;
+        }
+        else
+        {
+        	if(isdigit(cadena[i])!=0)
+			{
+				contadorDigito++;
+			}
+			else
+        	{
+				if(cadena[i]=='-')
+				{
+					contadorGuion++;
+        		}
+        		else
+        		{
+					retorno=0;
+					break;
+        		}
+        	}
+        }
+    }
+	if(contadorDigito==11 && contadorGuion==2 && buffer[2]=='-' && buffer[11]=='-')
+	{
+		retorno=1;
+	}
+    return retorno;
+}
+int utn_getCUIT(char* pResultado, char* mensaje, char* mensajeError, int reintentos)
+{
+    int maxTamanio=14; //con guiones 13 elementos
+    int minTamanio=11;  // sin puntos
+    int retorno=-1;
+    char bufferStr[maxTamanio];
+    if(mensaje!=NULL && mensajeError!=NULL && maxTamanio>minTamanio && reintentos>=0 && pResultado!=NULL)
+    {
+        do
+        {
+        	printf("%s",mensaje);
+            if(myGets(bufferStr, 14)==0)
+            {
+            	printf("mygets esta ok");
+
+            	if(esCUIT(bufferStr)==1)
+            	{
+            		printf("esCUIT esta ok");
+                strncpy(pResultado,bufferStr,maxTamanio);
+                retorno=0;
+                break;
+            	}
+            }
+            else
+            {
+                printf("%s",mensajeError);
+                reintentos--;
+            }
+        }
+        while(reintentos>=0);
+    }
+    return retorno;
+}
+
 //-------ARRAY cosas----
 void inicializarArrayChar(char pArray[], int cantidadDeArray)
 {

@@ -1,60 +1,9 @@
-04:53:06 **** Incremental Build of configuration Debug for project ModeloParcialPubli ****
+14:51:50 **** Incremental Build of configuration Debug for project Biblioteca-UTN ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Publicidad.o" "..\\src\\Publicidad.c" 
-..\src\Publicidad.c: In function 'altaPublicidad':
-..\src\Publicidad.c:61:22: error: incompatible type for argument 1 of 'buscaPantallaById'
-   61 |    buscaPantallaById(aAuxiliar, cantidadDeArray, &auxI);
-      |                      ^~~~~~~~~
-      |                      |
-      |                      ePublicidad {aka struct <anonymous>}
-In file included from ..\src\Publicidad.h:10,
-                 from ..\src\Publicidad.c:10:
-..\src\Pantalla.h:60:33: note: expected 'ePantalla *' {aka 'struct <anonymous> *'} but argument is of type 'ePublicidad' {aka 'struct <anonymous>'}
-   60 | int buscaPantallaById(ePantalla aAuxiliar[], int cantidadDeArray, int* aID);
-      |                       ~~~~~~~~~~^~~~~~~~~~~
-..\src\Publicidad.c:64:59: warning: passing argument 3 of 'utn_getCUIT' makes pointer from integer without a cast [-Wint-conversion]
-   64 |     if((utn_getCUIT("Ingrese CUIT", "Error,ingrese CUIT", 2, aAuxiliar.cuil)==0)&&
-      |                                                           ^
-      |                                                           |
-      |                                                           int
-In file included from ..\src\Publicidad.c:11:
-..\src\UTN.h:104:56: note: expected 'char *' but argument is of type 'int'
-  104 | int utn_getCUIT(char* pResultado, char* mensaje, char* mensajeError, int reintentos);
-      |                                                  ~~~~~~^~~~~~~~~~~~
-..\src\Publicidad.c:64:71: warning: passing argument 4 of 'utn_getCUIT' makes integer from pointer without a cast [-Wint-conversion]
-   64 |     if((utn_getCUIT("Ingrese CUIT", "Error,ingrese CUIT", 2, aAuxiliar.cuil)==0)&&
-      |                                                              ~~~~~~~~~^~~~~
-      |                                                                       |
-      |                                                                       char *
-In file included from ..\src\Publicidad.c:11:
-..\src\UTN.h:104:74: note: expected 'int' but argument is of type 'char *'
-  104 | int utn_getCUIT(char* pResultado, char* mensaje, char* mensajeError, int reintentos);
-      |                                                                      ~~~~^~~~~~~~~~
-..\src\Publicidad.c: In function 'imprimirPublicidad':
-..\src\Publicidad.c:108:5: warning: implicit declaration of function 'imprimir1Employee' [-Wimplicit-function-declaration]
-  108 |     imprimir1Employee(array[i]);
-      |     ^~~~~~~~~~~~~~~~~
-..\src\Publicidad.c: In function 'modifica1Publicidad':
-..\src\Publicidad.c:241:41: error: 'ePublicidad' {aka 'struct <anonymous>'} has no member named 'lastName'
-  241 |        utn_getString(aAuxiliar[posicion].lastName, "Ingrese Apellido", "Error, ingrese Apellido", 1);
-      |                                         ^
-..\src\Publicidad.c:246:41: error: 'ePublicidad' {aka 'struct <anonymous>'} has no member named 'name'
-  246 |        utn_getString(aAuxiliar[posicion].name, "Ingrese Nombre", "Error, ingrese Nombre", 1);
-      |                                         ^
-..\src\Publicidad.c:251:8: warning: implicit declaration of function 'utn_getNumeroConDecimales' [-Wimplicit-function-declaration]
-  251 |        utn_getNumeroConDecimales(&aAuxiliar[posicion].salary,"Ingrese salario","Error, ingrese salario entre 300-3000",300,3000,1);
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~
-..\src\Publicidad.c:251:54: error: 'ePublicidad' {aka 'struct <anonymous>'} has no member named 'salary'
-  251 |        utn_getNumeroConDecimales(&aAuxiliar[posicion].salary,"Ingrese salario","Error, ingrese salario entre 300-3000",300,3000,1);
-      |                                                      ^
-..\src\Publicidad.c:256:42: error: 'ePublicidad' {aka 'struct <anonymous>'} has no member named 'sector'
-  256 |        utn_getNumero(&aAuxiliar[posicion].sector, "Ingrese sector: 1.ADMISION, 2.SEGURIDAD, 3.ADMINISTRACION",
-      |                                          ^
-..\src\Publicidad.c: In function 'ePantallaPromSalario':
-..\src\Publicidad.c:280:26: error: 'ePantalla' {aka 'struct <anonymous>'} has no member named 'salary'
-  280 |    acumulador =+ array[i].salary;
-      |                          ^
-..\src\Publicidad.c: In function 'ePantallasListaSalario':
-..\src\Publicidad.c:301:16: error: 'ePantalla' {aka 'struct <anonymous>'} has no member named 'salary'
-  301 |     if(array[i].salary>=salary)
-      |                ^
+gcc -o Biblioteca-UTN.exe "src\\Biblioteca-UTN.o" "src\\UTN.o" "src\\calculos.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file Biblioteca-UTN.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+14:52:08 **** Incremental Build of configuration Debug for project Biblioteca-UTN ****
+Info: Internal Builder is used for build
+gcc -o Biblioteca-UTN.exe "src\\Biblioteca-UTN.o" "src\\UTN.o" "src\\calculos.o" 
+Info: Nothing to build for Biblioteca-UTN

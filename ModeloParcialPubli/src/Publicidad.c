@@ -39,7 +39,6 @@ int buscaLibrePublicidad(ePublicidad pArray[], int cantidadDeArray)
 				break;
 			}
 		}
-
 	}
 	return retorno;
 }
@@ -49,6 +48,7 @@ int altaPublicidad(ePublicidad aArray[], int cantidadDeArray, ePantalla aPantall
 	ePublicidad aAuxiliar;
 	int posicion;
 	int auxI;
+	int rta;
 	if(aArray!=NULL && cantidadDeArray>0 && aPantalla!=NULL && cantidadPantalla>0)
 	{
 		posicion=buscaLibrePublicidad(aArray, cantidadDeArray);
@@ -58,7 +58,7 @@ int altaPublicidad(ePublicidad aArray[], int cantidadDeArray, ePantalla aPantall
 		}
 		else
 		{
-			if(buscaPantallaById(aPantalla, cantidadPantalla, &auxI)==0)
+			if(buscaPantallaById(aPantalla, cantidadPantalla, &auxI)!=-1)
 			{
 				if((utn_getCUIT(aAuxiliar.cuil, "Ingrese CUIT", "Error,ingrese CUIT", 2)==0)&&
 				(utn_getString(aAuxiliar.archivo, "Ingrese Nombre", "Error, ingrese Nombre", 2)==0)&&
@@ -90,7 +90,6 @@ int imprimirPublicidad(ePublicidad array[], int cantidadDeArray)
 {
 	int i;
 	int retorno = -1;
-
 	//CABECERA
 	puts("\n\t> LISTADO PUBLICIDAD");
 	printf("%5s %10s %10s %8s %12s\n", "ID","ARCHIVO","CUIL","DIAS","ID PUBLICIDAD");
@@ -111,49 +110,114 @@ int imprimirPublicidad(ePublicidad array[], int cantidadDeArray)
 	}
 	return retorno;
 }
-int buscaPublidadById(ePublicidad aAuxiliar[], int cantidadDeArray)
+int buscaCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, char* aCUIT)
 {
 	int retorno = -1;
 	int i;
-	int aID;
+	int contador=0;
+	//char aCUIT[14];
+
 	if(aAuxiliar!=NULL && cantidadDeArray>0)
 	{
-		printf("Ingrese ID");
-		scanf("%d", &aID);
+		utn_getCUIT(aCUIT, "Ingrese CUIT", "Error, ingrese CUIT",2);
+
 		for(i=0; i<cantidadDeArray; i++)
 		{
-			if(aAuxiliar[i].idPublicidad==aID && aAuxiliar[i].isEmpty==0)
+			if((stricmp(aAuxiliar[i].cuil, aCUIT)==0) && aAuxiliar[i].isEmpty==0)
+			{
+				contador++;
+				if(contador==1)
+				{
+					retorno = i;
+				}
+				else
+				{
+					retorno = 0;
+				}
+			}
+			else
+			{
+				printf("El numero de CUIT %s no existe", aCUIT);
+				break;
+			}
+		}
+	}
+	return retorno;
+}
+int buscaPublicidadByCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla, eTipo aTipo[], int cantidadTipo)
+{
+	int retorno=-1;
+	int auxI;
+	int i;
+	int j;
+	char descripcion[30];
+	char aCUIT[14];
+	if(aAuxiliar!=NULL && cantidadDeArray>0 && aPantalla!=NULL && cantidadPantalla>0 && aTipo!=NULL && cantidadTipo>0)
+	{
+		if((auxI=buscaCUIT(aAuxiliar, cantidadDeArray,aCUIT))>0)
+		{
+			puts("\n\t> LISTADO PUBLICIDAD");
+			printf("%5s %10s %10s %8s %12s\n", "ID","ARCHIVO","CUIL","DIAS","ID PUBLICIDAD");
+			for(i=0; i<cantidadPantalla; i++)
+			{
+				if(aAuxiliar[auxI].idPantalla==aPantalla[i].idPantalla && aPantalla[i].isEmpty==0)
+				{
+					getDescripcionPantalla(aTipo, cantidadTipo, aPantalla[i].idPantalla, descripcion);
+					imprimir1Publicidad(aAuxiliar[auxI]);
+					imprimir1Pantalla(aPantalla[i], descripcion);
+					retorno=0;
+				}
+			}
+		}
+		if(auxI==0)
+		{
+			puts("\n\t> LISTADO PUBLICIDAD");
+			printf("%5s %10s %10s %8s %12s\n", "ID","ARCHIVO","CUIL","DIAS","ID PUBLICIDAD");
+			for(j=0; j<cantidadDeArray; j++)
+			{
+				for(i=0; i<cantidadPantalla; i++)
+				{
+					if((stricmp(aAuxiliar[j].cuil, aCUIT)==0 && aAuxiliar[j].isEmpty==0)&&
+					(aAuxiliar[j].idPantalla==aPantalla[i].idPantalla && aPantalla[i].isEmpty==0))
+					{
+						getDescripcionPantalla(aTipo, cantidadTipo, aPantalla[i].idPantalla, descripcion);
+						imprimir1Publicidad(aAuxiliar[j]);
+						imprimir1Pantalla(aPantalla[i], descripcion);
+						retorno=0;
+					}
+				}
+			}
+		}
+	}
+	return retorno;
+}
+int buscaPublicidadByIdPantalla(ePublicidad aAuxiliar[], int cantidadDeArray, int* aID)
+{
+	int retorno = -1;
+	int i;
+	int auxInt;
+	if(aAuxiliar!=NULL && cantidadDeArray>0)
+	{
+		printf("Ingrese ID de pantalla");
+		scanf("%d", &auxInt);
+		*aID=auxInt;
+		for(i=0; i<cantidadDeArray; i++)
+		{
+			if(aAuxiliar[i].idPantalla==auxInt && aAuxiliar[i].isEmpty==0)
 			{
 				retorno = i;
 				break;
 			}
 			else
 			{
-				printf("El numero de ID %d no existe", aID);
+				printf("El numero de ID %d no existe", auxInt);
 				break;
 			}
 		}
 	}
 	return retorno;
 }
-int bajaPublicidad(ePublicidad aAuxiliar[], int posicion)
-{
-	int retorno = -1;
-	char respuesta;
-	if(aAuxiliar!=NULL && posicion!=-1)
-	{
-		imprimir1Publicidad(aAuxiliar[posicion]);
-		printf("\nDesea borrar ese empleado, ingrese 's'");
-		fflush(stdin);
-		scanf("%c", &respuesta);
-		if(respuesta=='s')
-		{
-			aAuxiliar[posicion].isEmpty=1;
-			retorno = 0;
-		}
-	}
-	return retorno;
-}
+
 /*int ordenarPublicidad(ePublicidad array[], int cantidadDeArray, int criterio)
 {
 		int flagDesordenado = -1;
@@ -220,50 +284,36 @@ int bajaPublicidad(ePublicidad aAuxiliar[], int posicion)
 int modifica1Publicidad(ePublicidad aAuxiliar[], int posicion)
 {
 	int retorno = -1;
-	int respuesta;
 	if(aAuxiliar!=NULL && posicion!=-1)
 	{
-				imprimir1Publicidad(aAuxiliar[posicion]);
-				printf("\n¿Desea modificar este empleado?");
-				if(utn_getCaracterSN()==0)
-				{
-					printf("\nDesea modificar \n1. Apellido\n2.Nombre\n3.Salario\n4.Sueldo");
-					scanf("%d", &respuesta);
-					while(respuesta>4 || respuesta<1)
-					{
-						printf("\nDesea modificar \n1. Apellido\n2.Nombre\n3.Salario\n4.Sueldo");
-						scanf("%d", &respuesta);
-					}
-					switch(respuesta)
-					{
-						case 1:
-							utn_getString(aAuxiliar[posicion].lastName, "Ingrese Apellido", "Error, ingrese Apellido", 1);
-							printf("Exito, los nuevos datos son: ");
-							imprimir1Employee(aAuxiliar[posicion]);
-							break;
-						case 2:
-							utn_getString(aAuxiliar[posicion].name, "Ingrese Nombre", "Error, ingrese Nombre", 1);
-							printf("Exito, los nuevos datos son: ");
-							imprimir1Employee(aAuxiliar[posicion]);
-							break;
-						case 3:
-							utn_getNumeroFlotante(&aAuxiliar[posicion].salary,"Ingrese salario","Error, ingrese salario entre 300-3000",300,3000,1);
-							printf("Exito, los nuevos datos son: ");
-							imprimir1Employee(aAuxiliar[posicion]);
-							break;
-						case 4:
-							utn_getNumero(&aAuxiliar[posicion].sector, "Ingrese sector: 1.ADMISION, 2.SEGURIDAD, 3.ADMINISTRACION",
-									"Error, ingrese: 1.Admision, 2.Seguridad, 3.Administracion", 1, 3, 1);
-							printf("Exito, los nuevos datos son: ");
-							imprimir1Employee(aAuxiliar[posicion]);
-							break;
-					}
-					retorno = 0;
-				}
+		imprimir1Publicidad(aAuxiliar[posicion]);
+		printf("\n¿Desea modificar esta contratacion?");
+		if(utn_getCaracterSN()==0)
+		{
+			utn_getNumero(&aAuxiliar[posicion].dias, "Ingrese cantidad de dias","Error, ingrese entre 1 y 365", 1, 365, 1);
+			printf("Exito, los nuevos datos son: ");
+			imprimir1Publicidad(aAuxiliar[posicion]);
+			retorno = 0;
 		}
+	}
 	return retorno;
 }
-int ePantallaPromSalario(float* pPromedioResultado, ePantalla array[], int cantidadDeArray)
+int bajaPublicidad(ePublicidad aAuxiliar[], int posicion)
+{
+	int retorno = -1;
+	if(aAuxiliar!=NULL && posicion!=-1)
+	{
+		imprimir1Publicidad(aAuxiliar[posicion]);
+		printf("\n¿Desea borrar esta contratacion?");
+		if(utn_getCaracterSN()==0)
+		{
+			aAuxiliar[posicion].isEmpty=1;
+			retorno = 0;
+		}
+	}
+	return retorno;
+}
+/*int ePantallaPromSalario(float* pPromedioResultado, ePantalla array[], int cantidadDeArray)
 {
 	int retorno = -1;
 	int i;
@@ -285,8 +335,8 @@ int ePantallaPromSalario(float* pPromedioResultado, ePantalla array[], int canti
 		retorno = 0;
 	}
 	return retorno;
-}
-int ePantallasListaSalario(ePantalla array[], int cantidadDeArray, float salary)
+}*/
+/*int ePantallasListaSalario(ePantalla array[], int cantidadDeArray, float salary)
 {
 	int retorno=-1;
 	int i;
@@ -305,7 +355,7 @@ int ePantallasListaSalario(ePantalla array[], int cantidadDeArray, float salary)
 		}
 	}
 	return retorno;
-}
+}*/
 int bajaPublicidadxPantalla(ePublicidad array[], int cantidadDeArray,int ID)
 {
 	int retorno = -1;
@@ -320,5 +370,32 @@ int bajaPublicidadxPantalla(ePublicidad array[], int cantidadDeArray,int ID)
 				}
 			}
 		}
+	return retorno;
+}
+int facturacionByCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla)
+{
+	int retorno=-1;
+	char aCUIT[14];
+	int i;
+	int j;
+	float resultado;
+	if(aAuxiliar!=NULL && (cantidadDeArray>0) && (buscaCUIT(aAuxiliar, cantidadDeArray, aCUIT)!=-1))
+	{
+		for(i=0; i<cantidadDeArray; i++)
+		{
+			if(stricmp(aAuxiliar[i].cuil, aCUIT)==0 && aAuxiliar[i].isEmpty==0)
+			{
+				for(j=0; j<cantidadPantalla; j++)
+				{
+					if(aAuxiliar[i].idPantalla==aPantalla[j].idPantalla)
+					{
+						resultado=aAuxiliar[i].dias*aPantalla[j].precio;
+						printf("El precio a pagar por la contratacion N° %d es %.2f", aAuxiliar[i].idPublicidad, resultado);
+					}
+				}
+			}
+		}
+	}
+
 	return retorno;
 }

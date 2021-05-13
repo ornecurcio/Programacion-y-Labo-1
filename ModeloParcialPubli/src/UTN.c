@@ -20,23 +20,29 @@ void getString(char mensaje[], char imput[])
 	printf("%s", mensaje);
 	gets(imput);
 }
+void getChar(char* mensaje, char* rta)
+{
+	printf("%s", mensaje);
+	fflush(stdin);
+	scanf("%c", rta);
+}
 int utn_getCaracterSN(void)
 {
 	int retorno = -1;
 	char c;
 
-	puts("INGRESE SI 's' o NO 'n'");
-	while (c != 's' && c != 'n')
+	getChar("Ingrese Si 's' o No 'n'", &c);
+
+	while(c!='s' && c!='n')
 	{
 		puts("ERROR. OPCION NO VALIDA");
-		puts("INGRESE SI 's' o NO 'n'");
-	}
+		getChar("Ingrese Si 's' o No 'n'", &c);
 
-	if (c == 's')
-	{
-		retorno = 0;
 	}
-
+		if(c=='s')
+		{
+			retorno = 0;
+		}
 	return retorno;
 }
 //------VALIDACIONES COSAS- dan 1 si TRUE
@@ -407,12 +413,55 @@ int utn_getTelefono(char* pResultado, char* mensaje, char* mensajeError, int min
             }
             else
 			{
-				printf("%s 2",mensajeError);
+				printf("%s",mensajeError);
 				reintentos--;
 			}
         }
         while(reintentos>=0);
     }
+    return retorno;
+}
+int esCUIT(char* cadena)// es lo que hay
+{
+    int retorno=1;
+    int i;
+    int j;
+    char buffer[14];
+    int contadorDigito;
+    int contadorGuion;
+    strncpy(buffer,cadena,14);
+
+    for(i=0;buffer[i]!='\0';i++)
+    {
+        if((buffer[i]<'0' || buffer[i]>'9') && (buffer[i]!='-'))
+        {
+            retorno=0;
+            break;
+        }
+        else
+        {
+        	if(isdigit(cadena[i])!=0)
+			{
+				contadorDigito++;
+			}
+			else
+        	{
+				if(cadena[i]=='-')
+				{
+					contadorGuion++;
+        		}
+        		else
+        		{
+					retorno=0;
+					break;
+        		}
+        	}
+        }
+    }
+	if(contadorDigito==11 && contadorGuion==2 && buffer[2]=='-' && buffer[11]=='-')
+	{
+		retorno=1;
+	}
     return retorno;
 }
 int utn_getCUIT(char* pResultado, char* mensaje, char* mensajeError, int reintentos)
@@ -421,70 +470,24 @@ int utn_getCUIT(char* pResultado, char* mensaje, char* mensajeError, int reinten
     int minTamanio=11;  // sin puntos
     int retorno=-1;
     char bufferStr[maxTamanio];
-
-    if(mensaje!=NULL && mensajeError!=NULL && maxTamanio<maxTamanio && reintentos>=0 && pResultado!=NULL)
+    if(mensaje!=NULL && mensajeError!=NULL && maxTamanio>minTamanio && reintentos>=0 && pResultado!=NULL)
     {
         do
         {
-            if(myGets(bufferStr, 14)==0 && isValidCUIT(bufferStr)==1) //==0 sin errores !0
-            {
+        	printf("%s",mensaje);
+            if((myGets(bufferStr, 14)==0) && (esCUIT(bufferStr)==1))
+			{
                 strncpy(pResultado,bufferStr,maxTamanio);
                 retorno=0;
                 break;
             }
             else
             {
-                printf("%s 2",mensajeError);
+                printf("%s",mensajeError);
                 reintentos--;
             }
         }
         while(reintentos>=0);
-    }
-    return retorno;
-}
-int isValidCUIT(char* stringRecibido)
-{
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
-    int i;
-    int j;
-    char buffer[14];
-    strncpy(buffer,stringRecibido,14);
-
-    for(i=0;buffer[i]!='\0';i++)
-    {
-        if((buffer[i]<'0' || buffer[i]>'9') && (buffer[i]!='-')) // chequeo que solo sean numeros o -
-        {
-            retorno=0;
-            break;
-        }
-
-        if(buffer[i]=='-')  //elimino los -
-        {
-            for(j=i;buffer[j]!='\0';j++)
-            {
-                strncpy(&buffer[j],&buffer[j+1],1);
-            }
-        }
-    }
-
-    int digitos[10]={2,3,4,5,6,7,2,3,4,5};
-    int acumulado = 0;
-    int verificador;
-
-    for(i=0;i < strlen(buffer-1); i++)
-    {
-        acumulado+=buffer[i]*digitos[i];
-    }
-
-    verificador=11-(acumulado%11);
-	if(verificador == 11)
-	{
-		verificador = 0;
-	}
-
-	if(buffer[11]!=verificador)
-    {
-        retorno=0;
     }
     return retorno;
 }
