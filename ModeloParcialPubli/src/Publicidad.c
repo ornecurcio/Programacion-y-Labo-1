@@ -48,7 +48,6 @@ int altaPublicidad(ePublicidad aArray[], int cantidadDeArray, ePantalla aPantall
 	ePublicidad aAuxiliar;
 	int posicion;
 	int auxI;
-	int rta;
 	if(aArray!=NULL && cantidadDeArray>0 && aPantalla!=NULL && cantidadPantalla>0)
 	{
 		posicion=buscaLibrePublicidad(aArray, cantidadDeArray);
@@ -396,6 +395,39 @@ int facturacionByCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aP
 			}
 		}
 	}
-
 	return retorno;
+}
+int listarClientesxCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla)
+{
+	int retorno=-1;
+	int i;
+	ePublicidad auxPub;
+	if(aAuxiliar!=NULL && cantidadDeArray>0 && aPantalla!=NULL && cantidadPantalla>0)
+	{
+		for(i=0; i<cantidadDeArray; i++)
+		{
+			if(aAuxiliar[i].isEmpty==1)
+			{
+				continue;
+			}
+			else
+			{
+				if(stricmp(aAuxiliar[i].cuil, aAuxiliar[i+1].cuil)>0)
+				{
+					auxPub=aAuxiliar[i];
+					aAuxiliar[i]=aAuxiliar[i+1];
+					aAuxiliar[i+1]=auxPub;
+				}
+				else
+				{
+					if(stricmp(aAuxiliar[i].cuil, aAuxiliar[i+1].cuil)==0)
+					{
+						informes_ListaDeCliente(aAuxiliar, cantidadDeArray, aPantalla, cantidadPantalla, aAuxiliar[i].cuil);
+					}
+				}
+			}
+		}
+	}
+	return retorno;
+
 }

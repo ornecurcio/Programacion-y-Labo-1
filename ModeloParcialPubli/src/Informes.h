@@ -9,5 +9,9 @@
 #define INFORMES_H_
 
 
+int informes_ListaDeCliente(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla);
+
+
+
 
 #endif /* INFORMES_H_ */

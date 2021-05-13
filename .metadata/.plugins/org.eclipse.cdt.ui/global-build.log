@@ -1,9 +1,4 @@
-14:51:50 **** Incremental Build of configuration Debug for project Biblioteca-UTN ****
+16:39:30 **** Incremental Build of configuration Debug for project ModeloParcialPubli ****
 Info: Internal Builder is used for build
-gcc -o Biblioteca-UTN.exe "src\\Biblioteca-UTN.o" "src\\UTN.o" "src\\calculos.o" 
-c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file Biblioteca-UTN.exe: Permission denied
-collect2.exe: error: ld returned 1 exit status
-14:52:08 **** Incremental Build of configuration Debug for project Biblioteca-UTN ****
-Info: Internal Builder is used for build
-gcc -o Biblioteca-UTN.exe "src\\Biblioteca-UTN.o" "src\\UTN.o" "src\\calculos.o" 
-Info: Nothing to build for Biblioteca-UTN
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Informes.o" "..\\src\\Informes.c" 
+gcc -o ModeloParcialPubli.exe "src\\Informes.o" "src\\ModeloParcialPubli.o" "src\\Pantalla.o" "src\\Publicidad.o" "src\\UTN.o" 

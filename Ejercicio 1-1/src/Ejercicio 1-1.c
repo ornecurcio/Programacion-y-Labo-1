@@ -14,6 +14,10 @@
 int main(void) {
 	setbuf(stdout, NULL);
 
+	char aCUIT[]="27-34707599-5";
+	int aAuxiliar=20;
+	float resultado=1050.20;
+/*
 	int numeroUno;
 	int numeroDos;
 	int resultado;
@@ -30,6 +34,10 @@ int main(void) {
 
 	printf("El resultado es %d", resultado);
 
+*/
+			printf("CLIENTE--------CONTRATACION------PRECIO");
+
+	         printf("\n%-15s    %-8d      %-.2f",aCUIT, aAuxiliar, resultado);
 
 	return EXIT_SUCCESS;
 }
