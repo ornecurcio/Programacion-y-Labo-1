@@ -150,8 +150,10 @@ int main(void) {
 							switch(submenu)
 							{
 							case 1:
+								listarClientesxCUIT(vecClientes, QTY_CLIENTE, vecPantallas, QTY_PANTALLA);
 								break;
 							case 2:
+								listarClientesxCUIT1(vecClientes, QTY_CLIENTE, vecPantallas, QTY_PANTALLA);
 								break;
 							}
 						}while(submenu!=3);

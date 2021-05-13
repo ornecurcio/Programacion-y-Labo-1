@@ -1,4 +1,5 @@
-16:39:30 **** Incremental Build of configuration Debug for project ModeloParcialPubli ****
+17:18:42 **** Incremental Build of configuration Debug for project ModeloParcialPubli ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Informes.o" "..\\src\\Informes.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ModeloParcialPubli.o" "..\\src\\ModeloParcialPubli.c" 
 gcc -o ModeloParcialPubli.exe "src\\Informes.o" "src\\ModeloParcialPubli.o" "src\\Pantalla.o" "src\\Publicidad.o" "src\\UTN.o" 

@@ -64,4 +64,7 @@ int bajaPublicidadxPantalla(ePublicidad array[], int cantidadDeArray,int ID);
 
 int facturacionByCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla);
 
+int listarClientesxCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla);
+
+int listarClientesxCUIT1(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla);
 #endif /* PUBLICIDAD_H_ */

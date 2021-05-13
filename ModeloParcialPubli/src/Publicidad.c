@@ -312,49 +312,7 @@ int bajaPublicidad(ePublicidad aAuxiliar[], int posicion)
 	}
 	return retorno;
 }
-/*int ePantallaPromSalario(float* pPromedioResultado, ePantalla array[], int cantidadDeArray)
-{
-	int retorno = -1;
-	int i;
-	int acumulador=0;
-	int contador=0;
 
-	if(pPromedioResultado != NULL && array!=NULL && cantidadDeArray>0)
-	{
-		for(i=0; i<cantidadDeArray; i++)
-		{
-			if(array[i].isEmpty==0)
-			{
-			acumulador =+ array[i].salary;
-			contador++;
-			}
-		}
-		*pPromedioResultado = acumulador/contador;
-		printf("El salario promedio es: %.2f", *pPromedioResultado);
-		retorno = 0;
-	}
-	return retorno;
-}*/
-/*int ePantallasListaSalario(ePantalla array[], int cantidadDeArray, float salary)
-{
-	int retorno=-1;
-	int i;
-
-	if(array!=NULL && cantidadDeArray>0)
-	{
-		for(i=0; i<cantidadDeArray; i++)
-		{
-			if(array[i].isEmpty==0)
-			{
-				if(array[i].salary>=salary)
-				{
-					imprimir1Employee(array[i]);
-				}
-			}
-		}
-	}
-	return retorno;
-}*/
 int bajaPublicidadxPantalla(ePublicidad array[], int cantidadDeArray,int ID)
 {
 	int retorno = -1;
@@ -429,5 +387,80 @@ int listarClientesxCUIT(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla 
 		}
 	}
 	return retorno;
-
 }
+int listarClientesxCUIT1(ePublicidad aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla)
+{
+	int retorno=-1;
+	int i;
+	ePublicidad auxPub;
+	if(aAuxiliar!=NULL && cantidadDeArray>0 && aPantalla!=NULL && cantidadPantalla>0)
+	{
+		for(i=0; i<cantidadDeArray; i++)
+		{
+			if(aAuxiliar[i].isEmpty==1)
+			{
+				continue;
+			}
+			else
+			{
+				if(stricmp(aAuxiliar[i].cuil, aAuxiliar[i+1].cuil)>0)
+				{
+					auxPub=aAuxiliar[i];
+					aAuxiliar[i]=aAuxiliar[i+1];
+					aAuxiliar[i+1]=auxPub;
+				}
+				else
+				{
+					if(stricmp(aAuxiliar[i].cuil, aAuxiliar[i+1].cuil)==0)
+					{
+						informes_ClienteMasAltoFacturar(aAuxiliar, cantidadDeArray, aPantalla, cantidadPantalla, aAuxiliar[i].cuil);
+					}
+				}
+			}
+		}
+	}
+	return retorno;
+}
+/*int ePantallaPromSalario(float* pPromedioResultado, ePantalla array[], int cantidadDeArray)
+{
+	int retorno = -1;
+	int i;
+	int acumulador=0;
+	int contador=0;
+
+	if(pPromedioResultado != NULL && array!=NULL && cantidadDeArray>0)
+	{
+		for(i=0; i<cantidadDeArray; i++)
+		{
+			if(array[i].isEmpty==0)
+			{
+			acumulador =+ array[i].salary;
+			contador++;
+			}
+		}
+		*pPromedioResultado = acumulador/contador;
+		printf("El salario promedio es: %.2f", *pPromedioResultado);
+		retorno = 0;
+	}
+	return retorno;
+}*/
+/*int ePantallasListaSalario(ePantalla array[], int cantidadDeArray, float salary)
+{
+	int retorno=-1;
+	int i;
+
+	if(array!=NULL && cantidadDeArray>0)
+	{
+		for(i=0; i<cantidadDeArray; i++)
+		{
+			if(array[i].isEmpty==0)
+			{
+				if(array[i].salary>=salary)
+				{
+					imprimir1Employee(array[i]);
+				}
+			}
+		}
+	}
+	return retorno;
+}*/
