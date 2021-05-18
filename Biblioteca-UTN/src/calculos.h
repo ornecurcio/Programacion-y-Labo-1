@@ -16,5 +16,5 @@ int utn_promediarArray(float* pPromedioResultado, int array[], int cantidadArray
 void utn_imprimirArray(int listaDeArray[], int cantidadDeArray);
 int utn_factorial(int* pResultado, int num);
 int imprimirArrayResultados(int listaDeArray[], int resultadosArray[], float resultadoDiv);
-
+int promediar2Notas(float* pPromedioResultado, int num1, int num2);
 #endif /* CALCULOS_H_ */

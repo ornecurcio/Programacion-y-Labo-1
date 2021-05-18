@@ -108,8 +108,8 @@ int utn_factorial(int* pResultado, int num)
 	return retorno;
 }
 int imprimirArrayResultados(int listaDeArray[], int resultadosArray[], float resultadoDiv)
-	{
-		int retorno = -1;
+{
+	int retorno = -1;
 		do{
 		if(listaDeArray[0]==0)
 		{
@@ -163,7 +163,16 @@ int imprimirArrayResultados(int listaDeArray[], int resultadosArray[], float res
 
 		}while(retorno==-1);
 
-		return retorno;
+	return retorno;
+}
+int promediar2Notas(float* pPromedioResultado, int num1, int num2)
+{
+	int retorno = -1;
+
+	if(pPromedioResultado != NULL)
+	{
+		*pPromedioResultado = ((float)num1+num2)/2;
+		retorno=0;
 	}
-
-
+	return retorno;
+}

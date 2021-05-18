@@ -13,8 +13,9 @@
 #include "UTN.h"
 #include "Pantalla.h"
 #include "Publicidad.h"
+#include "Informes.h"
 
-#define QTY_PANTALLA 3
+#define QTY_CONTRIBUYENTE 3
 #define QTY_CLIENTE 2
 #define QTY_TIPO 2
 int main(void) {
@@ -24,7 +25,7 @@ int main(void) {
 				{1, "LCD", 0},
 				{2, "LED", 0},
 		};
-		ePantalla vecPantallas[QTY_PANTALLA];
+		ePantalla vecPantallas[QTY_CONTRIBUYENTE];
 		ePublicidad vecClientes[QTY_CLIENTE];
 		int contadorPantallas=0;
 		int contadorPublicidad=0;
@@ -33,7 +34,7 @@ int main(void) {
 		int respuestaMenuPrincipal;
 		//float auxFloat;
 
-		inicializarPantalla(vecPantallas, QTY_PANTALLA);
+		inicializarPantalla(vecPantallas, QTY_CONTRIBUYENTE);
 		inicializarPublidad(vecClientes, QTY_CLIENTE);
 	do{
 		if(utn_getNumero(&respuestaMenuPrincipal, "\n1.Alta de pantalla \n2.Modificar Pantalla\n3.Baja de pantalla"
@@ -46,7 +47,7 @@ int main(void) {
 			switch(respuestaMenuPrincipal)
 			{
 				case 1: //ALTA PANTALLA
-					if(altaPantalla(vecPantallas, QTY_PANTALLA, &contadorPantallas)==0)
+					if(altaPantalla(vecPantallas, QTY_CONTRIBUYENTE, &contadorPantallas)==0)
 					{
 						printf("Carga exitosa\n");
 					}
@@ -58,7 +59,7 @@ int main(void) {
 					}
 					else
 					{
-						modifica1Pantalla(vecPantallas, buscaPantallaById(vecPantallas, QTY_PANTALLA,&auxInt), vecTipo, QTY_TIPO);
+						modifica1Pantalla(vecPantallas, buscaPantallaById(vecPantallas, QTY_CONTRIBUYENTE,&auxInt), vecTipo, QTY_TIPO);
 					}
 					break;
 				case 3://BAJA PANTALLA
@@ -68,8 +69,8 @@ int main(void) {
 					}
 					else
 					{
-						bajaPantalla(vecPantallas, buscaPantallaById(vecPantallas, QTY_PANTALLA, &auxInt), vecTipo, QTY_TIPO);
-						bajaPublicidadxPantalla(vecClientes, QTY_PANTALLA, auxInt);
+						bajaPantalla(vecPantallas, buscaPantallaById(vecPantallas, QTY_CONTRIBUYENTE, &auxInt), vecTipo, QTY_TIPO);
+						bajaPublicidadxPantalla(vecClientes, QTY_CONTRIBUYENTE, auxInt);
 					}
 					break;
 				case 4: // ALTA PUBLICIDAD
@@ -79,8 +80,8 @@ int main(void) {
 					}
 					else
 					{
-						imprimirPantallas(vecPantallas, QTY_PANTALLA, vecTipo, QTY_TIPO);
-						altaPublicidad(vecClientes, QTY_CLIENTE, vecPantallas, QTY_PANTALLA, &contadorPublicidad);
+						imprimirPantallas(vecPantallas, QTY_CONTRIBUYENTE, vecTipo, QTY_TIPO);
+						altaPublicidad(vecClientes, QTY_CLIENTE, vecPantallas, QTY_CONTRIBUYENTE, &contadorPublicidad);
 					}
 					break;
 				case 5://MODIFICA PUBLICIDAD
@@ -90,7 +91,7 @@ int main(void) {
 					}
 					else
 					{
-						buscaPublicidadByCUIT(vecClientes, QTY_CLIENTE, vecPantallas, QTY_PANTALLA, vecTipo, QTY_TIPO);
+						buscaPublicidadByCUIT(vecClientes, QTY_CLIENTE, vecPantallas, QTY_CONTRIBUYENTE, vecTipo, QTY_TIPO);
 						buscaPublicidadByIdPantalla(vecClientes, QTY_CLIENTE, &auxInt);
 						modifica1Publicidad(vecClientes, auxInt);
 					}
@@ -102,7 +103,7 @@ int main(void) {
 					}
 					else
 					{
-						buscaPublicidadByCUIT(vecClientes, QTY_CLIENTE, vecPantallas, QTY_PANTALLA, vecTipo, QTY_TIPO);
+						buscaPublicidadByCUIT(vecClientes, QTY_CLIENTE, vecPantallas, QTY_CONTRIBUYENTE, vecTipo, QTY_TIPO);
 						buscaPublicidadByIdPantalla(vecClientes, QTY_CLIENTE, &auxInt);
 						bajaPublicidad(vecClientes, auxInt);
 					}
@@ -114,7 +115,7 @@ int main(void) {
 					}
 					else
 					{
-						facturacionByCUIT(vecClientes, QTY_CLIENTE, vecPantallas, QTY_PANTALLA);
+						facturacionByCUIT(vecClientes, QTY_CLIENTE, vecPantallas, QTY_CONTRIBUYENTE);
 					}
 					break;
 				case 8: // IMPRIME PUBLICIDAD
@@ -134,7 +135,7 @@ int main(void) {
 					}
 					else
 					{
-						imprimirPantallas(vecPantallas, QTY_PANTALLA, vecTipo, QTY_TIPO);
+						imprimirPantallas(vecPantallas, QTY_CONTRIBUYENTE, vecTipo, QTY_TIPO);
 					}
 					break;
 				case 10: //INFORMES
@@ -150,10 +151,10 @@ int main(void) {
 							switch(submenu)
 							{
 							case 1:
-								listarClientesxCUIT(vecClientes, QTY_CLIENTE, vecPantallas, QTY_PANTALLA);
+								listarClientesxCUIT(vecClientes, QTY_CLIENTE, vecPantallas, QTY_CONTRIBUYENTE);
 								break;
 							case 2:
-								listarClientesxCUIT1(vecClientes, QTY_CLIENTE, vecPantallas, QTY_PANTALLA);
+								listarClientesxCUIT1(vecClientes, QTY_CLIENTE, vecPantallas, QTY_CONTRIBUYENTE);
 								break;
 							}
 						}while(submenu!=3);
