@@ -110,7 +110,7 @@ int altaRecaudacion(eRecaudacion aArray[], int cantidadDeArray, eContribuyente a
 }
 void imprimir1Recaudacion(eRecaudacion aRecaudacion, char* descripcion)
 {
-	printf("\n %-5d %-5d %-10s %-5%d %-5.2f %-5d ", aRecaudacion.idRecaudacion, aRecaudacion.tipo,
+	printf("\n %-5d %-5d %-10s %-5d %-.2f %-5d ", aRecaudacion.idRecaudacion, aRecaudacion.tipo,
 			descripcion,aRecaudacion.mes, aRecaudacion.importe, aRecaudacion.idContribuyente);
 }
 int imprimirRecaudacion(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo)
@@ -120,7 +120,7 @@ int imprimirRecaudacion(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[]
 	char descripcion[20];
 	//CABECERA
 	puts("\n\t> LISTADO Recaudacion");
-	printf("%5s %10s %10s %8s %12s\n", "ID","TIPO","DESCRIPCION","MES","IMPORTE","ID Contribuyente");
+	printf("%5s %10s %10s %8s %8s %12s\n", "ID","TIPO","DESCRIPCION","MES","IMPORTE","ID Contribuyente");
 	if (array != NULL && cantidadDeArray> 0 && aTipo!=NULL && cantidadTipo>0)
 	{
 		for (i = 0; i < cantidadDeArray; i++)
@@ -158,7 +158,7 @@ int buscaIDRecaudacionRetIDCon(eRecaudacion aAuxiliar[], int cantidadDeArray, in
 		{
 			for(i=0; i<cantidadDeArray; i++)
 			{
-				if(aAuxiliar[i].idRecaudacion==auxI && aAuxiliar[i].isEmpty==0)
+				if(aAuxiliar[i].isEmpty==0 && aAuxiliar[i].idRecaudacion==auxI)
 				{
 					*posicion=i;
 					retorno=aAuxiliar[i].idContribuyente;
@@ -294,7 +294,25 @@ int estadoRecaudacionSaldar(eRecaudacion aAuxiliar[], int posicion,eTipo aTipo[]
 	}
 	return retorno;
 }
+int recaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo,int ID)
+{
+	int retorno = -1;
+	int i;
+	char descripcion[20];
 
+	if(array!=NULL && cantidadDeArray>0)
+		{
+			for(i=0; i<cantidadDeArray; i++)
+			{
+				if(array[i].idContribuyente==ID)
+				{
+					getDescripcionRecaudacion(aTipo, cantidadTipo, array[i].tipo, descripcion);
+					imprimir1Recaudacion(array[i],descripcion);
+				}
+			}
+		}
+	return retorno;
+}
 int bajaRecaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray,int ID)
 {
 	int retorno = -1;
@@ -309,5 +327,58 @@ int bajaRecaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray,int 
 				}
 			}
 		}
+	return retorno;
+}
+int listarContribuyentes(eRecaudacion aArray[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, eTipo aTipo[], int cantidadTipo)
+{
+	int retorno=-1;
+	if(aArray!=NULL && aContribuyente!=NULL && aTipo!=NULL && cantidadDeArray>0 && cantidadContribuyente>0 && cantidadTipo>0)
+	{
+		for(int i=0; i<cantidadContribuyente; i++)
+		{
+			if(aContribuyente[i].isEmpty==0)
+			{
+				imprimir1Contribuyente(aContribuyente[i]);
+				recaudacionxContribuyente(aArray, cantidadDeArray, aTipo, cantidadTipo, aContribuyente[i].idContribuyente);
+			}
+		}
+	}
+	return retorno;
+}
+int imprimirRecaudacionSaldadas(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo,eContribuyente aContribuyente[], int cantidadContribuyente)
+{
+	int i;
+	int retorno = -1;
+	char descripcion[20];
+	//CABECERA //%5s %10s %8s %8s %8s %10s %10s %10s\n"
+	puts("\n\t> LISTADO Recaudacion SALDADAS");
+	printf("IDReC  DESCRIPCION  MES  IMPORTE  IDCont  CUIL  APELLIDO NOMBRE");
+	if (array != NULL && cantidadDeArray> 0 && aTipo!=NULL && cantidadTipo>0)
+	{
+		for (i = 0; i < cantidadDeArray; i++)
+		{
+			if (array[i].isEmpty == 1)
+			{
+				continue;
+			}
+			else
+			{
+				if(array[i].estado==SALDADO)
+				{
+					for(int j=0;j<cantidadContribuyente; j++)
+					{
+						if(aContribuyente[j].isEmpty==0 && array[i].idContribuyente==aContribuyente[j].idContribuyente)
+						{
+							getDescripcionRecaudacion(aTipo, cantidadTipo, array[i].tipo, descripcion);
+							printf("%-5d %-10s  /t %-8d  %-.2f %-8d %-15s %-10s %-10s\n", array[i].idRecaudacion, descripcion, array[i].mes, array[i].importe,
+									array[i].idContribuyente, aContribuyente[j].cuit, aContribuyente[j].apellido, aContribuyente[j].name);
+							retorno=0;
+						}
+					}
+				}
+
+			}
+		}
+	}
 	return retorno;
 }

@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define TAM 50
+#define TAM 30
 
 int inicializarContribuyente(eContribuyente pArray[], int cantidadDeArray)
 {
@@ -56,6 +56,10 @@ int hayContribuyente(eContribuyente pArray[], int cantidadDeArray)
 				break;
 			}
 		}
+		if(retorno!=0)
+		{
+			printf("Error, primero debe ingresar una contribuyente");
+		}
 	}
 	return retorno;
 }
@@ -98,7 +102,7 @@ int altaContribuyente(eContribuyente aContribuyente[], int cantidadDeArray, int*
 }
 void imprimir1Contribuyente(eContribuyente aContribuyente)
 {
-	printf("\n %-5d %-15s %-15s %-15s ", aContribuyente.idContribuyente, aContribuyente.apellido, aContribuyente.name,aContribuyente.cuit);
+	printf("\n %-5d %-20s %-20s %-20s ", aContribuyente.idContribuyente, aContribuyente.apellido, aContribuyente.name,aContribuyente.cuit);
 }
 int imprimirContribuyentes(eContribuyente array[], int cantidadDeArray)
 {
@@ -129,23 +133,22 @@ int buscaContribuyenteById(eContribuyente aAuxiliar[], int cantidadDeArray, int*
 	int retorno = -1;
 	int i;
 	int auxI;
-	if(aAuxiliar!=NULL && cantidadDeArray>0)
+	if(aAuxiliar!=NULL && cantidadDeArray>0 && aID!=NULL)
 	{
 		printf("\nIngrese ID Contribuyente");
 		scanf("%d", &auxI);
 		*aID=auxI;
 		for(i=0; i<cantidadDeArray; i++)
 		{
-			if(aAuxiliar[i].idContribuyente==auxI && aAuxiliar[i].isEmpty==0)
+			if(aAuxiliar[i].isEmpty==0 && aAuxiliar[i].idContribuyente==auxI)
 			{
 				retorno = i;
 				break;
 			}
-			else
-			{
-				printf("El numero de ID %d no existe", auxI);
-				break;
-			}
+		}
+		if(retorno==-1)
+		{
+			printf("El numero de ID %d no existe", auxI);
 		}
 	}
 	return retorno;
@@ -156,8 +159,7 @@ int bajaContribuyente(eContribuyente aAuxiliar[], int posicion)
 
 	if(aAuxiliar!=NULL && posicion!=-1)
 	{
-		imprimir1Contribuyente(aAuxiliar[posicion]);
-		printf("\nDesea borrar esta Contribuyente");
+		printf("\nDesea borrar este Contribuyente");
 		if(utn_getCaracterSN()==0)
 		{
 			aAuxiliar[posicion].isEmpty=1;
@@ -178,7 +180,7 @@ int modifica1Contribuyente(eContribuyente aAuxiliar[], int posicion)
 		printf("\n¿Desea modificar esta Contribuyente?");
 		if(utn_getCaracterSN()==0)
 		{
-			printf("\nDesea modificar \n1.Nombre\n2.Apellido\n3.Cuit");
+			printf("\nDesea modificar \n1.Apellido\n2.Nombre\n3.Cuit");
 			scanf("%d", &respuesta);
 			while(respuesta>3 || respuesta<1)
 			{
@@ -188,12 +190,12 @@ int modifica1Contribuyente(eContribuyente aAuxiliar[], int posicion)
 			switch(respuesta)
 			{
 				case 1:
-					utn_getNombre(aAuxiliar[posicion].name, "Ingrese nombre de Contribuyente", "Error muy largo", 2, TAM);
+					utn_getNombre(aAuxiliar[posicion].apellido, "Ingrese Apellido de Contribuyente", "Error muy largo", 2, TAM);
 					printf("Exito, los nuevos datos son: ");
 					imprimir1Contribuyente(aAuxiliar[posicion]);
 					break;
 				case 2:
-					utn_getNombre(aAuxiliar[posicion].apellido, "Ingrese apellido de Contribuyente", "Error muy largo", 2, TAM);
+					utn_getNombre(aAuxiliar[posicion].name, "Ingrese Nombre de Contribuyente", "Error muy largo", 2, TAM);
 					printf("Exito, los nuevos datos son: ");
 					imprimir1Contribuyente(aAuxiliar[posicion]);
 					break;

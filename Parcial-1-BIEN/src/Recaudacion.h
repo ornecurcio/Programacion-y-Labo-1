@@ -12,7 +12,7 @@
 
 #define SALDADO 0
 #define REFINANCIAR 1
-#define ALTA 2
+#define DEUDA 2
 
 typedef struct
 {
@@ -63,8 +63,9 @@ int imprimirRecaudacion(eRecaudacion array[], int cantidadDeArray,  eTipo aTipo[
 
 int buscaIDRecaudacionRetIDCon(eRecaudacion aAuxiliar[], int cantidadDeArray, int contadorRecauda, int* posicion);
 
-
 //int buscaRecaudacionByIdPantalla(eRecaudacion aAuxiliar[], int cantidadDeArray, int* aID);
+
+int bajaRecaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray,int ID);
 
 int bajaRecaudacion(eRecaudacion aAuxiliar[], int posicion, eTipo aTipo[], int cantidadTipo);
 
@@ -72,8 +73,10 @@ int estadoRecaudacionRefinanciar(eRecaudacion aAuxiliar[], int posicion,eTipo aT
 
 int estadoRecaudacionSaldar(eRecaudacion aAuxiliar[], int posicion,eTipo aTipo[], int cantidadTipo);
 
-int bajaRecaudacionxPantalla(eRecaudacion array[], int cantidadDeArray,int ID);
+int recaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo,int ID);
 
+int listarContribuyentes(eRecaudacion aArray[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, eTipo aTipo[], int cantidadTipo);
+int imprimirRecaudacionSaldadas(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo,eContribuyente aContribuyente[], int cantidadContribuyente);
 //int facturacionByCUIT(eRecaudacion aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla);
 
 //int listarClientesxCUIT(eRecaudacion aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla);
