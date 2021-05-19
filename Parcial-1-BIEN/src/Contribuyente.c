@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define TAM 30
+#define TAM 50
 
 int inicializarContribuyente(eContribuyente pArray[], int cantidadDeArray)
 {
@@ -68,7 +68,6 @@ int altaContribuyente(eContribuyente aContribuyente[], int cantidadDeArray, int*
 	int retorno = -1;
 	eContribuyente aAuxiliar;
 	int posicion;
-	char descripcion[30];
 	if(aContribuyente!=NULL && cantidadDeArray>0 && contadorId!=NULL)
 	{
 		posicion=buscaLibreContribuyente(aContribuyente, cantidadDeArray);
@@ -78,8 +77,8 @@ int altaContribuyente(eContribuyente aContribuyente[], int cantidadDeArray, int*
 		}
 		else
 		{
-			if((utn_getNombre(aAuxiliar.name, "Ingrese nombre de Contribuyente", "Error muy largo", 2, TAM)==0)&&
-			(utn_getNombre(aAuxiliar.apellido, "Ingrese apellido de Contribuyente", "Error muy largo", 2, TAM)==0)&&
+			if((utn_getNombre(aAuxiliar.apellido, "Ingrese apellido de Contribuyente", "Error muy largo", 2, TAM)==0)&&
+			(utn_getNombre(aAuxiliar.name, "Ingrese nombre de Contribuyente", "Error muy largo", 2, TAM)==0)&&
 			(utn_getCUIT(aAuxiliar.cuit, "Ingrese cuit de la forma XX-XXXXXXXX-X", "Error, reingrese", 2)==0))
 			{
 				aAuxiliar.idContribuyente=0;
@@ -102,7 +101,7 @@ int altaContribuyente(eContribuyente aContribuyente[], int cantidadDeArray, int*
 }
 void imprimir1Contribuyente(eContribuyente aContribuyente)
 {
-	printf("\n %-5d %-20s %-20s %-20s ", aContribuyente.idContribuyente, aContribuyente.apellido, aContribuyente.name,aContribuyente.cuit);
+	printf("\n%-d       %-s         %-s      %-s ", aContribuyente.idContribuyente, aContribuyente.apellido, aContribuyente.name,aContribuyente.cuit);
 }
 int imprimirContribuyentes(eContribuyente array[], int cantidadDeArray)
 {
@@ -110,7 +109,7 @@ int imprimirContribuyentes(eContribuyente array[], int cantidadDeArray)
 	int retorno = -1;
 	//CABECERA
 	puts("\n\t> LISTADO ContribuyenteS");
-	printf("%5s %15s %15s %15s\n", "ID","APELLIDO","NOMBRE","CUIT");
+	printf("\nIDCont    APELLIDO       NOMBRE          CUIT");
 	if (array != NULL && cantidadDeArray> 0)
 	{
 		for (i = 0; i < cantidadDeArray; i++)
@@ -227,6 +226,30 @@ int buscaContribuyenteXIdParametro(eContribuyente aAuxiliar[], int cantidadDeArr
 			{
 				printf("El numero de ID %d no existe", aID);
 				break;
+			}
+		}
+	}
+	return retorno;
+}
+int buscaConstribuyenteByCUIT(eContribuyente aAuxiliar[], int cantidadDeArray, int* aID)
+{
+	int retorno = -1;
+	int i;
+	char aCUIT[14];
+	if(aAuxiliar!=NULL && cantidadDeArray>0)
+	{
+		utn_getCUIT(aCUIT, "Ingrese CUIT", "Error ingrese de forma XX-XXXXXXXX-XX", 2);
+		for(i=0; i<cantidadDeArray; i++)
+		{
+			if(strcmp(aAuxiliar[i].cuit, aCUIT)==0 && aAuxiliar[i].isEmpty==0)
+			{
+				retorno = i;
+				*aID=aAuxiliar[i].idContribuyente;
+				break;
+			}
+			else
+			{
+				printf("El numero de cuit %s no existe", aCUIT);
 			}
 		}
 	}

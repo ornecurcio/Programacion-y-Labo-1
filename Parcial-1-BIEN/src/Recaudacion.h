@@ -12,7 +12,7 @@
 
 #define SALDADO 0
 #define REFINANCIAR 1
-#define DEUDA 2
+#define ADEUDADO 2
 
 typedef struct
 {
@@ -76,7 +76,10 @@ int estadoRecaudacionSaldar(eRecaudacion aAuxiliar[], int posicion,eTipo aTipo[]
 int recaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo,int ID);
 
 int listarContribuyentes(eRecaudacion aArray[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, eTipo aTipo[], int cantidadTipo);
+
 int imprimirRecaudacionSaldadas(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo,eContribuyente aContribuyente[], int cantidadContribuyente);
+
+int buscaRecaudacionByCUIT(eRecaudacion aAuxiliar[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, eTipo aTipo[], int cantidadTipo);
 //int facturacionByCUIT(eRecaudacion aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla);
 
 //int listarClientesxCUIT(eRecaudacion aAuxiliar[], int cantidadDeArray, ePantalla aPantalla[], int cantidadPantalla);

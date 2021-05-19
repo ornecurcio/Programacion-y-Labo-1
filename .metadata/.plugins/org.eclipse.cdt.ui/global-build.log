@@ -1,15 +1,4 @@
-03:16:01 **** Incremental Build of configuration Debug for project Parcial-1-BIEN ****
+02:20:55 **** Incremental Build of configuration Debug for project Parcial-1-BIEN ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Contribuyente.o" "..\\src\\Contribuyente.c" 
-..\src\Contribuyente.c: In function 'altaContribuyente':
-..\src\Contribuyente.c:71:7: warning: unused variable 'descripcion' [-Wunused-variable]
-   71 |  char descripcion[30];
-      |       ^~~~~~~~~~~
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial-1-BIEN.o" "..\\src\\Parcial-1-BIEN.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Recaudacion.o" "..\\src\\Recaudacion.c" 
-..\src\Recaudacion.c: In function 'listarContribuyentes':
-..\src\Recaudacion.c:335:17: warning: unused variable 'auxC' [-Wunused-variable]
-  335 |  eContribuyente auxC;
-      |                 ^~~~
-gcc -o Parcial-1-BIEN.exe "src\\Contribuyente.o" "src\\Parcial-1-BIEN.o" "src\\Recaudacion.o" "src\\UTN.o" 
-Info: Nothing to build for Parcial-1-BIEN
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Informes.o" "..\\src\\Informes.c" 
+gcc -o Parcial-1-BIEN.exe "src\\Contribuyente.o" "src\\Informes.o" "src\\Parcial-1-BIEN.o" "src\\Recaudacion.o" "src\\UTN.o" 

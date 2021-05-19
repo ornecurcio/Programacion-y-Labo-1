@@ -110,7 +110,7 @@ int altaRecaudacion(eRecaudacion aArray[], int cantidadDeArray, eContribuyente a
 }
 void imprimir1Recaudacion(eRecaudacion aRecaudacion, char* descripcion)
 {
-	printf("\n %-5d %-5d %-10s %-5d %-.2f %-5d ", aRecaudacion.idRecaudacion, aRecaudacion.tipo,
+	printf("\n%-d   %-d      %-s        %-d    %-.2f        %-d ", aRecaudacion.idRecaudacion, aRecaudacion.tipo,
 			descripcion,aRecaudacion.mes, aRecaudacion.importe, aRecaudacion.idContribuyente);
 }
 int imprimirRecaudacion(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo)
@@ -119,8 +119,8 @@ int imprimirRecaudacion(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[]
 	int retorno = -1;
 	char descripcion[20];
 	//CABECERA
-	puts("\n\t> LISTADO Recaudacion");
-	printf("%5s %10s %10s %8s %8s %12s\n", "ID","TIPO","DESCRIPCION","MES","IMPORTE","ID Contribuyente");
+	puts("\n\t LISTADO Recaudacion");
+	printf("ID   TIPO   DESCRIPCION   MES   IMPORTE   ID Contribuyente");
 	if (array != NULL && cantidadDeArray> 0 && aTipo!=NULL && cantidadTipo>0)
 	{
 		for (i = 0; i < cantidadDeArray; i++)
@@ -150,72 +150,24 @@ int buscaIDRecaudacionRetIDCon(eRecaudacion aAuxiliar[], int cantidadDeArray, in
 	{
 		printf("Ingrese ID Recaudacion");
 		scanf("%d", &auxI);
-		if(auxI>contadorRecauda || auxI<100)
+		for(i=0; i<cantidadDeArray; i++)
 		{
-			printf("Error, no existe ID");
-		}
-		else
-		{
-			for(i=0; i<cantidadDeArray; i++)
+			if(auxI==aAuxiliar[i].idRecaudacion && aAuxiliar[i].isEmpty==0)
 			{
-				if(aAuxiliar[i].isEmpty==0 && aAuxiliar[i].idRecaudacion==auxI)
-				{
-					*posicion=i;
-					retorno=aAuxiliar[i].idContribuyente;
-					break;
-				}
+				*posicion=i;
+				retorno=aAuxiliar[i].idContribuyente;
+				break;
+			}
+			else
+			{
+				printf("Error, no existe ID");
 			}
 		}
+
 	}
 	return retorno;
 }
-/*int buscaRecaudacionByCUIT(eRecaudacion aAuxiliar[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, eTipo aTipo[], int cantidadTipo)
-{
-	int retorno=-1;
-	int auxI;
-	int i;
-	int j;
-	char descripcion[30];
-	char aCUIT[14];
-	if(aAuxiliar!=NULL && cantidadDeArray>0 && aContribuyente!=NULL && cantidadContribuyente>0 && aTipo!=NULL && cantidadTipo>0)
-	{
-		if((auxI=buscaCUIT(aAuxiliar, cantidadDeArray,aCUIT))>0)
-		{
-			puts("\n\t> LISTADO Recaudacion");
-			printf("%5s %10s %10s %8s %12s\n", "ID","ARCHIVO","CUIL","DIAS","ID Recaudacion");
-			for(i=0; i<cantidadContribuyente; i++)
-			{
-				if(aAuxiliar[auxI].idContribuyente==aContribuyente[i].idContribuyente && aContribuyente[i].isEmpty==0)
-				{
-					getDescripcionContribuyente(aTipo, cantidadTipo, aContribuyente[i].idContribuyente, descripcion);
-					imprimir1Recaudacion(aAuxiliar[auxI], descripcion);
-					imprimir1Contribuyente(aContribuyente[i]);
-					retorno=0;
-				}
-			}
-		}
-		if(auxI==0)
-		{
-			puts("\n\t> LISTADO Recaudacion");
-			printf("%5s %10s %10s %8s %12s\n", "ID","ARCHIVO","CUIL","DIAS","ID Recaudacion");
-			for(j=0; j<cantidadDeArray; j++)
-			{
-				for(i=0; i<cantidadContribuyente; i++)
-				{
-					if((stricmp(aAuxiliar[j].cuil, aCUIT)==0 && aAuxiliar[j].isEmpty==0)&&
-					(aAuxiliar[j].idContribuyente==aContribuyente[i].idContribuyente && aContribuyente[i].isEmpty==0))
-					{
-						getDescripcionContribuyente(aTipo, cantidadTipo, aContribuyente[i].idContribuyente, descripcion);
-						imprimir1Recaudacion(aAuxiliar[j], descripcion);
-						imprimir1Contribuyente(aContribuyente[i]);
-						retorno=0;
-					}
-				}
-			}
-		}
-	}
-	return retorno;
-}*/
+
 int buscaRecaudacionByIdContribuyente(eRecaudacion aAuxiliar[], int cantidadDeArray, int* aID)
 {
 	int retorno = -1;
@@ -251,7 +203,7 @@ int bajaRecaudacion(eRecaudacion aAuxiliar[], int posicion, eTipo aTipo[], int c
 	{
 		getDescripcionRecaudacion(aTipo, cantidadTipo, aAuxiliar[posicion].tipo, descripcion);
 		imprimir1Recaudacion(aAuxiliar[posicion], descripcion);
-		printf("\n¿Desea borrar esta contratacion?");
+		printf("\n¿Desea borrar esta recaudacion? ");
 		if(utn_getCaracterSN()==0)
 		{
 			aAuxiliar[posicion].isEmpty=1;
@@ -268,7 +220,7 @@ int estadoRecaudacionRefinanciar(eRecaudacion aAuxiliar[], int posicion,eTipo aT
 	{
 		getDescripcionRecaudacion(aTipo, cantidadTipo, aAuxiliar[posicion].tipo, descripcion);
 		imprimir1Recaudacion(aAuxiliar[posicion], descripcion);
-		printf("\n¿Desea refinanciar esta Recaudacion?");
+		printf("\n¿Desea refinanciar esta Recaudacion? ");
 		if(utn_getCaracterSN()==0)
 		{
 			aAuxiliar[posicion].estado= REFINANCIAR;
@@ -285,7 +237,7 @@ int estadoRecaudacionSaldar(eRecaudacion aAuxiliar[], int posicion,eTipo aTipo[]
 	{
 		getDescripcionRecaudacion(aTipo, cantidadTipo, aAuxiliar[posicion].tipo, descripcion);
 		imprimir1Recaudacion(aAuxiliar[posicion], descripcion);
-		printf("\n¿Desea refinanciar esta Recaudacion?");
+		printf("\n¿Desea saldar esta recaudacion? ");
 		if(utn_getCaracterSN()==0)
 		{
 			aAuxiliar[posicion].estado= SALDADO;
@@ -299,18 +251,18 @@ int recaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray, eTipo a
 	int retorno = -1;
 	int i;
 	char descripcion[20];
-
 	if(array!=NULL && cantidadDeArray>0)
+	{
+		for(i=0; i<cantidadDeArray; i++)
 		{
-			for(i=0; i<cantidadDeArray; i++)
+			if(array[i].idContribuyente==ID)
 			{
-				if(array[i].idContribuyente==ID)
-				{
-					getDescripcionRecaudacion(aTipo, cantidadTipo, array[i].tipo, descripcion);
-					imprimir1Recaudacion(array[i],descripcion);
-				}
+				getDescripcionRecaudacion(aTipo, cantidadTipo, array[i].tipo, descripcion);
+				imprimir1Recaudacion(array[i],descripcion);
+				retorno=0;
 			}
 		}
+	}
 	return retorno;
 }
 int bajaRecaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray,int ID)
@@ -334,12 +286,16 @@ int listarContribuyentes(eRecaudacion aArray[], int cantidadDeArray, eContribuye
 	int retorno=-1;
 	if(aArray!=NULL && aContribuyente!=NULL && aTipo!=NULL && cantidadDeArray>0 && cantidadContribuyente>0 && cantidadTipo>0)
 	{
+		printf("\nIDCont    APELLIDO         NOMBRE          CUIT");
 		for(int i=0; i<cantidadContribuyente; i++)
 		{
 			if(aContribuyente[i].isEmpty==0)
 			{
+
 				imprimir1Contribuyente(aContribuyente[i]);
+
 				recaudacionxContribuyente(aArray, cantidadDeArray, aTipo, cantidadTipo, aContribuyente[i].idContribuyente);
+				retorno=0;
 			}
 		}
 	}
@@ -352,7 +308,7 @@ int imprimirRecaudacionSaldadas(eRecaudacion array[], int cantidadDeArray, eTipo
 	char descripcion[20];
 	//CABECERA //%5s %10s %8s %8s %8s %10s %10s %10s\n"
 	puts("\n\t> LISTADO Recaudacion SALDADAS");
-	printf("IDReC  DESCRIPCION  MES  IMPORTE  IDCont  CUIL  APELLIDO NOMBRE");
+	printf("IDRec      DESCRIPCION        MES          IMPORTE         IDCont      CUIL      APELLIDO NOMBRE");
 	if (array != NULL && cantidadDeArray> 0 && aTipo!=NULL && cantidadTipo>0)
 	{
 		for (i = 0; i < cantidadDeArray; i++)
@@ -370,13 +326,71 @@ int imprimirRecaudacionSaldadas(eRecaudacion array[], int cantidadDeArray, eTipo
 						if(aContribuyente[j].isEmpty==0 && array[i].idContribuyente==aContribuyente[j].idContribuyente)
 						{
 							getDescripcionRecaudacion(aTipo, cantidadTipo, array[i].tipo, descripcion);
-							printf("%-5d %-10s  /t %-8d  %-.2f %-8d %-15s %-10s %-10s\n", array[i].idRecaudacion, descripcion, array[i].mes, array[i].importe,
+							printf("\n %-d       %-s       %-d    %-.2f    %-d     %-s   %-s %-s", array[i].idRecaudacion, descripcion, array[i].mes, array[i].importe,
 									array[i].idContribuyente, aContribuyente[j].cuit, aContribuyente[j].apellido, aContribuyente[j].name);
 							retorno=0;
 						}
 					}
 				}
 
+			}
+		}
+	}
+	return retorno;
+}
+int buscaRecaudacionMasAlta(eRecaudacion aAuxiliar[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, eTipo aTipo[], int cantidadTipo)
+{
+	int retorno=-1;
+	int i, j;
+	int flag=0;
+	float mayor=0;
+	if(aAuxiliar!=NULL && cantidadDeArray>0 && aContribuyente!=NULL && cantidadContribuyente>0 && aTipo!=NULL && cantidadTipo>0)
+	{
+		for(i=0; i<cantidadDeArray; i++)
+		{
+			if(aAuxiliar[i].isEmpty==1)
+			{
+				continue;
+			}
+			else
+			{
+				if(mayor<aAuxiliar[i].importe || flag==0)
+				{
+					mayor=aAuxiliar[i].importe;
+					flag=1;
+					retorno=0;
+				}
+			}
+		}
+		if(mayor!=0)
+		{
+			informes_RecaudacionMasAlta(aAuxiliar, cantidadDeArray, aContribuyente, cantidadContribuyente, aTipo, cantidadTipo, mayor);
+		}
+	}
+	return retorno;
+}
+int buscaRecaudacionByCUIT(eRecaudacion aAuxiliar[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, eTipo aTipo[], int cantidadTipo)
+{
+	int retorno=-1;
+	int auxI;
+	int i;
+	int j;
+	char descripcion[30];
+	char aCUIT[14];
+	if(aAuxiliar!=NULL && cantidadDeArray>0 && aContribuyente!=NULL && cantidadContribuyente>0 && aTipo!=NULL && cantidadTipo>0)
+	{
+		if(buscaConstribuyenteByCUIT(aContribuyente, cantidadContribuyente, auxI)==0)
+		{
+			puts("\n\t> LISTADO Recaudacion");
+			printf("%5s %10s %10s %8s %12s\n", "ID","ARCHIVO","CUIL","DIAS","ID Recaudacion");
+			for(i=0; i<cantidadDeArray; i++)
+			{
+				if(aAuxiliar[i].idContribuyente==auxI && aAuxiliar[i].isEmpty==0)
+				{
+					getDescripcionContribuyente(aTipo, cantidadTipo, aAuxiliar[i].tipo, descripcion);
+					imprimir1Recaudacion(aAuxiliar[i], descripcion);
+					retorno=0;
+				}
 			}
 		}
 	}

@@ -23,7 +23,9 @@ int main(void) {
 	//utn_getNumero(&numInt, "numero", "error", -100, 100,2);
 	//utn_getNombre(nombre, "nombre", "error", 2, 50);
 	//utn_getTelefono(nombre, "Ingrese Telefono", "error", 8, 12, 15000000, 1599999999, 2);
-	utn_getCUIT(nombre, "Ingrese cuit", "error", 2);
+	//utn_getCUIT(nombre, "Ingrese cuit", "error", 2);
+	//utn_getApellido(nombre, "Apellido", "Error", 3, 50);
+	utn_getNombre(nombre, "Nombre", "Error",3,  50);
 	printf("%s", nombre);
 		return EXIT_SUCCESS;
 }

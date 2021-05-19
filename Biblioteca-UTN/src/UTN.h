@@ -100,9 +100,13 @@ int esSoloLetra(char *pResultado) ;
 int esLetraConEspacio(char *pResultado);
 int esTelefonoValido(char* cadena);
 int utn_getTelefono(char* pResultado, char* mensaje, char* mensajeError, int minSize, int maxSize, int min, int max, int reintentos);
-
+int esApellido(char* cadena,int longitud);
+int getApellido(char* pResultado, int longitud);
+int utn_getApellido(char* pResultado, char* mensaje, char* mensajeError,int reintentos, int longitud);
+void daFormaApellido(char* pResultado);
 void FormaApellidoNombre(char *pNombre, char *pApellido, char *pCompleto);
 int esCUIT(char* cadena);
 int utn_getCUIT(char* pResultado, char* mensaje, char* mensajeError, int reintentos);
 int utn_getCaracterSN(void);
+void daFormaNombre(char *pResultado);
 #endif /* UTN_H_ */

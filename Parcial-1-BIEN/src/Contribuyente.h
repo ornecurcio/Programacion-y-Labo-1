@@ -12,8 +12,8 @@
 typedef struct
 {
 	int idContribuyente;
-	char name[30];
-	char apellido[30];
+	char name[50];
+	char apellido[50];
 	char cuit[14];
 	int isEmpty;
 }eContribuyente;
@@ -59,5 +59,7 @@ int bajaContribuyente(eContribuyente aAuxiliar[], int posicion);
 int ordenarContribuyente(eContribuyente array[], int cantidadDeArray, int criterio);
 
 int modifica1Contribuyente(eContribuyente aAuxiliar[], int posicion);
+
+int buscaConstribuyenteByCUIT(eContribuyente aAuxiliar[], int cantidadDeArray);
 
 #endif /* Contribuyente_H_ */

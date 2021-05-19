@@ -13,12 +13,12 @@
 #include "UTN.h"
 #include "Recaudacion.h"
 #include "Contribuyente.h"
+#include "Informes.h"
 
 
 #define QTY_CONTRIBUYENTE 3
 #define QTY_RECAUDACION 3
 #define QTY_TIPO 3
-
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -38,17 +38,16 @@ int main(void) {
 	int posicion;
 	int respuestaMenuPrincipal;
 
-
-
 	inicializarContribuyente(vecContribuyente, QTY_CONTRIBUYENTE);
 	inicializarRecaudacion(vecRecaudacion, QTY_RECAUDACION);
 
 	do{
-		if(utn_getNumero(&respuestaMenuPrincipal, "1.Alta de Contribuyente\n2.Modificar datos del contribuyente\n3.Baja de contribuyente\n"
+		if(utn_getNumero(&respuestaMenuPrincipal, "\n----------MENU----------"
+				"\n1.Alta de Contribuyente\n2.Modificar datos del contribuyente\n3.Baja de contribuyente\n"
 				"4.Recaudación\n5.Refinanciar Recaudación\n6.Saldar Recaudación\n"
-				"7.Imprimir Contribuyentes\n8.Imprimir Recaudación",
-				"ERROR INGRESE OPCION VALIDA:"
-				"1.Alta de Contribuyente\n2.Modificar datos del contribuyente\n3.Baja de contribuyente"
+				"7.Imprimir Contribuyentes\n8.Imprimir Recaudación\n9.Salir",
+				"\n-----ERROR INGRESE OPCION VALIDA-----"
+				"\n1.Alta de Contribuyente\n2.Modificar datos del contribuyente\n3.Baja de contribuyente"
 				"\n4.Recaudación\n5.Refinanciar Recaudación\n6.Saldar Recaudación"
 				"\n7.Imprimir Contribuyentes\n8.Imprimir Recaudación\n9.Salir\n", 1, 9, 2)==0)
 		{
@@ -57,7 +56,7 @@ int main(void) {
 				case 1: //ALTA CONTRIBUYENTE
 					if(altaContribuyente(vecContribuyente, QTY_CONTRIBUYENTE, &contadorContribuyente)==0)
 					{
-						printf("Carga exitosa\n");
+						printf("\nCarga exitosa");
 					}
 				break;
 				case 2: //MODIFICAR CONTRIBUYENTE
@@ -82,7 +81,7 @@ int main(void) {
 						if((imprimirContribuyentes(vecContribuyente, QTY_CONTRIBUYENTE)==0)&&
 						(altaRecaudacion(vecRecaudacion, QTY_RECAUDACION, vecContribuyente, QTY_CONTRIBUYENTE, &contadorRecaudacion)==0))
 						{
-							printf("Carga de recaudacion exitosa\n");
+							printf("\nCarga de recaudacion exitosa");
 						}
 					}
 				break;
@@ -90,16 +89,28 @@ int main(void) {
 					if(!(hayContribuyente(vecContribuyente, QTY_CONTRIBUYENTE)))
 					{
 						auxInt=buscaIDRecaudacionRetIDCon(vecRecaudacion, QTY_RECAUDACION, contadorRecaudacion, &posicion);
+						if(auxInt!=-1)
+						{
 						imprimir1Contribuyente(vecContribuyente[buscaContribuyenteXIdParametro(vecContribuyente, QTY_CONTRIBUYENTE, auxInt)]);
+						}
+						if(posicion>=0)
+						{
 						estadoRecaudacionRefinanciar(vecRecaudacion, posicion, vecTipo, QTY_TIPO);
+						}
 					}
 				break;
 				case 6: // SALDAR RECAUDACION
 					if(!(hayContribuyente(vecContribuyente, QTY_CONTRIBUYENTE)))
 					{
 						auxInt=buscaIDRecaudacionRetIDCon(vecRecaudacion, QTY_RECAUDACION, contadorRecaudacion, &posicion);
-						imprimir1Contribuyente(vecContribuyente[buscaContribuyenteXIdParametro(vecContribuyente, QTY_CONTRIBUYENTE, auxInt)]);
-						estadoRecaudacionSaldar(vecRecaudacion, posicion, vecTipo, QTY_TIPO);
+						if(auxInt!=-1)
+						{
+							imprimir1Contribuyente(vecContribuyente[buscaContribuyenteXIdParametro(vecContribuyente, QTY_CONTRIBUYENTE, auxInt)]);
+						}
+						if(posicion>=0)
+						{
+							estadoRecaudacionSaldar(vecRecaudacion, posicion, vecTipo, QTY_TIPO);
+						}
 					}
 				break;
 				case 7: // IMPRIMIR CONTRIBUYENTES
@@ -113,7 +124,7 @@ int main(void) {
 					{
 						if(imprimirRecaudacionSaldadas(vecRecaudacion, QTY_RECAUDACION, vecTipo, QTY_TIPO, vecContribuyente, QTY_CONTRIBUYENTE)!=0)
 						{
-							printf("NO HAY RECAUDACIONES SALDADAS");
+							printf("\n ----NO HAY RECAUDACIONES SALDADAS----");
 						}
 					}
 				break;
