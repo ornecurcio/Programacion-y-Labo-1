@@ -25,6 +25,7 @@ int inicializarContribuyente(eContribuyente pArray[], int cantidadDeArray)
 	}
 	return retorno;
 }
+
 int buscaLibreContribuyente(eContribuyente pArray[], int cantidadDeArray)
 {
 	int retorno = -1;
@@ -43,6 +44,7 @@ int buscaLibreContribuyente(eContribuyente pArray[], int cantidadDeArray)
 	}
 	return retorno;
 }
+
 int hayContribuyente(eContribuyente pArray[], int cantidadDeArray)
 {
 	int retorno=-1;
@@ -63,6 +65,7 @@ int hayContribuyente(eContribuyente pArray[], int cantidadDeArray)
 	}
 	return retorno;
 }
+
 int altaContribuyente(eContribuyente aContribuyente[], int cantidadDeArray, int* contadorId)
 {
 	int retorno = -1;
@@ -99,10 +102,12 @@ int altaContribuyente(eContribuyente aContribuyente[], int cantidadDeArray, int*
 	}
 		return retorno;
 }
+
 void imprimir1Contribuyente(eContribuyente aContribuyente)
 {
 	printf("\n%-d       %-s         %-s      %-s ", aContribuyente.idContribuyente, aContribuyente.apellido, aContribuyente.name,aContribuyente.cuit);
 }
+
 int imprimirContribuyentes(eContribuyente array[], int cantidadDeArray)
 {
 	int i;
@@ -127,6 +132,7 @@ int imprimirContribuyentes(eContribuyente array[], int cantidadDeArray)
 	}
 	return retorno;
 }
+
 int buscaContribuyenteById(eContribuyente aAuxiliar[], int cantidadDeArray, int* aID)
 {
 	int retorno = -1;
@@ -152,6 +158,7 @@ int buscaContribuyenteById(eContribuyente aAuxiliar[], int cantidadDeArray, int*
 	}
 	return retorno;
 }
+
 int bajaContribuyente(eContribuyente aAuxiliar[], int posicion)
 {
 	int retorno = -1;
@@ -168,6 +175,7 @@ int bajaContribuyente(eContribuyente aAuxiliar[], int posicion)
 	}
 	return retorno;
 }
+
 int modifica1Contribuyente(eContribuyente aAuxiliar[], int posicion)
 {
 	int retorno = -1;
@@ -209,6 +217,7 @@ int modifica1Contribuyente(eContribuyente aAuxiliar[], int posicion)
 	}
 	return retorno;
 }
+
 int buscaContribuyenteXIdParametro(eContribuyente aAuxiliar[], int cantidadDeArray, int aID)
 {
 	int retorno = -1;
@@ -231,6 +240,7 @@ int buscaContribuyenteXIdParametro(eContribuyente aAuxiliar[], int cantidadDeArr
 	}
 	return retorno;
 }
+
 int buscaConstribuyenteByCUIT(eContribuyente aAuxiliar[], int cantidadDeArray, int* aID)
 {
 	int retorno = -1;

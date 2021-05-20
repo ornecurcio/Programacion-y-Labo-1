@@ -38,6 +38,7 @@ int buscaLibreRecaudacion(eRecaudacion pArray[], int cantidadDeArray)
 	}
 	return retorno;
 }
+
 int getDescripcionRecaudacion(eTipo aTipo[], int cantidadTipo, int buscar, char* descripcion)
 {
 	int i;
@@ -53,6 +54,7 @@ int getDescripcionRecaudacion(eTipo aTipo[], int cantidadTipo, int buscar, char*
 	}
 	return retorno;
 }
+
 int altaRecaudacion(eRecaudacion aArray[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, int* contadorId)
 {
 	int retorno = -1;
@@ -108,11 +110,13 @@ int altaRecaudacion(eRecaudacion aArray[], int cantidadDeArray, eContribuyente a
 	}
 		return retorno;
 }
+
 void imprimir1Recaudacion(eRecaudacion aRecaudacion, char* descripcion)
 {
 	printf("\n%-d   %-d      %-s        %-d    %-.2f        %-d ", aRecaudacion.idRecaudacion, aRecaudacion.tipo,
 			descripcion,aRecaudacion.mes, aRecaudacion.importe, aRecaudacion.idContribuyente);
 }
+
 int imprimirRecaudacion(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo)
 {
 	int i;
@@ -139,6 +143,7 @@ int imprimirRecaudacion(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[]
 	}
 	return retorno;
 }
+
 int buscaIDRecaudacionRetIDCon(eRecaudacion aAuxiliar[], int cantidadDeArray, int contadorRecauda, int* posicion)
 {
 	int retorno = -1;
@@ -194,6 +199,7 @@ int buscaRecaudacionByIdContribuyente(eRecaudacion aAuxiliar[], int cantidadDeAr
 	}
 	return retorno;
 }
+
 int bajaRecaudacion(eRecaudacion aAuxiliar[], int posicion, eTipo aTipo[], int cantidadTipo)
 {
 	int retorno = -1;
@@ -212,6 +218,7 @@ int bajaRecaudacion(eRecaudacion aAuxiliar[], int posicion, eTipo aTipo[], int c
 	}
 	return retorno;
 }
+
 int estadoRecaudacionRefinanciar(eRecaudacion aAuxiliar[], int posicion,eTipo aTipo[], int cantidadTipo)
 {
 	int retorno = -1;
@@ -229,6 +236,7 @@ int estadoRecaudacionRefinanciar(eRecaudacion aAuxiliar[], int posicion,eTipo aT
 	}
 	return retorno;
 }
+
 int estadoRecaudacionSaldar(eRecaudacion aAuxiliar[], int posicion,eTipo aTipo[], int cantidadTipo)
 {
 	int retorno = -1;
@@ -246,6 +254,7 @@ int estadoRecaudacionSaldar(eRecaudacion aAuxiliar[], int posicion,eTipo aTipo[]
 	}
 	return retorno;
 }
+
 int recaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo,int ID)
 {
 	int retorno = -1;
@@ -265,6 +274,7 @@ int recaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray, eTipo a
 	}
 	return retorno;
 }
+
 int bajaRecaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray,int ID)
 {
 	int retorno = -1;
@@ -281,6 +291,7 @@ int bajaRecaudacionxContribuyente(eRecaudacion array[], int cantidadDeArray,int 
 		}
 	return retorno;
 }
+
 int listarContribuyentes(eRecaudacion aArray[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, eTipo aTipo[], int cantidadTipo)
 {
 	int retorno=-1;
@@ -301,6 +312,7 @@ int listarContribuyentes(eRecaudacion aArray[], int cantidadDeArray, eContribuye
 	}
 	return retorno;
 }
+
 int imprimirRecaudacionSaldadas(eRecaudacion array[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo,eContribuyente aContribuyente[], int cantidadContribuyente)
 {
 	int i;
@@ -338,6 +350,7 @@ int imprimirRecaudacionSaldadas(eRecaudacion array[], int cantidadDeArray, eTipo
 	}
 	return retorno;
 }
+
 int buscaRecaudacionMasAlta(eRecaudacion aAuxiliar[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, eTipo aTipo[], int cantidadTipo)
 {
 	int retorno=-1;
@@ -369,6 +382,7 @@ int buscaRecaudacionMasAlta(eRecaudacion aAuxiliar[], int cantidadDeArray, eCont
 	}
 	return retorno;
 }
+
 int buscaRecaudacionByCUIT(eRecaudacion aAuxiliar[], int cantidadDeArray, eContribuyente aContribuyente[], int cantidadContribuyente, eTipo aTipo[], int cantidadTipo)
 {
 	int retorno=-1;
@@ -395,4 +409,77 @@ int buscaRecaudacionByCUIT(eRecaudacion aAuxiliar[], int cantidadDeArray, eContr
 		}
 	}
 	return retorno;
+}
+int saldoTotalRecaudaciones(eRecaudacion aAuxiliar[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo)
+{
+	float acumuladorARBA=0;
+	float acumuladorIIBB=0;
+	float acumuladorGANAN=0;
+	if(aAuxiliar!=NULL && cantidadDeArray>0 && aTipo!=NULL && cantidadTipo>0)
+	{
+		for(int i=0; i<cantidadDeArray; i++)
+		{
+			switch(aAuxiliar[i].tipo)
+			{
+				case 1:
+					acumuladorARBA=+aAuxiliar[i].importe;
+					break;
+				case 2:
+					acumuladorIIBB=+aAuxiliar[i].importe;
+					break;
+				case 3:
+					acumuladorGANAN=+aAuxiliar[i].importe;
+					break;
+			}
+		}
+	}
+}
+int saldoPromedioRecaudaciones(eRecaudacion aAuxiliar[], int cantidadDeArray, eTipo aTipo[], int cantidadTipo)
+{
+	int retorno = -1;
+	float acumuladorARBA=0;
+	int contadorARBA=0;
+	float acumuladorIIBB=0;
+	int contadorIIBB=0;
+	float acumuladorGANAN=0;
+	int contadorGANAN=0;
+	float promedioARBA;
+	float promedioIIBB;
+	float promedioGANAN;
+	if(aAuxiliar!=NULL && cantidadDeArray>0 && aTipo!=NULL && cantidadTipo>0)
+	{
+		for(int i=0; i<cantidadDeArray; i++)
+		{
+			switch(aAuxiliar[i].tipo)
+			{
+				case 1:
+					acumuladorARBA=+aAuxiliar[i].importe;
+					contadorARBA++;
+					break;
+				case 2:
+					acumuladorIIBB=+aAuxiliar[i].importe;
+					contadorIIBB++;
+					break;
+				case 3:
+					acumuladorGANAN=+aAuxiliar[i].importe;
+					contadorGANAN++;
+					break;
+			}
+		}
+		if(contadorARBA>0)
+		{
+			promedioARBA=acumuladorARBA/contadorARBA;
+			retorno=0;
+		}
+		if(contadorIIBB>0)
+		{
+			promedioIIBB=acumuladorARBA/contadorARBA;
+			retorno=0;
+		}
+		if(contadorGANAN>0)
+		{
+			promedioGANAN=acumuladorARBA/contadorARBA;
+			retorno=0;
+		}
+	}
 }
