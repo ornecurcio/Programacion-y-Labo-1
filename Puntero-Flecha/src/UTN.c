@@ -239,6 +239,29 @@ int getNombre(char* pResultado, int longitud)
 	}
 	return retorno;
 }
+void daFormaNombre(char *pResultado)
+{
+	if(pResultado!=NULL && strlen(pResultado)>0)
+	{
+		strlwr(pResultado);
+		for(int i = 0; i < strlen(pResultado); i++)
+		{
+			if (i == 0 && isspace(pResultado[i]) == 0)
+			{
+				pResultado[0] = toupper(pResultado[0]);
+
+			}
+			else
+			{
+				if(pResultado[i]=='.' && (i<strlen(pResultado)- 1))
+				{
+					pResultado[i + 1] = toupper(pResultado[i + 1]);
+				}
+			}
+		}
+	}
+}
+
 //------------UTN cosas-----------
 int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos)
 {
@@ -382,6 +405,7 @@ int utn_getNombre(char* pResultado, char* mensaje, char* mensajeError,int reinte
 			printf("%s",mensaje);
 			if(getNombre(bufferString, 1000)==0)
 			{
+				daFormaNombre(bufferString);
 				strncpy(pResultado,bufferString,longitud);
 				retorno = 0;
 				break;
@@ -425,7 +449,6 @@ int esCUIT(char* cadena)// es lo que hay
 {
     int retorno=1;
     int i;
-    int j;
     char buffer[14];
     int contadorDigito;
     int contadorGuion;
@@ -475,7 +498,7 @@ int utn_getCUIT(char* pResultado, char* mensaje, char* mensajeError, int reinten
         do
         {
         	printf("%s",mensaje);
-            if((myGets(bufferStr, 14)==0) && (esCUIT(bufferStr)==1))
+            if((myGets(bufferStr, 14)==0) && (esCUIT(bufferStr)==1) && (strlen(bufferStr)>minTamanio))
 			{
                 strncpy(pResultado,bufferStr,maxTamanio);
                 retorno=0;
@@ -565,6 +588,90 @@ int utn_SwapAscendiente(int listaDeArray[],int cantidadDeArray)
 			}
 		}
 		retorno=0;
+	}
+	return retorno;
+}
+int esApellido(char* cadena,int longitud)
+{
+	int retorno = 1;
+
+	if(cadena!=NULL && longitud>0)
+	{
+		for(int i=0; i<=longitud && cadena[i] != '\0';i++)
+		{
+			if((cadena[i]<'A' || cadena[i]>'Z') && (cadena[i]<'a' || cadena[i]>'z') &&
+			   (cadena[i]<'Ç' || cadena[i]>'Ü') && (cadena[i]<'á' || cadena[i]>'Ñ') &&
+			   (cadena[i]<'Á' || cadena[i]>'À')&& (cadena[i]<'ã' || cadena[i]>'Ã') &&
+			   (cadena[i]<'Ê' || cadena[i]>'Ï')&& (cadena[i]<'Ó' || cadena[i]>'Ý') && cadena[i]!=' ')
+			{
+				retorno = 0;
+				break;
+			}
+		}
+	}
+	return retorno;
+}
+int getApellido(char* pResultado, int longitud)
+{
+	int retorno=-1;
+	char buffer[5000];
+	if(pResultado!=NULL && longitud>0)
+	{
+		if((myGets(buffer, sizeof(buffer))==0) && (esApellido(buffer, sizeof(buffer))!=0)
+		&& (esLetraConEspacio(buffer)!=0) && (strnlen(buffer, sizeof(buffer))<=longitud))
+		{
+			strncpy(pResultado, buffer, longitud);
+			retorno=0;
+		}
+	}
+	return retorno;
+}
+void daFormaApellido(char* pResultado)
+{
+	if (pResultado!=NULL && strlen(pResultado)>0)
+	{
+		strlwr(pResultado);
+		for(int i = 0; i < strlen(pResultado); i++)
+		{
+			if (i == 0 && isspace(pResultado[i]) == 0)
+			{
+				pResultado[0] = toupper(pResultado[0]);
+
+			}
+			else
+			{
+				if (isspace(pResultado[i]) && i < strlen(pResultado) - 1)
+				{
+					pResultado[i + 1] = toupper(pResultado[i + 1]);
+				}
+			}
+		}
+	}
+}
+
+int utn_getApellido(char* pResultado, char* mensaje, char* mensajeError,int reintentos, int longitud)
+{
+	char bufferString[1000];
+	int retorno = -1;
+
+	if(mensaje != NULL && mensajeError != NULL && pResultado != NULL && reintentos >= 0 && longitud > 0)
+	{
+		do
+		{
+			printf("%s",mensaje);
+			if(getApellido(bufferString, 1000)==0)
+			{
+				daFormaApellido(bufferString);
+				strncpy(pResultado,bufferString,longitud);
+				retorno = 0;
+				break;
+			}
+			else
+			{
+				printf("%s",mensajeError);
+				reintentos--;
+			}
+		}while(reintentos>=0);
 	}
 	return retorno;
 }

@@ -1,24 +1,5 @@
-21:57:08 **** Incremental Build of configuration Debug for project Punteros ****
+20:54:46 **** Incremental Build of configuration Debug for project Puntero-Funcio ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Punteros.o" "..\\src\\Punteros.c" 
-gcc -o Punteros.exe "src\\Punteros.o" 
-Info: Nothing to build for Punteros
-21:57:29 **** Incremental Build of configuration Debug for project Punteros ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Punteros.o" "..\\src\\Punteros.c" 
-gcc -o Punteros.exe "src\\Punteros.o" 
-Info: Nothing to build for Punteros
-Info: Nothing to build for Punteros
-Info: Nothing to build for Punteros
-Info: Nothing to build for Punteros
-21:58:46 **** Incremental Build of configuration Debug for project Punteros ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Punteros.o" "..\\src\\Punteros.c" 
-gcc -o Punteros.exe "src\\Punteros.o" 
-Info: Nothing to build for Punteros
-Info: Nothing to build for Punteros
-22:02:26 **** Incremental Build of configuration Debug for project Punteros ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Punteros.o" "..\\src\\Punteros.c" 
-gcc -o Punteros.exe "src\\Punteros.o" 
-Info: Nothing to build for Punteros
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Puntero-Funcio.o" "..\\src\\Puntero-Funcio.c" 
+gcc -o Puntero-Funcio.exe "src\\Puntero-Funcio.o" 
+Info: Nothing to build for Puntero-Funcio

@@ -401,7 +401,7 @@ int buscaRecaudacionByCUIT(eRecaudacion aAuxiliar[], int cantidadDeArray, eContr
 			{
 				if(aAuxiliar[i].idContribuyente==auxI && aAuxiliar[i].isEmpty==0)
 				{
-					getDescripcionContribuyente(aTipo, cantidadTipo, aAuxiliar[i].tipo, descripcion);
+					getDescripcionRecaudacion(aTipo, cantidadTipo, aAuxiliar[i].tipo, descripcion);
 					imprimir1Recaudacion(aAuxiliar[i], descripcion);
 					retorno=0;
 				}
