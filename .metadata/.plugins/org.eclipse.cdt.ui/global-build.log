@@ -1,5 +1,5 @@
-20:54:46 **** Incremental Build of configuration Debug for project Puntero-Funcio ****
+19:27:56 **** Incremental Build of configuration Debug for project MemoriaDinamica ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Puntero-Funcio.o" "..\\src\\Puntero-Funcio.c" 
-gcc -o Puntero-Funcio.exe "src\\Puntero-Funcio.o" 
-Info: Nothing to build for Puntero-Funcio
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\MemoriaDinamica.o" "..\\src\\MemoriaDinamica.c" 
+gcc -o MemoriaDinamica.exe "src\\MemoriaDinamica.o" 
+Info: Nothing to build for MemoriaDinamica
