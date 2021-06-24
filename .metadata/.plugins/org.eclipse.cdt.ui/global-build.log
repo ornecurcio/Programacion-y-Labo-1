@@ -1,5 +1,877 @@
-20:54:51 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+22:37:38 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+22:38:24 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+00:58:23 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_ListEmployee':
+..\src\Controller.c:402:7: warning: implicit declaration of function 'scrcpy' [-Wimplicit-function-declaration]
+  402 |       scrcpy(auxDiaStr,"Domingo");
+      |       ^~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: src\Controller.o: in function `controller_ListEmployee':
+C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:402: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:405: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:408: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:411: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:414: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: src\Controller.o:C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:417: more undefined references to `scrcpy' follow
+collect2.exe: error: ld returned 1 exit status
+00:59:17 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_ListEmployee':
+..\src\Controller.c:403:7: warning: implicit declaration of function 'scrcpy'; did you mean 'strcpy'? [-Wimplicit-function-declaration]
+  403 |       scrcpy(auxDiaStr,"Domingo");
+      |       ^~~~~~
+      |       strcpy
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: src\Controller.o: in function `controller_ListEmployee':
+C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:403: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:406: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:409: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:412: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:415: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: src\Controller.o:C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:418: more undefined references to `scrcpy' follow
+collect2.exe: error: ld returned 1 exit status
+01:00:20 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: src\Controller.o: in function `controller_ListEmployee':
+C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:403: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:406: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:409: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:412: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:415: undefined reference to `scrcpy'
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: src\Controller.o:C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Controller.c:418: more undefined references to `scrcpy' follow
+collect2.exe: error: ld returned 1 exit status
+01:01:52 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:01:54 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:598:63: error: incompatible type for argument 2 of 'employee_getFacturacion'
+  598 |     montoSala=montoSala+employee_getFacturacion(pAuxEmpleado, auxFac);
+      |                                                               ^~~~~~
+      |                                                               |
+      |                                                               float
+In file included from ..\src\Controller.c:5:
+..\src\Employee.h:37:51: note: expected 'float *' but argument is of type 'float'
+   37 | int employee_getFacturacion(Employee* this,float* facturacion);
+      |                                            ~~~~~~~^~~~~~~~~~~
+..\src\Controller.c:605:41: warning: format '%d' expects argument of type 'int', but argument 2 has type 'double' [-Wformat=]
+  605 |   printf("\t#\t Monto total facturado: %d                           #\n", montoSala);
+      |                                        ~^                                 ~~~~~~~~~
+      |                                         |                                 |
+      |                                         int                               double
+      |                                        %f
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+02:03:06 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:605:41: warning: format '%d' expects argument of type 'int', but argument 2 has type 'double' [-Wformat=]
+  605 |   printf("\t#\t Monto total facturado: %d                           #\n", montoSala);
+      |                                        ~^                                 ~~~~~~~~~
+      |                                         |                                 |
+      |                                         int                               double
+      |                                        %f
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+02:03:25 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:06:16 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:08:32 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:14:53 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file Modelo2Parcial.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+02:15:03 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+02:21:13 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:21:59 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file Modelo2Parcial.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+02:22:06 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:22:31 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:24:02 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file Modelo2Parcial.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+02:24:08 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:30:16 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:31:15 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:32:22 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:36:15 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:37:04 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+02:37:34 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+02:38:41 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+02:39:42 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:585:7: warning: unused variable 'auxNombre' [-Wunused-variable]
+  585 |  char auxNombre[128];
+      |       ^~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+02:56:46 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+03:00:36 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+03:27:51 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+09:48:35 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+09:52:44 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+..\src\Menu.c: In function 'menu':
+..\src\Menu.c:122:7: error: too few arguments to function 'controller_informes'
+  122 |       controller_informes(listaEmpleados);
+      |       ^~~~~~~~~~~~~~~~~~~
+In file included from ..\src\Menu.c:4:
+..\src\Controller.h:13:5: note: declared here
+   13 | int controller_informes(LinkedList* pArrayListEmployee, LinkedList* pArrayListEmployee2);
+      |     ^~~~~~~~~~~~~~~~~~~
+09:53:14 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+..\src\Menu.c: In function 'menu':
+..\src\Menu.c:15:34: warning: 'listaEmpleador2' is used uninitialized in this function [-Wuninitialized]
+   15 |      LinkedList* listaEmpleador2=ll_clone(listaEmpleador2);
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+09:53:31 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+..\src\Menu.c: In function 'menu':
+..\src\Menu.c:15:43: error: 'listaEmpleador' undeclared (first use in this function); did you mean 'listaEmpleador2'?
+   15 |      LinkedList* listaEmpleador2=ll_clone(listaEmpleador);
+      |                                           ^~~~~~~~~~~~~~
+      |                                           listaEmpleador2
+..\src\Menu.c:15:43: note: each undeclared identifier is reported only once for each function it appears in
+09:53:40 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+09:57:16 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+..\src\Menu.c: In function 'menu':
+..\src\Menu.c:121:7: error: a label can only be part of a statement and a declaration is not a statement
+  121 |       LinkedList* listaEmpleador2=ll_clone(listaEmpleados);
+      |       ^~~~~~~~~~
+09:59:56 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:03:30 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:05:02 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:06:51 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:580:12: warning: variable 'pAuxEmpleado2' set but not used [-Wunused-but-set-variable]
+  580 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:11:19 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:16:09 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:19:44 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:21:00 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:25:25 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:40:28 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+10:42:44 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:44:05 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:46:13 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:48:37 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:52:21 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+10:58:47 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:00:17 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:02:05 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:06:20 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:06:55 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:08:57 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:10:46 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:15:06 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+11:28:13 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:29:43 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:31:13 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:39:18 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:41:29 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+11:44:15 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+12:04:15 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+12:07:39 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+12:17:32 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+Info: Nothing to build for Modelo2Parcial
+12:46:38 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:688:31: error: 'employee_putSala' undeclared (first use in this function); did you mean 'employee_getSala'?
+  688 |  void (*pFunc)(void* element)=employee_putSala;
+      |                               ^~~~~~~~~~~~~~~~
+      |                               employee_getSala
+..\src\Controller.c:688:31: note: each undeclared identifier is reported only once for each function it appears in
+..\src\Controller.c:686:8: warning: unused variable 'montoSala' [-Wunused-variable]
+  686 |  float montoSala=0;
+      |        ^~~~~~~~~
+..\src\Controller.c:685:6: warning: unused variable 'acumuladorEntradas' [-Wunused-variable]
+  685 |  int acumuladorEntradas=0;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:684:8: warning: unused variable 'auxFac' [-Wunused-variable]
+  684 |  float auxFac;
+      |        ^~~~~~
+..\src\Controller.c:683:24: warning: unused variable 'auxSala' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |                        ^~~~~~~
+..\src\Controller.c:683:15: warning: unused variable 'intSala' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |               ^~~~~~~
+..\src\Controller.c:683:6: warning: unused variable 'auxCant' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |      ^~~~~~~
+..\src\Controller.c:682:6: warning: unused variable 'cantidadLinkedList' [-Wunused-variable]
+  682 |  int cantidadLinkedList;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:681:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  681 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:680:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  680 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+12:47:08 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:686:8: warning: unused variable 'montoSala' [-Wunused-variable]
+  686 |  float montoSala=0;
+      |        ^~~~~~~~~
+..\src\Controller.c:685:6: warning: unused variable 'acumuladorEntradas' [-Wunused-variable]
+  685 |  int acumuladorEntradas=0;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:684:8: warning: unused variable 'auxFac' [-Wunused-variable]
+  684 |  float auxFac;
+      |        ^~~~~~
+..\src\Controller.c:683:24: warning: unused variable 'auxSala' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |                        ^~~~~~~
+..\src\Controller.c:683:15: warning: unused variable 'intSala' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |               ^~~~~~~
+..\src\Controller.c:683:6: warning: unused variable 'auxCant' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |      ^~~~~~~
+..\src\Controller.c:682:6: warning: unused variable 'cantidadLinkedList' [-Wunused-variable]
+  682 |  int cantidadLinkedList;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:681:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  681 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:680:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  680 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+..\src\Employee.c: In function 'employee_putSala':
+..\src\Employee.c:325:3: warning: statement with no effect [-Wunused-value]
+  325 |   (Employee*)this;
+      |   ^~~~~~~~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+12:50:24 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+..\src\Employee.c: In function 'employee_putSala':
+..\src\Employee.c:325:3: error: continue statement not within a loop
+  325 |   continue;
+      |   ^~~~~~~~
+12:50:26 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+..\src\Employee.c: In function 'employee_putSala':
+..\src\Employee.c:325:3: error: continue statement not within a loop
+  325 |   continue;
+      |   ^~~~~~~~
+15:45:40 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+..\src\Employee.c: In function 'employee_putSala':
+..\src\Employee.c:327:1: warning: control reaches end of non-void function [-Wreturn-type]
+  327 | }
+      | ^
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\LinkedList.o" "..\\src\\LinkedList.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:688:32: warning: initialization of 'void * (*)(void *)' from incompatible pointer type 'Employee * (*)(void *)' {aka 'struct <anonymous> * (*)(void *)'} [-Wincompatible-pointer-types]
+  688 |  void* (*pFunc)(void* element)=employee_putSala;
+      |                                ^~~~~~~~~~~~~~~~
+..\src\Controller.c:686:8: warning: unused variable 'montoSala' [-Wunused-variable]
+  686 |  float montoSala=0;
+      |        ^~~~~~~~~
+..\src\Controller.c:685:6: warning: unused variable 'acumuladorEntradas' [-Wunused-variable]
+  685 |  int acumuladorEntradas=0;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:684:8: warning: unused variable 'auxFac' [-Wunused-variable]
+  684 |  float auxFac;
+      |        ^~~~~~
+..\src\Controller.c:683:24: warning: unused variable 'auxSala' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |                        ^~~~~~~
+..\src\Controller.c:683:15: warning: unused variable 'intSala' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |               ^~~~~~~
+..\src\Controller.c:683:6: warning: unused variable 'auxCant' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |      ^~~~~~~
+..\src\Controller.c:682:6: warning: unused variable 'cantidadLinkedList' [-Wunused-variable]
+  682 |  int cantidadLinkedList;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:681:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  681 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:680:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  680 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+15:57:28 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:686:8: warning: unused variable 'montoSala' [-Wunused-variable]
+  686 |  float montoSala=0;
+      |        ^~~~~~~~~
+..\src\Controller.c:685:6: warning: unused variable 'acumuladorEntradas' [-Wunused-variable]
+  685 |  int acumuladorEntradas=0;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:684:8: warning: unused variable 'auxFac' [-Wunused-variable]
+  684 |  float auxFac;
+      |        ^~~~~~
+..\src\Controller.c:683:24: warning: unused variable 'auxSala' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |                        ^~~~~~~
+..\src\Controller.c:683:15: warning: unused variable 'intSala' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |               ^~~~~~~
+..\src\Controller.c:683:6: warning: unused variable 'auxCant' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |      ^~~~~~~
+..\src\Controller.c:682:6: warning: unused variable 'cantidadLinkedList' [-Wunused-variable]
+  682 |  int cantidadLinkedList;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:681:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  681 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:680:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  680 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\LinkedList.o" "..\\src\\LinkedList.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+16:00:04 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+16:08:45 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_informes':
+..\src\Controller.c:694:51: warning: passing argument 2 of 'll_mapII' makes pointer from integer without a cast [-Wint-conversion]
+  694 |   pArrayListEmployee=ll_mapII(pArrayListEmployee, employee_putSala(pAuxEmpleado, intSala));
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   int
+In file included from ..\src\Controller.c:4:
+..\src\LinkedList.h:59:13: note: expected 'int (*)(void *, int)' but argument is of type 'int'
+   59 | LinkedList* ll_mapII(LinkedList* this,int (*pFunc)(void* element, int param));
+      |             ^~~~~~~~
+..\src\Controller.c:686:8: warning: unused variable 'montoSala' [-Wunused-variable]
+  686 |  float montoSala=0;
+      |        ^~~~~~~~~
+..\src\Controller.c:685:6: warning: unused variable 'acumuladorEntradas' [-Wunused-variable]
+  685 |  int acumuladorEntradas=0;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:684:8: warning: unused variable 'auxFac' [-Wunused-variable]
+  684 |  float auxFac;
+      |        ^~~~~~
+..\src\Controller.c:683:24: warning: unused variable 'auxSala' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |                        ^~~~~~~
+..\src\Controller.c:683:6: warning: unused variable 'auxCant' [-Wunused-variable]
+  683 |  int auxCant, intSala, auxSala;
+      |      ^~~~~~~
+..\src\Controller.c:682:6: warning: unused variable 'cantidadLinkedList' [-Wunused-variable]
+  682 |  int cantidadLinkedList;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:681:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  681 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:680:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  680 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Employee.o" "..\\src\\Employee.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\LinkedList.o" "..\\src\\LinkedList.c" 
+..\src\LinkedList.c: In function 'll_mapII':
+..\src\LinkedList.c:541:7: error: too few arguments to function 'pFunc'
+  541 |    if(pFunc(aux)!=0)
+      |       ^~~~~
+16:10:01 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\LinkedList.o" "..\\src\\LinkedList.c" 
+..\src\LinkedList.c: In function 'll_mapII':
+..\src\LinkedList.c:541:17: error: 'param' undeclared (first use in this function)
+  541 |    if(pFunc(aux,param)!=0)
+      |                 ^~~~~
+..\src\LinkedList.c:541:17: note: each undeclared identifier is reported only once for each function it appears in
+16:10:15 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\LinkedList.o" "..\\src\\LinkedList.c" 
+..\src\LinkedList.c: In function 'll_mapII':
+..\src\LinkedList.c:541:17: error: 'param' undeclared (first use in this function)
+  541 |    if(pFunc(aux,param)!=0)
+      |                 ^~~~~
+..\src\LinkedList.c:541:17: note: each undeclared identifier is reported only once for each function it appears in
+16:10:27 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\LinkedList.o" "..\\src\\LinkedList.c" 
+..\src\LinkedList.c: In function 'll_mapII':
+..\src\LinkedList.c:541:17: error: 'param' undeclared (first use in this function)
+  541 |    if(pFunc(aux,param)!=0)
+      |                 ^~~~~
+..\src\LinkedList.c:541:17: note: each undeclared identifier is reported only once for each function it appears in
+16:18:07 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\LinkedList.o" "..\\src\\LinkedList.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_Sala':
+..\src\Controller.c:682:6: warning: unused variable 'cantidadLinkedList' [-Wunused-variable]
+  682 |  int cantidadLinkedList;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:681:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  681 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:680:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  680 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: src\Menu.o: in function `menu':
+C:\Users\orne_\eclipse-workspace\Modelo2Parcial\Debug/../src/Menu.c:124: undefined reference to `controller_informes'
+collect2.exe: error: ld returned 1 exit status
+16:19:11 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+16:25:53 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_Sala':
+..\src\Controller.c:687:7: warning: unused variable 'pOrden' [-Wunused-variable]
+  687 |  int(*pOrden)(void*,void*)=employee_sortNombre;
+      |       ^~~~~~
+..\src\Controller.c:682:6: warning: unused variable 'cantidadLinkedList' [-Wunused-variable]
+  682 |  int cantidadLinkedList;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:681:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  681 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:680:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  680 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c: In function 'controller_PrintSala':
+..\src\Controller.c:717:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  717 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:716:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  716 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+16:29:15 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_Sala':
+..\src\Controller.c:687:7: warning: unused variable 'pOrden' [-Wunused-variable]
+  687 |  int(*pOrden)(void*,void*)=employee_sortNombre;
+      |       ^~~~~~
+..\src\Controller.c:682:6: warning: unused variable 'cantidadLinkedList' [-Wunused-variable]
+  682 |  int cantidadLinkedList;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\Controller.c:681:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  681 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:680:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  680 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c: In function 'controller_PrintSala':
+..\src\Controller.c:718:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  718 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:717:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  717 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+16:33:38 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+..\src\Controller.c: In function 'controller_PrintSala':
+..\src\Controller.c:714:12: warning: unused variable 'pAuxEmpleado3' [-Wunused-variable]
+  714 |  Employee* pAuxEmpleado3=NULL;
+      |            ^~~~~~~~~~~~~
+..\src\Controller.c:713:12: warning: unused variable 'pAuxEmpleado2' [-Wunused-variable]
+  713 |  Employee* pAuxEmpleado2=NULL;
+      |            ^~~~~~~~~~~~~
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+16:42:28 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+16:57:54 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+16:59:34 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+17:00:33 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+17:03:02 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+17:04:39 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+17:07:38 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
+gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
+Info: Nothing to build for Modelo2Parcial
+17:09:07 **** Incremental Build of configuration Debug for project Modelo2Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Controller.o" "..\\src\\Controller.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Menu.o" "..\\src\\Menu.c" 
 gcc -o Modelo2Parcial.exe "src\\Controller.o" "src\\Employee.o" "src\\LinkedList.o" "src\\Menu.o" "src\\UTN.o" "src\\main.o" "src\\parser.o" 
 Info: Nothing to build for Modelo2Parcial

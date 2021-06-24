@@ -193,8 +193,8 @@ void employee_print(Employee* this)
 	   employee_getSala(this, &auxSala)==0 && employee_getCantidad(this, &auxCantidad)==0 &&
 	   employee_getFacturacion(this, &auxFacturacion)==0 && utn_putDay(auxDia, auxDayStr)==0)
 	{
-		printf("Id: %d - Nombre: %s - Dia: %s - Horario: %s\n",auxId, auxNombre,auxDayStr,auxHora);
-		//printf("Id: %d - Nombre: %s - Dia: %d - Horario: %s - Sala: %d - Cantidad: %d - Facturacion: %.2f\n",auxId, auxNombre,auxDia,auxHora, auxSala, auxCantidad, auxFacturacion);
+		//printf("Id: %d - Nombre: %s - Dia: %s - Horario: %s\n",auxId, auxNombre,auxDayStr,auxHora);
+		printf("Id: %d - Nombre: %s - Dia: %d - Horario: %s - Sala: %d - Cantidad: %d - Facturacion: %.2f\n",auxId, auxNombre,auxDia,auxHora, auxSala, auxCantidad, auxFacturacion);
 	}
 	//printf("Id: %d - Nombre: %s - Horas Trabajadas: %d - Sueldo: %d\n",(*(this)).id, (*(this)).nombre,(*(this)).horasTrabajadas, (*(this)).sueldo);
 }
@@ -260,26 +260,26 @@ void employee_print(Employee* this)
 //	}
 //	return retorno;
 //}
-//int employee_sortNombre(void* thisOne, void* thisTwo)
-//{
-//	int retorno=0;
-//	char auxNombre1[128],auxNombre2[128];
-//	if(thisOne!=NULL && thisTwo!=NULL)
-//	{
-//		if(employee_getNombre((Employee*)thisOne, auxNombre1)==0 && employee_getNombre((Employee*)thisTwo, auxNombre2)==0)
-//		{
-//			if(strcmp(auxNombre1,auxNombre2)>0)
-//			{
-//				retorno=1;
-//			}
-//			if(strcmp(auxNombre1,auxNombre2)<0)
-//			{
-//				retorno=-1;
-//			}
-//		}
-//	}
-//	return retorno;
-//}
+int employee_sortNombre(void* thisOne, void* thisTwo)
+{
+	int retorno=0;
+	char auxNombre1[128],auxNombre2[128];
+	if(thisOne!=NULL && thisTwo!=NULL)
+	{
+		if(employee_getNombre((Employee*)thisOne, auxNombre1)==0 && employee_getNombre((Employee*)thisTwo, auxNombre2)==0)
+		{
+			if(strcmp(auxNombre1,auxNombre2)>0)
+			{
+				retorno=1;
+			}
+			if(strcmp(auxNombre1,auxNombre2)<0)
+			{
+				retorno=-1;
+			}
+		}
+	}
+	return retorno;
+}
 void employee_putIn(void* this)
 {
 	int auxDia;
@@ -306,6 +306,7 @@ void employee_putIn(void* this)
 		employee_setFacturacion(this, auxFacturacion);
 	}
 }
+
 //void employee_putDis(void* this)
 //{
 //	int auxSueldo;
@@ -315,3 +316,13 @@ void employee_putIn(void* this)
 //		employee_setSueldo(this, auxSueldo);
 //	}
 //}
+int employee_putSala(void* this, int sala)
+{
+	int retorno=-1;
+	int auxSala;
+	if(employee_getSala((Employee*)this, &auxSala)==0 && auxSala==sala)
+	{
+		retorno=0;
+	}
+	return retorno;
+}

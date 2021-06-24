@@ -12,6 +12,7 @@ int menu(void)
 	    int flag2=0;
 	    path=(char*)calloc(20,sizeof(char));
 	    LinkedList* listaEmpleados = ll_newLinkedList();
+	    LinkedList* listaEmpleados2=NULL;
 	    printf("------------ /BIENVENIDO/ -------------\n");
 	    do{
 	    	if(utn_getNumero(&option,"-------- Seleccione una opcion --------\n"
@@ -118,7 +119,11 @@ int menu(void)
 						}
 						break;
 					case 4:
-						controller_informes(listaEmpleados);
+						listaEmpleados2=ll_clone(listaEmpleados);
+						controller_ListEmployee(listaEmpleados2);
+						//controller_Sala(listaEmpleados2);
+						//controller_PrintSala(listaEmpleados2);
+						//controller_ListEmployee(listaEmpleados2);
 						break;
 //					case 9:
 //						utn_getNumero(&flag2, "Desea guardar en: \n1. data.bin \n2. Chequeo.bin \n3. Nuevo archivo", "Error, opcion incorrecta", 1, 3, 1);

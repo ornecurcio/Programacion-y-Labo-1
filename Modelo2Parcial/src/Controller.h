@@ -11,3 +11,5 @@ int controller_getMaxId(LinkedList* pArrayListEmployee);
 int controller_deleteLinkedList(LinkedList* pArrayListEmployee);
 int controller_putInDisEmployee(LinkedList* pArrayListEmployee);
 int controller_informes(LinkedList* pArrayListEmployee);
+int controller_Sala(LinkedList* pArrayListEmployee);
+int controller_PrintSala(LinkedList* pArrayListEmployee);

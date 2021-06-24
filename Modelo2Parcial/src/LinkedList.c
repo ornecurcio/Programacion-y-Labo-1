@@ -527,3 +527,22 @@ LinkedList* ll_map(LinkedList* this, void (*pFunc)(void* element))
 	}
 	return this;
 }
+//LinkedList* ll_mapII(LinkedList* this, int (*pFunc)(void* element, int param))
+////int ll_map(LinkedList* this, void (*pFunc)(void* element))
+//{
+//	//int retorno=-1;
+//	void* aux=NULL;
+//	if(this!=NULL && pFunc!=NULL)
+//	{
+//		//retorno=0;
+//		for(int i=0; i<ll_len(this); i++)
+//		{
+//			aux=ll_get(this, i);
+//			if(pFunc(aux,param)!=0)
+//			{
+//				ll_remove(this, i);
+//			}
+//		}
+//	}
+//	return this;
+//}

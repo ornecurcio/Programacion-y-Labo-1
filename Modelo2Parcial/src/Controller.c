@@ -392,7 +392,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 				   employee_getFacturacion(pAuxEmpleado, &auxFacturacion)!=0)
 				{
 					retorno=-1;
-					printf("Error, al imprimir lista");
+					printf("Error, al imprimir lista\n");
 					break;
 				}
 				else
@@ -573,30 +573,136 @@ int controller_putInDisEmployee(LinkedList* pArrayListEmployee)
 	}
     return retorno;
 }
-int controller_informes(LinkedList* pArrayListEmployee)
+//int controller_informes(LinkedList* pArrayListEmployee)
+//{
+//	int retorno=-1;
+//	Employee* pAuxEmpleado=NULL;
+//	Employee* pAuxEmpleado2=NULL;
+//	Employee* pAuxEmpleado3=NULL;
+//	int cantidadLinkedList;
+//	int auxCant, intSala, auxSala;
+//	float auxFac;
+//	int acumuladorEntradas=0;
+//	float montoSala=0;
+//	int(*pOrden)(void*,void*);
+//
+//	if(pArrayListEmployee!=NULL && ll_isEmpty(pArrayListEmployee)==0)
+//	{
+//		utn_getNumero(&intSala, "Ingrese numero de sala de 1 a 5", "Error, ingrese numero valido", 1, 5, 2);
+//		cantidadLinkedList=ll_len(pArrayListEmployee);
+//		pOrden=employee_sortNombre;
+//		ll_sort(pArrayListEmployee, pOrden, 1);
+//		for(int i=0; i<cantidadLinkedList ; i++)
+//		{
+//				pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);
+////				pAuxEmpleado2 = (Employee*)ll_get(pArrayListEmployee, j);
+//				employee_getSala(pAuxEmpleado, &auxSala);
+//				if(auxSala==intSala)
+//				{
+//					employee_getCantidad(pAuxEmpleado, &auxCant);
+//					employee_getFacturacion(pAuxEmpleado, &auxFac);
+//					acumuladorEntradas=acumuladorEntradas+auxCant;
+//					montoSala=montoSala+auxFac;
+//					employee_print(pAuxEmpleado);
+//					continue;
+////					if(stricmp(pAuxEmpleado->nombre,pAuxEmpleado2->nombre)==0)
+////					{
+////						ll_remove(pArrayListEmployee, i);
+////					}
+////				}
+//				}
+//				else
+//				{
+//					ll_remove(pArrayListEmployee, i);
+//				}
+//		}
+//		printf("###########################################################################################################\n");
+//		printf("#\t\t\t\t\t SALA %d                                                \n", intSala);
+//		printf("###########################################################################################################\n");
+//		printf("#\t Entradas Vendidas: %d        \n", acumuladorEntradas);
+//		printf("#\t Monto total facturado: %.2f                           \n", montoSala);
+//		printf("#\t Listado de peliculas proyectadas:                                           \n");
+//		for(int i=0; i<ll_len(pArrayListEmployee); i++)
+//		{
+//			printf("%d nueva cantidad de Len\n", ll_len(pArrayListEmployee));
+//			pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);
+//			printf("Nombre1: %s\n", pAuxEmpleado->nombre);
+//			pAuxEmpleado2 = (Employee*)ll_get(pArrayListEmployee, i+1);
+//			printf("Nombre2: %s\n", pAuxEmpleado2->nombre);
+//			pAuxEmpleado3 = (Employee*)ll_get(pArrayListEmployee, i+2);
+//			printf("Nombre3: %s\n", pAuxEmpleado3->nombre);
+//			if(stricmp(pAuxEmpleado->nombre,pAuxEmpleado2->nombre)==0)
+//			{
+//				//ll_remove(pArrayListEmployee, i+1);
+//				printf("Borra: ");
+//				employee_print(ll_pop(pArrayListEmployee, i+1));
+//				//for(int j=i+1; j<cantidadLinkedList; j++)
+//				//{
+//					//ll_set(pArrayListEmployee, j, pAuxEmpleado2);
+//					//ll_add(pArrayListEmployee, ll_pop(pArrayListEmployee, i+1));
+//				//}
+////				if(ll_remove(pArrayListEmployee, i+1)==0)
+////				{
+////					printf("anda el remove\n");
+////					employee_print(pAuxEmpleado);
+////				}
+////				else
+////				{
+////					printf("rompe el remove\n");
+////				}
+//			}
+//			if(stricmp(pAuxEmpleado2->nombre,pAuxEmpleado3->nombre)==0)
+//			{
+//				//ll_remove(pArrayListEmployee, i+1);
+//				printf("Borra: ");
+//				employee_print(ll_pop(pArrayListEmployee, i+2));
+//			}
+////			else
+////			{
+////				continue;
+////			}
+//		}
+//		cantidadLinkedList=ll_len(pArrayListEmployee);
+//		printf("%d nueva cantidad de Len\n", cantidadLinkedList);
+//		for(int i=0; i<cantidadLinkedList; i++)
+//		{
+//			pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);
+//			employee_print(pAuxEmpleado);
+//		}
+//		printf("###########################################################################################################\n");
+//	}
+//	return retorno;
+//}
+int controller_Sala(LinkedList* pArrayListEmployee)
 {
 	int retorno=-1;
 	Employee* pAuxEmpleado=NULL;
-	int cantidadLinkedList;
 	int auxCant, intSala, auxSala;
 	float auxFac;
 	int acumuladorEntradas=0;
 	float montoSala=0;
-
 	if(pArrayListEmployee!=NULL && ll_isEmpty(pArrayListEmployee)==0)
 	{
+		retorno=0;
 		utn_getNumero(&intSala, "Ingrese numero de sala de 1 a 5", "Error, ingrese numero valido", 1, 5, 2);
-		cantidadLinkedList=ll_len(pArrayListEmployee);
-		for(int i=0; i<cantidadLinkedList ; i++)
+		for(int i=0; i<ll_len(pArrayListEmployee); i++)
 		{
 			pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);
 			employee_getSala(pAuxEmpleado, &auxSala);
-			if(auxSala==intSala)
+			if(auxSala!=intSala)
+			{
+				if(ll_remove(pArrayListEmployee, i)==0)
+				{
+					continue;
+				}
+			}
+			else
 			{
 				employee_getCantidad(pAuxEmpleado, &auxCant);
 				employee_getFacturacion(pAuxEmpleado, &auxFac);
 				acumuladorEntradas=acumuladorEntradas+auxCant;
 				montoSala=montoSala+auxFac;
+				employee_print(pAuxEmpleado);
 			}
 		}
 		printf("###########################################################################################################\n");
@@ -604,17 +710,42 @@ int controller_informes(LinkedList* pArrayListEmployee)
 		printf("###########################################################################################################\n");
 		printf("#\t Entradas Vendidas: %d        \n", acumuladorEntradas);
 		printf("#\t Monto total facturado: %.2f                           \n", montoSala);
-		printf("#\t Listado de peliculas proyectadas:                                           \n");
-		for(int i=0; i<cantidadLinkedList ; i++)
+		printf("#\t Listado de peliculas proyectadas: \n");
+	}
+	return retorno;
+}
+int controller_PrintSala(LinkedList* pArrayListEmployee)
+{
+	int retorno=-1;
+	Employee* pAuxEmpleado=NULL;
+	Employee* pAuxEmpleado2=NULL;
+	Employee* pAuxEmpleado3=NULL;
+	int(*pOrden)(void*,void*);
+	if(pArrayListEmployee!=NULL && ll_isEmpty(pArrayListEmployee)==0)
+	{
+		pOrden=employee_sortNombre;
+		ll_sort(pArrayListEmployee, pOrden, 1);
+		for(int i=0; i<ll_len(pArrayListEmployee); i++)
 		{
 			pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);
-			employee_getSala(pAuxEmpleado, &auxSala);
-			if(auxSala==intSala)
+			pAuxEmpleado2 = (Employee*)ll_get(pArrayListEmployee, i+1);
+			pAuxEmpleado3 = (Employee*)ll_get(pArrayListEmployee, i+2);
+			if(stricmp(pAuxEmpleado->nombre,pAuxEmpleado2->nombre)==0)
 			{
-				employee_print(pAuxEmpleado);
+				ll_remove(pArrayListEmployee, i+1);
+			}
+			else
+			{
+				if(stricmp(pAuxEmpleado2->nombre,pAuxEmpleado3->nombre)==0)
+				{
+					ll_remove(pArrayListEmployee, i+2);
+				}
+				else
+				{
+					continue;
+				}
 			}
 		}
-		printf("###########################################################################################################\n");
 	}
 	return retorno;
 }

@@ -41,8 +41,9 @@ void employee_print(Employee* this);
 //int employee_sortId(void* thisOne, void* thisTwo);
 //int employee_sortSueldo(void* thisOne, void* thisTwo);
 //int employee_sortHoras(void* thisOne, void* thisTwo);
-//int employee_sortNombre(void* thisOne, void* thisTwo);
+int employee_sortNombre(void* thisOne, void* thisTwo);
 //
 void employee_putIn(void* this);
 //void employee_putDis(void* this);
+int employee_putSala(void* this, int sala);
 #endif // employee_H_INCLUDED
