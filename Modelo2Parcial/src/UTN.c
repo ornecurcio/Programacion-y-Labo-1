@@ -345,7 +345,7 @@ int utn_getCaracterSexo(char* pResultado,char* mensaje,char* mensajeError, char 
 	}
 	return retorno;
 }
-int utn_getString(char aux[],char* mensaje,char* mensajeError, int reintentos)
+int utn_getString(char* aux,char* mensaje,char* mensajeError, int reintentos)
 {
 	int retorno = -1;
 	char bufferString[40];
@@ -520,32 +520,6 @@ int esArchivo(char* cadena)
 	}
     return retorno;
 }
-
-int utn_getArchivo(char* pResultado, char* mensaje, char* mensajeError, int reintentos, int longitud)
-{
-	    int retorno=-1;
-	    char bufferStr[longitud];
-	    if(mensaje!=NULL && mensajeError!=NULL && reintentos>=0 && pResultado!=NULL)
-	    {
-	        do
-	        {
-	        	printf("%s",mensaje);
-	            if((myGets(bufferStr, longitud)==0) && (esArchivo(bufferStr)==1))
-				{
-	                strncpy(pResultado,bufferStr,longitud);
-	                retorno=0;
-	                break;
-	            }
-	            else
-	            {
-	                printf("%s",mensajeError);
-	                reintentos--;
-	            }
-	        }
-	        while(reintentos>=0);
-	    }
-	    return retorno;
-}
 //-------ARRAY cosas----
 void inicializarArrayChar(char pArray[], int cantidadDeArray)
 {
@@ -648,4 +622,92 @@ void FormaApellidoNombre(char *pNombre, char *pApellido, char *pCompleto)
 			}
 		}
 	}
+}
+int utn_getArchivo(char* path)
+{
+	int retorno=-1;
+	fflush(stdin);
+	int tipo;
+	if((utn_getString(path,"\nIngrese el nombre del archivo", "\nError, ingrese sólo nombre", 3)==0) &&
+	   utn_getNumero(&tipo,"\nIngrese tipo de archivo a escribir: 1-txt, 2-csv, 3-bin", "Error, ingrese tipo de archivo a escribir: 1-txt, 2-csv, 3-bin", 1, 3, 2)==0)
+	{
+		strcat(path,".");
+		switch (tipo)
+		{
+			case 1:
+				strcat(path,"txt");
+				retorno=0;
+				break;
+			case 2:
+				strcat(path,"csv");
+				retorno=0;
+				break;
+			case 3:
+				strcat(path,"bin");
+				retorno=0;
+				break;
+			default:
+				printf("\nError,Tipo de archivo inválido");
+				break;
+		}
+	}
+	return retorno;
+}
+int utn_Numero(int* pResultado,char* mensaje,char* mensajeError,int reintentos)
+{
+	int retorno = -1;
+	int bufferInterno;
+	if(pResultado != NULL && mensaje != NULL && mensajeError != NULL && reintentos>0)
+	{
+
+		do
+		{
+			printf("%s", mensaje);
+			if(getInt(&bufferInterno)==0)
+			{
+				*pResultado=bufferInterno;
+				retorno=0;
+				break;
+			}
+			else
+			{
+				printf("%s", mensajeError);
+				reintentos--;
+			}
+		}while(reintentos>=0);
+	}
+	return retorno;
+}
+int utn_putDay(int day, char* dayStr)
+{
+	int retorno=-1;
+	if(dayStr!=NULL && day>-1 && day<7)
+	{
+		retorno=0;
+		switch(day)
+		{
+		case 0:
+			strcpy(dayStr,"Domingo");
+			break;
+		case 1:
+			strcpy(dayStr,"Lunes");
+			break;
+		case 2:
+			strcpy(dayStr,"Martes");
+			break;
+		case 3:
+			strcpy(dayStr,"Miercoles");
+			break;
+		case 4:
+			strcpy(dayStr,"Jueves");
+			break;
+		case 5:
+			strcpy(dayStr,"Viernes");
+			break;
+		case 6:
+			strcpy(dayStr,"Sabado");
+			break;
+		}
+	}
+	return retorno;
 }

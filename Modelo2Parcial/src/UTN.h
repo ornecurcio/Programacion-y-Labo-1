@@ -68,7 +68,7 @@ int inicializarArrayFlotante(float pArray[], int cantidadDeArray);
 int imprimirArrayFlotante(float pArray[], int cantidadDeArray);
 int inicializarArrayCadena(char pArray[][20], int cantidadDeArray);
 int utn_SwapAscendiente(int listaDeArray[],int cantidadDeArray);
-int utn_getString(char aux[],char* mensaje,char* mensajeError, int reintentos);
+int utn_getString(char* aux,char* mensaje,char* mensajeError, int reintentos);
 /**
  * \brief 	Verifica una cadena recibida como parametro para determinar si es un nombre valido
  * \param char* cadena, Cadena a analizar
@@ -157,5 +157,7 @@ void FormaApellidoNombre(char *pNombre, char *pApellido, char *pCompleto);
 int utn_getCaracterSN(void);
 int esArchivo(char* cadena);
 int esArchivoCsv(char* cadena);
-int utn_getArchivo(char* pResultado, char* mensaje, char* mensajeError, int reintentos, int longitud);
+int utn_getArchivo(char* path);
+int utn_Numero(int* pResultado,char* mensaje,char* mensajeError,int reintentos);
+int utn_putDay(int day, char* dayStr);
 #endif /* UTN_H_ */

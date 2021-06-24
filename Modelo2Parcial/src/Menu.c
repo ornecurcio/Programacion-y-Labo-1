@@ -8,36 +8,38 @@ int menu(void)
 {
 		int option;
 	    int flag=0;
-	    char path[30];
+	    char* path=NULL;
 	    int flag2=0;
+	    path=(char*)calloc(20,sizeof(char));
 	    LinkedList* listaEmpleados = ll_newLinkedList();
 	    printf("------------ /BIENVENIDO/ -------------\n");
 	    do{
 	    	if(utn_getNumero(&option,"-------- Seleccione una opcion --------\n"
-	    			"1. Cargar los datos de los empleados desde el archivo data.csv (modo texto)\n"
-	    			"2. Cargar los datos de los empleados desde el archivo data.bin (modo binario)\n"
-	    			"3. Alta de empleado\n4. Modificar datos de empleado\n5. Baja de empleado\n6. Listar empleados\n7. Ordenar empleados\n"
-	    			"8. Guardar los datos de los empleados en archivo tipo .csv (modo texto)\n"
-	    			"9. Guardar los datos de los empleados en archivo tipo .bin (modo binario)\n10. Aumento-Descuento de Sueldo\n11. Salir\n",
-	    					"------- Error ingrese ------ \n1. Cargar los datos de los empleados desde el archivo data.csv (modo texto)\n"
-	    			"2. Cargar los datos de los empleados desde el archivo data.bin (modo binario)\n"
-	    			"3. Alta de empleado\n4. Modificar datos de empleado\n5. Baja de empleado\n6. Listar empleados\n7. Ordenar empleados\n"
-	    			"8. Guardar los datos de los empleados en archivo tipo .csv (modo texto)\n"
-	    			"9. Guardar los datos de los empleados en archivo tipo .bin (modo binario)\n"
-	    			"10. Aumento-Descuento de Sueldo\n11. Salir\n", 1, 11, 2)==0){
+	    			"1. Cargar Archivo\n"
+	    			"2. Imprimir Ventas\n"
+	    			"3. Generar Archivo de montos\n4. Informes\n5. Salir\n",
+	    					"------- Error ingrese ------ \n"
+					"1. Cargar Archivo\n"
+				    "2. Imprimir Ventas\n"
+				    "3. Generar Archivo de montos\n4. Informes\n5. Salir\n", 1, 11, 2)==0){
 				switch(option)
 				{
 					case 1:
 						if(flag==0)
 						{
-							utn_getNumero(&flag, "Desea abrir: \n1. data.csv \n2. Chequeo.csv", "Error, opcion incorrecta", 1, 2, 1);
+							utn_getNumero(&flag, "Desea abrir: \n1. Data.csv \n2. Otro", "Error, opcion incorrecta", 1, 2, 1);
 							switch(flag)
 							{
 							case 1:
 								controller_loadFromText("Data.csv",listaEmpleados);
+								controller_putInDisEmployee(listaEmpleados);
 								break;
 							case 2:
-								controller_loadFromText("Chequeo.csv",listaEmpleados);
+								if(utn_getArchivo(path)==0)
+								{
+									controller_loadFromText(path,listaEmpleados);
+									controller_putInDisEmployee(listaEmpleados);
+								}
 								break;
 							}
 						}
@@ -75,8 +77,15 @@ int menu(void)
 //					case 5:
 //						controller_removeEmployee(listaEmpleados);
 //						break;
-					case 6:
-						controller_ListEmployee(listaEmpleados);
+					case 2:
+						if(flag!=0)
+						{
+							controller_ListEmployee(listaEmpleados);
+						}
+						else
+						{
+							printf("Primero debe cargar un archivo\n");
+						}
 						break;
 //					case 7:
 //						controller_sortEmployee(listaEmpleados);
@@ -86,28 +95,31 @@ int menu(void)
 //							controller_ListEmployee(listaEmpleados);
 //						}
 //						break;
-//					case 8:
-//						utn_getNumero(&flag2, "Desea guardar en: \n1. data.csv \n2. Chequeo.csv \n3. Nuevo archivo", "Error, opcion incorrecta", 1, 3, 1);
-//						switch(flag2)
-//						{
-//						case 1:
-//							controller_saveAsText("data.csv",listaEmpleados);
-//							break;
-//						case 2:
-//							controller_saveAsText("Chequeo.csv",listaEmpleados);
-//							break;
-//						case 3:
-//							if((utn_getArchivo(path, "Ingrese nombre de archivo","Error, no es valido caracter especial, no olvide el .csv o .txt", 2, 30))==0)
-//							{
-//							controller_saveAsText(path,listaEmpleados);
-//							}
-//							else
-//							{
-//								flag2=0;
-//							}
-//							break;
-//						}
-//						break;
+					case 3:
+						if(flag!=0)
+						{
+							utn_getNumero(&flag2, "Desea guardar en: \n1. Data.csv \n2. Nuevo archivo", "Error, opcion incorrecta", 1, 2, 1);
+							switch(flag2)
+							{
+							case 1:
+								controller_saveAsText("Data.csv",listaEmpleados);
+								break;
+							case 3:
+								if(utn_getArchivo(path)==0)
+								{
+									controller_saveAsText(path,listaEmpleados);
+								}
+								else
+								{
+									flag2=0;
+								}
+								break;
+							}
+						}
+						break;
+					case 4:
+						controller_informes(listaEmpleados);
+						break;
 //					case 9:
 //						utn_getNumero(&flag2, "Desea guardar en: \n1. data.bin \n2. Chequeo.bin \n3. Nuevo archivo", "Error, opcion incorrecta", 1, 3, 1);
 //						switch(flag2)
@@ -154,7 +166,7 @@ int menu(void)
 //						break;
 				}
 	    	}
-	    }while(option != 11);
+	    }while(option!=5);
 	return 0;
 }
 

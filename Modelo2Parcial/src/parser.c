@@ -35,8 +35,6 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 					if(pAuxEmpleado!=NULL)
 					{
 						ll_add(pArrayListEmployee,pAuxEmpleado);
-						//printf("%p\n", pAuxEmpleado);
-//						printf("%d %s %d %s %d %d\n", pAuxEmpleado->id, pAuxEmpleado->nombre, pAuxEmpleado->dia, pAuxEmpleado->horario, pAuxEmpleado->sala, pAuxEmpleado->cantidad);
 						retorno=0;
 					}
 				}

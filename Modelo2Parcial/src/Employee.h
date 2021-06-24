@@ -8,6 +8,7 @@ typedef struct
 	char horario[128];
     int sala;
     int cantidad;
+    float facturacion;
 }Employee;
 
 Employee* employee_new();
@@ -32,6 +33,8 @@ int employee_getSala(Employee* this,int* sala);
 int employee_setCantidad(Employee* this,int cantidad);
 int employee_getCantidad(Employee* this,int* cantidad);
 
+int employee_setFacturacion(Employee* this,float facturacion);
+int employee_getFacturacion(Employee* this,float* facturacion);
 
 void employee_print(Employee* this);
 
@@ -40,6 +43,6 @@ void employee_print(Employee* this);
 //int employee_sortHoras(void* thisOne, void* thisTwo);
 //int employee_sortNombre(void* thisOne, void* thisTwo);
 //
-//void employee_putIn(void* this);
+void employee_putIn(void* this);
 //void employee_putDis(void* this);
 #endif // employee_H_INCLUDED

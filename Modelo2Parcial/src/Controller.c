@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "LinkedList.h"
 #include "Employee.h"
 #include "parser.h"
@@ -370,7 +371,8 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
 	int retorno = -1;
 	int auxId, auxDia, auxSala, auxCantidad;
-	char auxNombre[128], auxHorario[128];
+	float auxFacturacion;
+	char auxNombre[128], auxHorario[128], auxDiaStr[128];
 	Employee* pAuxEmpleado=NULL;
 	int cantidadLinkedList;
 	if(pArrayListEmployee != NULL)
@@ -378,32 +380,27 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 		if(ll_isEmpty(pArrayListEmployee)==0)
 		{
 			cantidadLinkedList=ll_len(pArrayListEmployee);
-			printf("------------------------------------------------------------------------------\n");
-			printf("ID		NOMBRE		  DIA	        HORARIO		SALA	CANTIDAD\n");
-			printf("------------------------------------------------------------------------------\n");
-			for(int i=0; i<2 ; i++)
+			printf("-----------------------------------------------------------------------------------------------------------------------------------------------------\n");
+			printf("ID					NOMBRE		        				DIA	        HORARIO	  SALA	CANTIDAD    FACTURACION\n");
+			printf("------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+			for(int i=0; i<cantidadLinkedList ; i++)
 			{
 				pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);
-				employee_getId(pAuxEmpleado, &auxId);
-				printf("%d cantidad de len", cantidadLinkedList);
-				printf("%d\n", auxId);
-//				if(
-//				   employee_getId(pAuxEmpleado, &auxId)!=0 ||
-//				   employee_getNombre(pAuxEmpleado, auxNombre)!=0 ||
-//				   employee_getHorario(pAuxEmpleado, auxHorario)!=0 ||
-//				   employee_getSala(pAuxEmpleado, &auxSala)!=0 ||
-//				   employee_getDia(pAuxEmpleado, &auxDia)!=0 ||
-//				   employee_getCantidad(pAuxEmpleado, &auxCantidad)!=0)
-//				{
-//					retorno=-1;
-//					printf("Error, al imprimir lista");
-//					break;
-//				}
-//				else
-//				{
-//					printf("%-5d		%-15s	%4d	 %-15s	%4d	  %-10d\n",auxId, auxNombre, auxDia, auxHorario, auxSala, auxCantidad);
-//					retorno=0;
-//				}
+				if(employee_getId(pAuxEmpleado, &auxId)!=0 || employee_getNombre(pAuxEmpleado, auxNombre)!=0 ||
+				   employee_getHorario(pAuxEmpleado, auxHorario)!=0 || employee_getDia(pAuxEmpleado, &auxDia)!=0 ||
+				   employee_getSala(pAuxEmpleado, &auxSala)!=0 || employee_getCantidad(pAuxEmpleado, &auxCantidad)!=0 ||
+				   employee_getFacturacion(pAuxEmpleado, &auxFacturacion)!=0)
+				{
+					retorno=-1;
+					printf("Error, al imprimir lista");
+					break;
+				}
+				else
+				{
+					utn_putDay(auxDia, auxDiaStr);
+					printf("%-5d %-86s	%-8s	%-5s 	%4d  	  %-4d	 	%.2f\n",auxId, auxNombre, auxDiaStr, auxHorario, auxSala, auxCantidad, auxFacturacion);
+					retorno=0;
+				}
 			}
 		}
 		else
@@ -458,41 +455,45 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-//int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
-//{
-//	int retorno = -1;
-//	int auxCantLink, auxId, auxHoras, auxSueldo;
-//	char auxNombre[128];
-//	FILE* pFile;
-//	Employee* pAuxEmpleado=NULL;
-//	if(path!=NULL && pArrayListEmployee!=NULL)
-//	{
-//		if((pFile=fopen(path,"w"))==NULL)
-//		{
-//			printf("No se pudo escribir el archivo\n");
-//		}
-//		else
-//		{
-//			auxCantLink=ll_len(pArrayListEmployee);
-//			fprintf(pFile,"id,nombre,horasTrabajadas,sueldo\n");
-//			for(int i=0; i<auxCantLink; i++)
-//			{
-//				pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);
-//				if(employee_getId(pAuxEmpleado, &auxId)==0 &&
-//				   employee_getNombre(pAuxEmpleado, auxNombre)==0 &&
-//				   employee_getHorasTrabajadas(pAuxEmpleado, &auxHoras)==0 &&
-//				   employee_getSueldo(pAuxEmpleado, &auxSueldo)==0)
-//				{
-//				   fprintf(pFile,"%d,%s,%d,%d\n",auxId, auxNombre, auxHoras, auxSueldo);
-//				   retorno=0;
-//				}
-//			}
-//			printf("Archivo bien escrito. Guardado correctamente\n");
-//		}
-//		fclose(pFile);
-//	}
-//	return retorno;
-//}
+int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
+{
+	int retorno = -1;
+	int auxCantLink, auxId, auxDia, auxSala, auxCantidad;
+	float auxFacturacion;
+	char auxNombre[128], auxHorario[128];
+	FILE* pFile;
+	Employee* pAuxEmpleado=NULL;
+	if(path!=NULL && pArrayListEmployee!=NULL)
+	{
+		if((pFile=fopen(path,"w"))==NULL)
+		{
+			printf("No se pudo escribir el archivo\n");
+		}
+		else
+		{
+			auxCantLink=ll_len(pArrayListEmployee);
+			fprintf(pFile,"id,nombre,dia,horario,sala,cantidad,facturacion\n");
+			for(int i=0; i<auxCantLink; i++)
+			{
+				pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);
+				if(employee_getId(pAuxEmpleado, &auxId)==0 &&
+				   employee_getNombre(pAuxEmpleado, auxNombre)==0 &&
+				   employee_getDia(pAuxEmpleado, &auxDia)==0 &&
+				   employee_getHorario(pAuxEmpleado, auxHorario)==0 &&
+				   employee_getSala(pAuxEmpleado, &auxSala)==0 &&
+				   employee_getCantidad(pAuxEmpleado, &auxCantidad)==0 &&
+				   employee_getFacturacion(pAuxEmpleado, &auxFacturacion)==0)
+				{
+				   fprintf(pFile,"%d,%s,%d,%s,%d,%d,%.2f\n",auxId, auxNombre, auxDia, auxHorario, auxSala, auxCantidad, auxFacturacion);
+				   retorno=0;
+				}
+			}
+			printf("Archivo bien escrito. Guardado correctamente\n");
+		}
+		fclose(pFile);
+	}
+	return retorno;
+}
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo binario).
  *
@@ -561,25 +562,59 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 //	}
 //	return retorno;
 //}
-//int controller_putInDisEmployee(LinkedList* pArrayListEmployee)
-//{
-//	int retorno=-1;
-//	int option;
-//	void (*pFunc)(void* element);
-//	if(pArrayListEmployee!=NULL)
-//	{
-//		utn_getNumero(&option, "-----APLICAR-----\n1. Aumento 10% en mas 20000 \n2. Descuento 10% en mas 50000 \n", "Error, opcion incorrecta\n", 1, 2, 2);
-//		switch(option)
-//		{
-//			case 1:
-//				pFunc=employee_putIn;
-//				break;
-//			case 2:
-//				pFunc=employee_putDis;
-//				break;
-//		}
-//		//pArrayListEmployee=ll_map(pArrayListEmployee, pFunc);
-//		ll_map(pArrayListEmployee, pFunc);
-//	}
-//    return retorno;
-//}
+int controller_putInDisEmployee(LinkedList* pArrayListEmployee)
+{
+	int retorno=-1;
+	void (*pFunc)(void* element);
+	if(pArrayListEmployee!=NULL)
+	{
+		pFunc=employee_putIn;
+		ll_map(pArrayListEmployee, pFunc);
+	}
+    return retorno;
+}
+int controller_informes(LinkedList* pArrayListEmployee)
+{
+	int retorno=-1;
+	Employee* pAuxEmpleado=NULL;
+	int cantidadLinkedList;
+	int auxCant, intSala, auxSala;
+	float auxFac;
+	int acumuladorEntradas=0;
+	float montoSala=0;
+
+	if(pArrayListEmployee!=NULL && ll_isEmpty(pArrayListEmployee)==0)
+	{
+		utn_getNumero(&intSala, "Ingrese numero de sala de 1 a 5", "Error, ingrese numero valido", 1, 5, 2);
+		cantidadLinkedList=ll_len(pArrayListEmployee);
+		for(int i=0; i<cantidadLinkedList ; i++)
+		{
+			pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);
+			employee_getSala(pAuxEmpleado, &auxSala);
+			if(auxSala==intSala)
+			{
+				employee_getCantidad(pAuxEmpleado, &auxCant);
+				employee_getFacturacion(pAuxEmpleado, &auxFac);
+				acumuladorEntradas=acumuladorEntradas+auxCant;
+				montoSala=montoSala+auxFac;
+			}
+		}
+		printf("###########################################################################################################\n");
+		printf("#\t\t\t\t\t SALA %d                                                \n", intSala);
+		printf("###########################################################################################################\n");
+		printf("#\t Entradas Vendidas: %d        \n", acumuladorEntradas);
+		printf("#\t Monto total facturado: %.2f                           \n", montoSala);
+		printf("#\t Listado de peliculas proyectadas:                                           \n");
+		for(int i=0; i<cantidadLinkedList ; i++)
+		{
+			pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);
+			employee_getSala(pAuxEmpleado, &auxSala);
+			if(auxSala==intSala)
+			{
+				employee_print(pAuxEmpleado);
+			}
+		}
+		printf("###########################################################################################################\n");
+	}
+	return retorno;
+}

@@ -10,4 +10,4 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee);
 int controller_getMaxId(LinkedList* pArrayListEmployee);
 int controller_deleteLinkedList(LinkedList* pArrayListEmployee);
 int controller_putInDisEmployee(LinkedList* pArrayListEmployee);
-
+int controller_informes(LinkedList* pArrayListEmployee);

@@ -10,7 +10,19 @@ void employee_delete(Employee* this)
 }
 Employee* employee_new()
 {
-	return (Employee*)malloc(sizeof(Employee));
+	Employee* pAux=NULL;
+	pAux=(Employee*)malloc(sizeof(Employee));
+	if(pAux!=NULL)
+	{
+		pAux->id=0;
+		strcpy(pAux->nombre,"");
+		pAux->dia=0;
+		strcpy(pAux->horario,"");
+		pAux->sala=0;
+		pAux->cantidad=0;
+		pAux->facturacion=0;
+	}
+	return pAux;
 }
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* diaStr,char* horarioStr,char* salaStr, char* cantidadStr)
 {
@@ -150,16 +162,39 @@ int employee_getCantidad(Employee* this,int* cantidad)
 	}
 	return retorno;
 }
+int employee_setFacturacion(Employee* this,float facturacion)
+{
+	int retorno=-1;
+	if(this!=NULL)
+	{
+		this->facturacion=facturacion;
+		retorno=0;
+	}
+	return retorno;
+}
+int employee_getFacturacion(Employee* this,float* facturacion)
+{
+	int retorno=-1;
+	if(this!=NULL && facturacion!=NULL)
+	{
+		*facturacion=this->facturacion;
+		retorno=0;
+	}
+	return retorno;
+}
 
 void employee_print(Employee* this)
 {
 	int auxId, auxDia, auxSala, auxCantidad;
-	char auxNombre[128], auxHora[128];
+	float auxFacturacion;
+	char auxNombre[128], auxHora[128], auxDayStr[128];
 	if(employee_getId(this, &auxId)==0 && employee_getNombre(this, auxNombre)==0 &&
 	   employee_getHorario(this, auxHora)==0 && employee_getDia(this, &auxDia)==0 &&
-	   employee_getSala(this, &auxSala)==0 && employee_getCantidad(this, &auxCantidad)==0)
+	   employee_getSala(this, &auxSala)==0 && employee_getCantidad(this, &auxCantidad)==0 &&
+	   employee_getFacturacion(this, &auxFacturacion)==0 && utn_putDay(auxDia, auxDayStr)==0)
 	{
-		printf("Id: %d - Nombre: %s - Dia: %d - Horario: %s - Sala: %d - Cantidad: %d\n",auxId, auxNombre,auxDia,auxHora, auxSala, auxCantidad);
+		printf("Id: %d - Nombre: %s - Dia: %s - Horario: %s\n",auxId, auxNombre,auxDayStr,auxHora);
+		//printf("Id: %d - Nombre: %s - Dia: %d - Horario: %s - Sala: %d - Cantidad: %d - Facturacion: %.2f\n",auxId, auxNombre,auxDia,auxHora, auxSala, auxCantidad, auxFacturacion);
 	}
 	//printf("Id: %d - Nombre: %s - Horas Trabajadas: %d - Sueldo: %d\n",(*(this)).id, (*(this)).nombre,(*(this)).horasTrabajadas, (*(this)).sueldo);
 }
@@ -245,15 +280,32 @@ void employee_print(Employee* this)
 //	}
 //	return retorno;
 //}
-//void employee_putIn(void* this)
-//{
-//	int auxSueldo;
-//	if(employee_getSueldo((Employee*)this, &auxSueldo)==0 && auxSueldo>20000)
-//	{
-//		auxSueldo=auxSueldo+(10*auxSueldo/100);
-//		employee_setSueldo(this, auxSueldo);
-//	}
-//}
+void employee_putIn(void* this)
+{
+	int auxDia;
+	float auxFacturacion;
+	int auxCantidad;
+	if(employee_getDia((Employee*)this, &auxDia)==0)
+	{
+		if(auxDia==1 || auxDia==2 || auxDia==3)
+		{
+			employee_getCantidad(this, &auxCantidad);
+			auxFacturacion=(float)auxCantidad*240;
+			employee_setFacturacion(this, auxFacturacion);
+		}
+		else
+		{
+			employee_getCantidad(this, &auxCantidad);
+			auxFacturacion=(float)auxCantidad*340;
+			employee_setFacturacion(this, auxFacturacion);
+		}
+	}
+	if(employee_getCantidad((Employee*)this, &auxCantidad)==0 && auxCantidad>=3)
+	{
+		auxFacturacion=auxFacturacion-(10*auxFacturacion/100);
+		employee_setFacturacion(this, auxFacturacion);
+	}
+}
 //void employee_putDis(void* this)
 //{
 //	int auxSueldo;
