@@ -296,7 +296,7 @@ void employee_putIn(void* this)
 		else
 		{
 			employee_getCantidad(this, &auxCantidad);
-			auxFacturacion=(float)auxCantidad*340;
+			auxFacturacion=(float)auxCantidad*350;
 			employee_setFacturacion(this, auxFacturacion);
 		}
 	}

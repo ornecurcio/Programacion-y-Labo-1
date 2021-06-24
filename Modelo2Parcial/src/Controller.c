@@ -472,7 +472,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 		else
 		{
 			auxCantLink=ll_len(pArrayListEmployee);
-			fprintf(pFile,"id,nombre,dia,horario,sala,cantidad,facturacion\n");
+			fprintf(pFile,"id_venta,nombre_pelicula,dia,horario,sala,cantidad_entradas,monto\n");
 			for(int i=0; i<auxCantLink; i++)
 			{
 				pAuxEmpleado = (Employee*)ll_get(pArrayListEmployee, i);

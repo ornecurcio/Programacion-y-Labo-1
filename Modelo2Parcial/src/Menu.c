@@ -104,7 +104,7 @@ int menu(void)
 							case 1:
 								controller_saveAsText("Data.csv",listaEmpleados);
 								break;
-							case 3:
+							case 2:
 								if(utn_getArchivo(path)==0)
 								{
 									controller_saveAsText(path,listaEmpleados);
